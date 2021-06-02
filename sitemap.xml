@@ -1,143 +1,87 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>http://npchitman.github.io/showcase/game-dev/gengine/</loc>
     <lastmod>2021-01-19T21:13:42+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/showcase/linux/dotfiles/</loc>
     <lastmod>2020-01-19T21:13:42+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/showcase/linux/vimq/</loc>
     <lastmod>2020-01-19T21:13:42+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/showcase/game-dev/gserver/</loc>
     <lastmod>2020-01-19T21:13:42+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/showcase/other/protocompiler/</loc>
     <lastmod>2020-01-19T21:13:42+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/showcase/game-dev/tetris/</loc>
     <lastmod>2020-01-19T21:13:42+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/</loc>
     <lastmod>2021-02-20T10:33:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/categories/</loc>
     <lastmod>2021-02-20T10:33:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/tags/cg/</loc>
     <lastmod>2021-02-20T10:33:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/categories/cg/</loc>
     <lastmod>2021-02-20T10:33:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/posts/pbr/</loc>
     <lastmod>2021-02-20T10:33:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/posts/</loc>
     <lastmod>2021-02-20T10:33:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/tags/</loc>
     <lastmod>2021-02-20T10:33:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/posts/render_pipline/</loc>
     <lastmod>2021-02-20T10:33:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/showcase/game-dev/</loc>
     <lastmod>2020-01-19T21:04:11+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/showcase/linux/</loc>
     <lastmod>2020-01-19T21:04:11+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/showcase/other/</loc>
     <lastmod>2020-01-19T21:04:11+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/showcase/</loc>
     <lastmod>2020-01-19T15:43:38+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/tags/linux/</loc>
     <lastmod>2019-12-18T10:33:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/categories/linux/</loc>
     <lastmod>2019-12-18T10:33:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/posts/linux_ricing/</loc>
     <lastmod>2019-12-18T10:33:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/gallery/</loc>
     <lastmod>2019-10-31T10:20:16+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/gallery/game/</loc>
     <lastmod>2019-10-31T10:20:16+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/gallery/photo/</loc>
     <lastmod>2019-10-31T10:20:16+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/archive/</loc>
     <lastmod>2019-10-19T11:44:14+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/about/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/tags/index/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://npchitman.github.io/series/</loc>
   </url>
-  
 </urlset>
