@@ -6,9 +6,9 @@
   xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>cg on Npchitman&#39;s Blog</title>
+    <title>CG on Npchitman&#39;s Blog</title>
     <link>http://npchitman.github.io/tags/cg/</link>
-    <description>Recent content in cg on Npchitman&#39;s Blog</description>
+    <description>Recent content in CG on Npchitman&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>npchitman@outlook.com (陈乙己)</managingEditor>
@@ -19,40 +19,6 @@
         <atom:link href="http://npchitman.github.io/tags/cg/index.xml" rel="self" type="application/rss+xml" />
     
 
-      
-      <item>
-        <title>PBR笔记 - 实践</title>
-        <link>http://npchitman.github.io/posts/pbr-implent/</link>
-        <pubDate>Sat, 20 Feb 2021 10:33:41 +0900</pubDate>
-        <author>npchitman@outlook.com (陈乙己)</author>
-        <atom:modified>Sat, 20 Feb 2021 10:33:41 +0900</atom:modified>
-        <guid>http://npchitman.github.io/posts/pbr-implent/</guid>
-        <description>编写PBR材质 PBR渲染管线所需要的每一个表面参数都可以用纹理来定义或者建模 使用纹理可以逐片段控制每个表面上特定的点对于光线是如何响应的 常见</description>
-        
-        <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/halo_infinite.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>cg</category>
-            
-          
-        
-        
-          
-            
-              <category>cg</category>
-            
-          
-        
-        
-          
-            
-          
-        
-      </item>
       
       <item>
         <title>PBR笔记 - 理论基础</title>
@@ -70,14 +36,14 @@
         
           
             
-              <category>cg</category>
+              <category>CG</category>
             
           
         
         
           
             
-              <category>cg</category>
+              <category>CG</category>
             
           
         
@@ -89,13 +55,13 @@
       </item>
       
       <item>
-        <title>渲染管线介绍 流程</title>
+        <title>渲染管线流程</title>
         <link>http://npchitman.github.io/posts/render_pipline/</link>
         <pubDate>Sat, 20 Feb 2021 10:33:41 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Sat, 20 Feb 2021 10:33:41 +0900</atom:modified>
         <guid>http://npchitman.github.io/posts/render_pipline/</guid>
-        <description>功能 主要功能 通过给定参数(虚拟相机, 3D场景物体, 光源等)产生2D图像, 显示在屏幕上: 将物体3D座标转变为屏幕空间2D座标 为屏幕每个像素点进</description>
+        <description>渲染管线主要功能是对给定虚拟相机, 三维物体, 光源, 照明模式, 纹理等条件情况下, 生成一副二维图像的过程 图形渲染管线工作流程 应用阶段(Appli</description>
         
         <dc:creator>陈乙己</dc:creator>
         <media:content url="http://npchitman.github.ioimages/post_preview/render_pipeline.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>

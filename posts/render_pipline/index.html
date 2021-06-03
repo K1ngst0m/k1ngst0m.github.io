@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>渲染管线介绍 流程 – Npchitman&#39;s Blog</title>
+    <title>渲染管线流程 – Npchitman&#39;s Blog</title>
     
 
 
@@ -1344,7 +1344,7 @@
 
 
 <meta property="og:site_name" content="Npchitman&#39;s Blog">
-<meta property="og:title" content="渲染管线介绍 流程">
+<meta property="og:title" content="渲染管线流程">
 <meta property="og:url" content="http://npchitman.github.io/posts/render_pipline/">
 <meta property="og:type" content="article">
 <meta property="og:description" content="渲染管线流程">
@@ -1354,7 +1354,7 @@
     <meta property="og:image:url" content="http://npchitman.github.io/images/post_preview/render_pipeline.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:app:name:iphone" content="Npchitman&#39;s Blog">
-    <meta property="twitter:title" content="渲染管线介绍 流程">
+    <meta property="twitter:title" content="渲染管线流程">
     <meta property="twitter:description" content="渲染管线流程">
   
 
@@ -1393,7 +1393,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "headline": "渲染管线介绍 流程",
+    "headline": "渲染管线流程",
     "datePublished": "2021-02-20T10:33:41+09:00",
     "dateModified": "2021-02-20T10:33:41+09:00",
     "url" : "http://npchitman.github.io/posts/render_pipline/",
@@ -1667,7 +1667,7 @@
   
   <li  class="is-active" >
     
-      <span>渲染管线介绍 流程</span>
+      <span>渲染管线流程</span>
     
   </li>
   
@@ -1679,14 +1679,14 @@
   <div class="single ">
     <div class="single__nojs">This page looks best with JavaScript enabled</div>
     <script>document.querySelector('.single').classList.remove('hide'); document.querySelector('.single__nojs').classList.add('hide');</script>
-    <h2 class="single__title" data-ani="true">渲染管线介绍 流程</h2>
+    <h2 class="single__title" data-ani="true">渲染管线流程</h2>
     <h3 class="single__subtitle"></h3>
     <div class="single__meta">
       
 <div class="single__infos">
   <time class="single__info" title="Written At">📅&nbsp;Feb 20, 2021 </time>
   
-  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;2&nbsp;min read </span>
+  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;5&nbsp;min read </span>
   
   <span class="single__info">
     
@@ -1699,33 +1699,122 @@
   🏷️
   
 
-  <li><a href="http://npchitman.github.io/tags/cg/" class="single__tag" title="cg">#cg</a></li>
+  <li><a href="http://npchitman.github.io/tags/cg/" class="single__tag" title="CG">#CG</a></li>
 
 </ul>
 
     </div>
     <article class="single__contents" data-dir="ltr" data-ani="true">
       
-      <h2 id="功能">功能</h2>
-<h3 id="主要功能">主要功能</h3>
-<p>通过给定参数(虚拟相机, 3D场景物体, 光源等)产生2D图像, 显示在屏幕上:</p>
+      <p>渲染管线主要功能是对给定<code>虚拟相机</code>, <code>三维物体</code>, <code>光源</code>, <code>照明模式</code>, <code>纹理</code>等条件情况下, 生成一副二维图像的过程</p>
+<h2 id="图形渲染管线工作流程">图形渲染管线工作流程</h2>
+<h3 id="应用阶段application"><strong>应用阶段(Application)</strong></h3>
 <ul>
-<li>将物体3D座标转变为屏幕空间2D座标</li>
-<li>为屏幕每个像素点进行着色</li>
+<li>开发者通过程序对图元数据进行配置和调控</li>
+<li>由于可以对该阶段进行完全控制, 可以通过更改实现方法来改变性能</li>
+<li>通常该阶段在几个并行处理器上执行, 称为<code>超量体系(superscalar)</code>结构</li>
+<li>通常实现的方法有: 碰撞检测, 加速算法, 输入检测, 动画, 力反馈, 纹理动画, 变换仿真, 几何变形, 和一些不在其他阶段执行的算法 (如层次视锥裁剪等加速算法)</li>
+<li>该阶段将<code>摄像机位置</code>, <code>光照</code>和<code>模型的图元数据</code>输出到几何阶段</li>
 </ul>
-<h3 id="工作流程">工作流程</h3>
+<h3 id="几何阶段geometry"><strong>几何阶段(Geometry)</strong></h3>
+<ol>
+<li>
+<p><strong>模型视点变换(Model to View Transform)</strong>:</p>
+<ol>
+<li><code>模型变换(model transform)</code>: 从<code>model space</code>到<code>world space</code>, 转到适合模型渲染的空间中</li>
+<li><code>视图变换(view transform)</code>: 转换到观察空间(<code>view space</code>), 将相机放在原点, 进行视点校准(朝向z轴负方向, y轴指向上方, x轴指向右边)</li>
+</ol>
+</li>
+<li>
+<p><strong>顶点着色(Vertex Shadering)</strong>: 主要确定模型顶点处材质的光照效果</p>
+<ol>
+<li>对物体的外观进行建模, 得到每个对象的材质, 照射在对象光源效果的一些描述</li>
+<li><strong>着色(shading)</strong>: 确定材质上的光照效果, 过程涉及在对象上各个点计算<code>着色方程(shading equation)</code></li>
+<li>可以在顶点处存储各种材料数据(颜色, 向量, 纹理坐标, 法线, 颜色坐标或计算着色方程所需的其他信息)</li>
+<li>顶点着色的结果计算完成后作为光栅化阶段的输入进行处理</li>
+</ol>
+</li>
+<li>
+<p><strong>投影(Projection)</strong>:</p>
+<ol>
+<li>将视体变换到一个单位立方体内(<code>规范立方体(Canonical View Volume, CVV</code>, 对角顶点为(-1, -1, -1), (1, 1, 1))</li>
+<li>主要有两种投影方法: <code>正交投影(orthographic/parallel projection)</code>, <code>透视投影(perspective projection)</code></li>
+<li>完成投影后, z坐标将不会保存于得到的图片中, 实现了从3d转为2d</li>
+</ol>
+</li>
+<li>
+<p><strong>裁剪(Clipping)</strong>: 去除相对于屏幕外的物体</p>
+<ol>
+<li>只有当图元处于CVV中才需要将其发送到光栅化阶段</li>
+<li>图元相对于CVV分三种情况: 完全位于内部(不处理), 部分位于内部(裁剪处理), 完全位于外部(直接丢弃)</li>
+</ol>
+</li>
+<li>
+<p><strong>屏幕映射(Screen mapping)</strong>: 将之前步骤得到的坐标映射到对应的屏幕坐标系</p>
+<ol>
+<li>首先进行平移, 再缩放</li>
+<li>映射过程中z坐标不受影响</li>
+<li>新的x, y坐标称为屏幕坐标系, 与z坐标一起进入光栅化阶段</li>
+</ol>
+</li>
+</ol>
+<h3 id="光栅化rasterization"><strong>光栅化(Rasterization)</strong></h3>
 <ul>
-<li>顶点数据输入</li>
-<li>顶点着色器 ( 可编程 )</li>
-<li>曲面细分过程 ( 可选, 可编程 )</li>
-<li>几何着色器 ( 可编程 )</li>
-<li>图元组装</li>
-<li>裁剪剔除</li>
-<li>光栅化</li>
-<li>片段着色器 ( 可编程 )</li>
-<li>混合测试</li>
+<li>
+<p>从二维顶点的屏幕空间(包含深度值, 及相关着色信息), 到屏幕上的像素转换</p>
+</li>
+<li>
+<p>由几何阶段确定屏幕上的顶点, 颜色, 纹理坐标后, 给每个像素(Pixel)正确配色, 绘制整幅图像</p>
+</li>
 </ul>
-<h2 id="流程">流程</h2>
+<h4 id="光栅化步骤">光栅化步骤</h4>
+<ul>
+<li>
+<p><strong>三角形设定(Triangle Setup)</strong></p>
+<ol>
+<li>计算三角形表面差异和其他相关数据</li>
+<li>该数据主要用于<code>扫描转换(scan conversion)</code>, 和由几何阶段处理的各种着色数据插值操作所用</li>
+<li>该过程在专门的硬件上执行</li>
+</ol>
+</li>
+<li>
+<p><strong>三角形遍历/扫描转换(Triangle Traversal/scan conversion)</strong></p>
+<ol>
+<li>进行逐像素检查操作, 即检查哪些采样点(像素)在三角形中</li>
+<li>对于有三角形部分重合的像素, 在重合部分生成片段(fragment)</li>
+<li>每个三角形片段属性(片段的深度, 着色数据)均由其三个顶点插值生成</li>
+</ol>
+</li>
+<li>
+<p><strong>像素着色(Pixel Shading)</strong></p>
+<ol>
+<li>进行逐像素着色, 如<code>纹理贴图(Texturing)</code>操作</li>
+<li>使用插值的着色数据作为输入, 输出一种或多种颜色信息到下一阶段</li>
+<li>在可编程GPU进行</li>
+</ol>
+</li>
+<li>
+<p><strong>融合(Merging)</strong></p>
+<ol>
+<li>融合的主要任务是合成当前存储于缓冲器中的片段颜色(上个阶段产生), 非完全可编程, 但高度可配置</li>
+<li><code>帧缓冲(frame buffer)</code>: 通常包含一个系统所具有的所有缓冲器(或是颜色buffer和z-buffer的组合)</li>
+<li><code>颜色缓冲器</code>: 颜色(RGB)的矩阵列, 每个像素的信息都存在颜色缓冲器中</li>
+<li><code>深度缓冲(z-buffer)</code>: 负责可见性的处理, 通常通过z-buffer来实现</li>
+<li><code>alpha通道(alpha channel)</code>: 和颜色缓冲器计算每个像素的不透明值, 在深度测试前传入片段中运行, 通常用于不影响深度缓冲的全透明片段处理</li>
+<li><code>模板缓冲(stencil buffer)</code>: 记录所呈现图元位置的离屏缓存, 每个像素通常占用8位, 用于进行一些特效制作</li>
+<li><code>累计缓冲(accumulation buffer)</code>: 用一组操作符对图像进行累积, 用于产生动态模糊(motion blur), 景深(depth of field), 后处理反走样(post-process anti-aliasing), 软阴影(soft shadows)等;</li>
+</ol>
+</li>
+<li>
+<p><strong>双缓冲(double buffering)</strong>:</p>
+<ol>
+<li>用于避免观察者感知到图元处理发送到屏幕的过程</li>
+<li>屏幕绘制在<code>后置缓冲器(backbuffer)</code>中离屏进行</li>
+<li>后置缓冲器不断与用于屏幕显示的前置缓冲内容进行交换(不影响显示时)</li>
+</ol>
+</li>
+</ul>
+<h2 id="gpu渲染管线工作流程">GPU渲染管线工作流程</h2>
 <h3 id="顶点数据">顶点数据</h3>
 <ul>
 <li>为顶点着色器提供处理的数据</li>
@@ -1739,12 +1828,12 @@
 <li>线条(<code>GL_LINE_STRIP</code>)</li>
 <li>三角面(<code>GL_TRIANGLES</code>)</li>
 </ul>
-<h3 id="顶点着色器">顶点着色器</h3>
+<h3 id="顶点着色器-vertex-shader">顶点着色器 Vertex Shader</h3>
 <ul>
 <li>主要进行坐标变换, 将输入的局部坐标变换到世界, 观察, 裁剪坐标</li>
 <li>可以在这里进行光照计算, 但一般在片段着色器中计算</li>
 </ul>
-<h3 id="细面曲分-可选">细面曲分 (可选)</h3>
+<h3 id="细面曲分-可选-teselation-shader">细面曲分 (可选) Teselation Shader</h3>
 <ul>
 <li>利用镶嵌化处理技术对三角面进行细分, 以此来增加三角面的数量</li>
 <li>借助曲面细分的技术实现LOD机制</li>
@@ -1756,7 +1845,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="几何着色器-可选">几何着色器 (可选)</h3>
+<h3 id="几何着色器-可选-geometry-shader">几何着色器 (可选) Geometry Shader</h3>
 <ul>
 <li>将输入的点或线扩展成多边形</li>
 <li>输入的是完整的图元</li>
@@ -1774,7 +1863,7 @@
 <li>三角形组装, 三角形遍历</li>
 <li>确定图元所覆盖的片段, 利用顶点属性插值得到片段的属性信息, 然后送到片段着色器进行颜色计算</li>
 </ul>
-<h3 id="片段着色器--像素着色器pixel-shader">片段着色器 / 像素着色器(Pixel Shader)</h3>
+<h3 id="片段像素着色器fragmentpixel-shader">片段/像素着色器(Fragment/Pixel Shader)</h3>
 <ul>
 <li>决定像素上的最终颜色</li>
 <li>进行光照和阴影等高级效果处理</li>
@@ -1987,25 +2076,6 @@
 
     <section class="related">
     
-    
-    <h1 class="related__title">
-      <hr class="hr-dots"/>
-      <div>
-        See Also
-      </div>
-      <hr class="hr-dots"/>
-    </h1>
-    <ul class="related-ul">
-        
-        <li>
-          <a href="/posts/pbr-implent/" class="related__link">PBR笔记 - 实践</a>
-        </li>
-        
-        <li>
-          <a href="/posts/pbr-theory/" class="related__link">PBR笔记 - 理论基础</a>
-        </li>
-        
-    </ul>
     
   </section>
     <div class="grow"></div>
@@ -2382,25 +2452,30 @@ document.addEventListener('DOMContentLoaded', function () {
   <div class="toc " data-dir="ltr" data-folding="true" data-ani="true">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#功能">功能</a>
+    <li><a href="#图形渲染管线工作流程">图形渲染管线工作流程</a>
       <ul>
-        <li><a href="#主要功能">主要功能</a></li>
-        <li><a href="#工作流程">工作流程</a></li>
+        <li><a href="#应用阶段application"><strong>应用阶段(Application)</strong></a></li>
+        <li><a href="#几何阶段geometry"><strong>几何阶段(Geometry)</strong></a></li>
+        <li><a href="#光栅化rasterization"><strong>光栅化(Rasterization)</strong></a>
+          <ul>
+            <li><a href="#光栅化步骤">光栅化步骤</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#流程">流程</a>
+    <li><a href="#gpu渲染管线工作流程">GPU渲染管线工作流程</a>
       <ul>
         <li><a href="#顶点数据">顶点数据</a>
           <ul>
             <li><a href="#常见图元信息">常见图元信息</a></li>
           </ul>
         </li>
-        <li><a href="#顶点着色器">顶点着色器</a></li>
-        <li><a href="#细面曲分-可选">细面曲分 (可选)</a></li>
-        <li><a href="#几何着色器-可选">几何着色器 (可选)</a></li>
+        <li><a href="#顶点着色器-vertex-shader">顶点着色器 Vertex Shader</a></li>
+        <li><a href="#细面曲分-可选-teselation-shader">细面曲分 (可选) Teselation Shader</a></li>
+        <li><a href="#几何着色器-可选-geometry-shader">几何着色器 (可选) Geometry Shader</a></li>
         <li><a href="#图元组装">图元组装</a></li>
         <li><a href="#光栅化">光栅化</a></li>
-        <li><a href="#片段着色器--像素着色器pixel-shader">片段着色器 / 像素着色器(Pixel Shader)</a></li>
+        <li><a href="#片段像素着色器fragmentpixel-shader">片段/像素着色器(Fragment/Pixel Shader)</a></li>
         <li><a href="#测试混合阶段">测试混合阶段</a>
           <ul>
             <li><a href="#alpha测试">Alpha测试</a></li>

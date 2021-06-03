@@ -14,7 +14,7 @@
     <managingEditor>npchitman@outlook.com (陈乙己)</managingEditor>
     <webMaster>npchitman@outlook.com (陈乙己)</webMaster>
     <copyright>©2021, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 20 Feb 2021 10:33:41 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 19 Jan 2021 21:13:42 +0900</lastBuildDate>
     
         <atom:link href="http://npchitman.github.io/cn/index.xml" rel="self" type="application/rss+xml" />
     
@@ -40,108 +40,6 @@
         
       
 
-      
-      <item>
-        <title>PBR笔记</title>
-        <link>http://npchitman.github.io/cn/posts/pbr/</link>
-        <pubDate>Sat, 20 Feb 2021 10:33:41 +0900</pubDate>
-        <author>npchitman@outlook.com (陈乙己)</author>
-        <atom:modified>Sat, 20 Feb 2021 10:33:41 +0900</atom:modified>
-        <guid>http://npchitman.github.io/cn/posts/pbr/</guid>
-        <description>PBR介绍 PBR是基于现实世界的物理原理更相符的理论构成的渲染技术的集合 PBR的范畴由三部分组成: 基于物理的材质(Material) 基于物理</description>
-        
-        <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/halo_infinite.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>cg</category>
-            
-          
-        
-        
-          
-            
-              <category>cg</category>
-            
-          
-        
-        
-          
-            
-          
-        
-      </item>
-      
-      <item>
-        <title>渲染管线流程概括</title>
-        <link>http://npchitman.github.io/cn/posts/render_pipline/</link>
-        <pubDate>Sat, 20 Feb 2021 10:33:41 +0900</pubDate>
-        <author>npchitman@outlook.com (陈乙己)</author>
-        <atom:modified>Sat, 20 Feb 2021 10:33:41 +0900</atom:modified>
-        <guid>http://npchitman.github.io/cn/posts/render_pipline/</guid>
-        <description>功能 主要功能 通过给定参数(虚拟相机, 3D场景物体, 光源等)产生2D图像, 显示在屏幕上: 将物体3D座标转变为屏幕空间2D座标 为屏幕每个像素点进</description>
-        
-        <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/render_pipeline.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>cg</category>
-            
-          
-        
-        
-          
-            
-              <category>cg</category>
-            
-          
-        
-        
-          
-            
-          
-        
-      </item>
-      
-      <item>
-        <title>Linux Ricing 1.0</title>
-        <link>http://npchitman.github.io/cn/posts/linux_ricing/</link>
-        <pubDate>Wed, 18 Dec 2019 10:33:41 +0900</pubDate>
-        <author>npchitman@outlook.com (陈乙己)</author>
-        <atom:modified>Wed, 18 Dec 2019 10:33:41 +0900</atom:modified>
-        <guid>http://npchitman.github.io/cn/posts/linux_ricing/</guid>
-        <description>效果预览: Info Preview 介绍 对纯键盘操作进行优化 其他的发行版未测试, 理论上也适用 具体的系统环境参考图1(Info) 安装方法: 执行部署脚本 注: 脚本将所有</description>
-        
-        <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/unixporn.png" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>linux</category>
-            
-          
-        
-        
-          
-            
-              <category>linux</category>
-            
-          
-        
-        
-          
-            
-          
-        
-      </item>
       
 
     

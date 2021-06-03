@@ -108,31 +108,8 @@
   </url><url>
     <loc>http://npchitman.github.io/tags/cg/</loc>
     <lastmod>2021-02-20T10:33:41+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="http://npchitman.github.io/cn/tags/cg/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://npchitman.github.io/tags/cg/"
-                />
   </url><url>
     <loc>http://npchitman.github.io/categories/cg/</loc>
-    <lastmod>2021-02-20T10:33:41+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="http://npchitman.github.io/cn/categories/cg/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://npchitman.github.io/categories/cg/"
-                />
-  </url><url>
-    <loc>http://npchitman.github.io/posts/pbr-implent/</loc>
     <lastmod>2021-02-20T10:33:41+09:00</lastmod>
   </url><url>
     <loc>http://npchitman.github.io/posts/pbr-theory/</loc>
@@ -166,16 +143,6 @@
   </url><url>
     <loc>http://npchitman.github.io/posts/render_pipline/</loc>
     <lastmod>2021-02-20T10:33:41+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="http://npchitman.github.io/cn/posts/render_pipline/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://npchitman.github.io/posts/render_pipline/"
-                />
   </url><url>
     <loc>http://npchitman.github.io/showcase/game-dev/</loc>
     <lastmod>2020-01-19T21:04:11+09:00</lastmod>
@@ -231,42 +198,12 @@
   </url><url>
     <loc>http://npchitman.github.io/tags/linux/</loc>
     <lastmod>2019-12-18T10:33:41+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="http://npchitman.github.io/cn/tags/linux/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://npchitman.github.io/tags/linux/"
-                />
   </url><url>
     <loc>http://npchitman.github.io/categories/linux/</loc>
     <lastmod>2019-12-18T10:33:41+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="http://npchitman.github.io/cn/categories/linux/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://npchitman.github.io/categories/linux/"
-                />
   </url><url>
     <loc>http://npchitman.github.io/posts/linux_ricing/</loc>
     <lastmod>2019-12-18T10:33:41+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="http://npchitman.github.io/cn/posts/linux_ricing/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://npchitman.github.io/posts/linux_ricing/"
-                />
   </url><url>
     <loc>http://npchitman.github.io/archive/</loc>
     <lastmod>2019-10-19T11:44:14+09:00</lastmod>
