@@ -6,9 +6,9 @@
   xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>cg on REPOP</title>
+    <title>cg on Npchitman&#39;s Blog</title>
     <link>http://npchitman.github.io/cn/tags/cg/</link>
-    <description>Recent content in cg on REPOP</description>
+    <description>Recent content in cg on Npchitman&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
     <managingEditor>npchitman@outlook.com (陈乙己)</managingEditor>
@@ -55,7 +55,7 @@
       </item>
       
       <item>
-        <title>渲染管线介绍 流程</title>
+        <title>渲染管线流程概括</title>
         <link>http://npchitman.github.io/cn/posts/render_pipline/</link>
         <pubDate>Sat, 20 Feb 2021 10:33:41 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
