@@ -42,13 +42,47 @@
 
       
       <item>
-        <title>PBR笔记</title>
-        <link>http://npchitman.github.io/posts/pbr/</link>
+        <title>PBR笔记 - 实践</title>
+        <link>http://npchitman.github.io/posts/pbr-implent/</link>
         <pubDate>Sat, 20 Feb 2021 10:33:41 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Sat, 20 Feb 2021 10:33:41 +0900</atom:modified>
-        <guid>http://npchitman.github.io/posts/pbr/</guid>
-        <description>PBR介绍 PBR是基于现实世界的物理原理更相符的理论构成的渲染技术的集合 PBR的范畴由三部分组成: 基于物理的材质(Material) 基于物理</description>
+        <guid>http://npchitman.github.io/posts/pbr-implent/</guid>
+        <description>编写PBR材质 PBR渲染管线所需要的每一个表面参数都可以用纹理来定义或者建模 使用纹理可以逐片段控制每个表面上特定的点对于光线是如何响应的 常见</description>
+        
+        <dc:creator>陈乙己</dc:creator>
+        <media:content url="http://npchitman.github.ioimages/post_preview/halo_infinite.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>cg</category>
+            
+          
+        
+        
+          
+            
+              <category>cg</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>PBR笔记 - 理论基础</title>
+        <link>http://npchitman.github.io/posts/pbr-theory/</link>
+        <pubDate>Sat, 20 Feb 2021 10:33:41 +0900</pubDate>
+        <author>npchitman@outlook.com (陈乙己)</author>
+        <atom:modified>Sat, 20 Feb 2021 10:33:41 +0900</atom:modified>
+        <guid>http://npchitman.github.io/posts/pbr-theory/</guid>
+        <description>核心 微平面理论(Microfacet Theory) 将物体表面建模成无数微观尺度上有随机朝向的理想镜面反射的小平面(microfacet) 实际PBR工作流</description>
         
         <dc:creator>陈乙己</dc:creator>
         <media:content url="http://npchitman.github.ioimages/post_preview/halo_infinite.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>

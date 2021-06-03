@@ -132,18 +132,11 @@
                 href="http://npchitman.github.io/categories/cg/"
                 />
   </url><url>
-    <loc>http://npchitman.github.io/posts/pbr/</loc>
+    <loc>http://npchitman.github.io/posts/pbr-implent/</loc>
     <lastmod>2021-02-20T10:33:41+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="http://npchitman.github.io/cn/posts/pbr/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://npchitman.github.io/posts/pbr/"
-                />
+  </url><url>
+    <loc>http://npchitman.github.io/posts/pbr-theory/</loc>
+    <lastmod>2021-02-20T10:33:41+09:00</lastmod>
   </url><url>
     <loc>http://npchitman.github.io/posts/</loc>
     <lastmod>2021-02-20T10:33:41+09:00</lastmod>
@@ -273,45 +266,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://npchitman.github.io/posts/linux_ricing/"
-                />
-  </url><url>
-    <loc>http://npchitman.github.io/gallery/</loc>
-    <lastmod>2019-10-31T10:20:16+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="http://npchitman.github.io/cn/gallery/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://npchitman.github.io/gallery/"
-                />
-  </url><url>
-    <loc>http://npchitman.github.io/gallery/game/</loc>
-    <lastmod>2019-10-31T10:20:16+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="http://npchitman.github.io/cn/gallery/game/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://npchitman.github.io/gallery/game/"
-                />
-  </url><url>
-    <loc>http://npchitman.github.io/gallery/photo/</loc>
-    <lastmod>2019-10-31T10:20:16+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="http://npchitman.github.io/cn/gallery/photo/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://npchitman.github.io/gallery/photo/"
                 />
   </url><url>
     <loc>http://npchitman.github.io/archive/</loc>
