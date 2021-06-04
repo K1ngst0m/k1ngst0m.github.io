@@ -14,7 +14,7 @@
     <managingEditor>npchitman@outlook.com (陈乙己)</managingEditor>
     <webMaster>npchitman@outlook.com (陈乙己)</webMaster>
     <copyright>©2021, All Rights Reserved</copyright>
-    <lastBuildDate>Thu, 25 Feb 2021 10:33:41 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 04 Jun 2021 10:33:41 +0900</lastBuildDate>
     
         <atom:link href="http://npchitman.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -42,16 +42,16 @@
 
       
       <item>
-        <title>渲染管线流程</title>
-        <link>http://npchitman.github.io/posts/render_pipline/</link>
-        <pubDate>Thu, 25 Feb 2021 10:33:41 +0900</pubDate>
+        <title>抗锯齿类型总结</title>
+        <link>http://npchitman.github.io/posts/anti-aliasing/</link>
+        <pubDate>Fri, 04 Jun 2021 10:33:41 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
-        <atom:modified>Thu, 25 Feb 2021 10:33:41 +0900</atom:modified>
-        <guid>http://npchitman.github.io/posts/render_pipline/</guid>
-        <description>渲染管线主要功能是对给定虚拟相机, 三维物体, 光源, 照明模式, 纹理等条件情况下, 生成一副二维图像的过程 图形渲染管线工作流程 应用阶段(Appli</description>
+        <atom:modified>Fri, 04 Jun 2021 10:33:41 +0900</atom:modified>
+        <guid>http://npchitman.github.io/posts/anti-aliasing/</guid>
+        <description></description>
         
         <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/render_pipeline.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="http://npchitman.github.ioimages/post_preview/taa.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
@@ -110,13 +110,47 @@
       </item>
       
       <item>
+        <title>渲染管线流程</title>
+        <link>http://npchitman.github.io/posts/render_pipline/</link>
+        <pubDate>Sat, 20 Feb 2021 10:33:41 +0900</pubDate>
+        <author>npchitman@outlook.com (陈乙己)</author>
+        <atom:modified>Sat, 20 Feb 2021 10:33:41 +0900</atom:modified>
+        <guid>http://npchitman.github.io/posts/render_pipline/</guid>
+        <description>渲染管线主要功能是对给定虚拟相机, 三维物体, 光源, 照明模式, 纹理等条件情况下, 生成一副二维图像的过程 图形渲染管线工作流程 应用阶段(Appli</description>
+        
+        <dc:creator>陈乙己</dc:creator>
+        <media:content url="http://npchitman.github.ioimages/post_preview/render_pipeline.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>cg</category>
+            
+          
+        
+        
+          
+            
+              <category>cg</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
         <title>Linux Ricing 1.0</title>
         <link>http://npchitman.github.io/posts/linux_ricing/</link>
         <pubDate>Wed, 18 Dec 2019 10:33:41 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Wed, 18 Dec 2019 10:33:41 +0900</atom:modified>
         <guid>http://npchitman.github.io/posts/linux_ricing/</guid>
-        <description>效果预览: Info Preview 介绍 对纯键盘操作进行优化 其他的发行版未测试, 理论上也适用 具体的系统环境参考图1(Info) 安装方法: 执行部署脚本 注: 脚本将所有</description>
+        <description>效果预览 Info Preview 介绍 对纯键盘操作进行优化 其他的发行版未测试, 理论上也适用 具体的系统环境参考图1(Info) 安装方法 执行部署脚本 注: 脚本将所有的配</description>
         
         <dc:creator>陈乙己</dc:creator>
         <media:content url="http://npchitman.github.ioimages/post_preview/unixporn.png" medium="image"><media:title type="html">featured image</media:title></media:content>

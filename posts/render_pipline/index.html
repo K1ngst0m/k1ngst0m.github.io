@@ -1336,9 +1336,9 @@
 
 <meta name="keywords" content="cg">
 
-<meta name="created" content="2021-02-25T10:33:41&#43;0900">
-<meta name="modified" content="2021-02-25T10:33:41&#43;0900">
-<meta property="article:published_time" content="2021-02-25T10:33:41&#43;0900">
+<meta name="created" content="2021-02-20T10:33:41&#43;0900">
+<meta name="modified" content="2021-02-20T10:33:41&#43;0900">
+<meta property="article:published_time" content="2021-02-20T10:33:41&#43;0900">
 
 <meta name="author" content="陈乙己">
 
@@ -1394,8 +1394,8 @@
     "@context": "https://schema.org",
     "@type": "WebPage",
     "headline": "渲染管线流程",
-    "datePublished": "2021-02-25T10:33:41+09:00",
-    "dateModified": "2021-02-25T10:33:41+09:00",
+    "datePublished": "2021-02-20T10:33:41+09:00",
+    "dateModified": "2021-02-20T10:33:41+09:00",
     "url" : "http://npchitman.github.io/posts/render_pipline/",
     "description": "渲染管线流程",
     "keywords": ["cg"],
@@ -1684,9 +1684,9 @@
     <div class="single__meta">
       
 <div class="single__infos">
-  <time class="single__info" title="Written At">📅&nbsp;Feb 25, 2021 </time>
+  <time class="single__info" title="Written At">📅&nbsp;Feb 20, 2021 </time>
   
-  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;5&nbsp;min read </span>
+  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;7&nbsp;min read </span>
   
   <span class="single__info">
     
@@ -1699,7 +1699,7 @@
   🏷️
   
 
-  <li><a href="http://npchitman.github.io/tags/cg/" class="single__tag" title="CG">#CG</a></li>
+  <li><a href="http://npchitman.github.io/tags/cg/" class="single__tag" title="cg">#cg</a></li>
 
 </ul>
 
@@ -1815,25 +1815,37 @@
 </li>
 </ul>
 <h2 id="gpu渲染管线工作流程">GPU渲染管线工作流程</h2>
-<h3 id="顶点数据">顶点数据</h3>
+<h3 id="现代编程语言">现代编程语言</h3>
 <ul>
-<li>为顶点着色器提供处理的数据</li>
-<li>顶点坐标, 纹理坐标, 顶点法线和顶点颜色等属性</li>
-<li>通过绘制指令中传递图元信息, 让opengl明白顶点数据构成什么图元</li>
+<li>现代着色阶段(SHader model 4.0, DirectX 10及以后)使用通用着色核心(common-shader core), 表明顶点, 片段, 几何着色器共享一套编程模型</li>
+<li>目前着色语言都是C-like, 如GLSL, CG, HLSL</li>
+<li>被编译成独立于机器语言的汇编语言IL, 通常在驱动中转化成实际机器语言, 可以兼容不同硬件实现</li>
+<li>IL可以理解成定义一个着色语言编译器的虚拟机, 处理多种类型寄存器和数据源, 预编一系列指令处理器</li>
+<li>很多图形操作使用短矢量(最高四位), 处理器拥有4路SIMD(single-instruction multiple-data, 单指令多数据)兼容性</li>
+<li>每个寄存器包含四个独立的值, 32位单精度浮点的标量和矢量是其基本数据类型, 也支持结构体, 数组和矩阵
+<ul>
+<li>矢量:位置(xyzw), 法线, 矩阵行, 颜色(rgba), 纹理坐标(uvwq)</li>
+<li>标量: 计数器, 索引, 位掩码</li>
 </ul>
-<h4 id="常见图元信息">常见图元信息</h4>
-<ul>
-<li>点(<code>GL_POINTS</code>)</li>
-<li>线(<code>GL_LINES</code>)</li>
-<li>线条(<code>GL_LINE_STRIP</code>)</li>
-<li>三角面(<code>GL_TRIANGLES</code>)</li>
+</li>
 </ul>
-<h3 id="顶点着色器-vertex-shader">顶点着色器 Vertex Shader</h3>
+<h3 id="实现步骤概述">实现步骤概述</h3>
 <ul>
-<li>主要进行坐标变换, 将输入的局部坐标变换到世界, 观察, 裁剪坐标</li>
+<li>顶点着色前进行输入装配(Input Assembler)阶段, 将一些数据流组织在一起, 发送到管线</li>
+</ul>
+<p>GPU实现了几何和光栅化概念管线阶段, 步骤如下:</p>
+<h4 id="顶点着色器vertex-shader-完全可编程">顶点着色器(Vertex Shader): 完全可编程</h4>
+<ul>
+<li>顶点属性包括位置, 颜色, 法线, 纹理坐标和位置</li>
+<li>对每个顶点属性进行变换, 变形等操作, 提供修改/创建/忽略顶点相关属性的功能</li>
+<li>不能创建和删除顶点, 一个顶点的结果不能传递到另一个顶点</li>
+<li>每个顶点独立处理, GPU上着色器处理器可以并行应用到传入的顶点流上</li>
 <li>可以在这里进行光照计算, 但一般在片段着色器中计算</li>
+<li>顶点坐标必须完成顶点从模型空间转换到齐次裁剪空间(世界, 观察, 裁剪)</li>
+<li>顶点着色器与通用核心虚拟机(Common-Shader Core Virtual Machine)非常相似, 传入的每个顶点由</li>
+<li>流输出(Stream output): Shader Model4.0支持, 顶点着色器除了将处理后的数据发送到光栅化阶段, 还可以输出到流(有序数组), 输出到流的数据可以通过管线回传, 允许迭代处理, 是和模拟流动的水和其他特效</li>
 </ul>
-<h3 id="细面曲分-可选-teselation-shader">细面曲分 (可选) Teselation Shader</h3>
+<h4 id="细面曲分-teselation-shader-可选">细面曲分 (Teselation Shader): 可选</h4>
 <ul>
 <li>利用镶嵌化处理技术对三角面进行细分, 以此来增加三角面的数量</li>
 <li>借助曲面细分的技术实现LOD机制</li>
@@ -1845,40 +1857,50 @@
 </ul>
 </li>
 </ul>
-<h3 id="几何着色器-可选-geometry-shader">几何着色器 (可选) Geometry Shader</h3>
+<h4 id="几何着色器geometry-shader-可选-完全可编程">几何着色器(Geometry Shader): 可选, 完全可编程</h4>
 <ul>
-<li>将输入的点或线扩展成多边形</li>
-<li>输入的是完整的图元</li>
-<li>输出的可以是一个或多个其他的图元, 或者不输出</li>
+<li>Shader Model 3.0以上支持</li>
+<li>主要对输入图元(单个对象及相关的顶点)进行操作</li>
+<li>允许GPU高效创建和销毁几何图元:
+<ul>
+<li>几何增长: 改变新传递的图元的拓扑结构</li>
+<li>接受任意拓扑类型的图元, 输出点, 折线(line strip), 三角形条(triangle strips)</li>
 </ul>
-<h3 id="图元组装">图元组装</h3>
-<ul>
-<li>将输入的顶点组装成指定的图元</li>
-<li>进行裁剪和背面剔除相关的优化, 加速渲染</li>
-<li>进行屏幕映射, 变换为窗口坐标(透视除法/视口变换, 由硬件实现)</li>
+</li>
+<li>常见应用: 元球的等值曲面细分(metaball isosurface tessellation), 线段细分的分形(fractal subdivision of line segments), 布料模拟等</li>
 </ul>
-<h3 id="光栅化">光栅化</h3>
+<h4 id="功能阶段">功能阶段</h4>
 <ul>
-<li>离散化, 将3D连续物体转化为离散屏幕像素点的过程</li>
-<li>三角形组装, 三角形遍历</li>
-<li>确定图元所覆盖的片段, 利用顶点属性插值得到片段的属性信息, 然后送到片段着色器进行颜色计算</li>
+<li>裁剪(Clipping): 可配置
+<ul>
+<li>可选运行的裁剪方式, 添加自定义的裁剪面</li>
 </ul>
-<h3 id="片段像素着色器fragmentpixel-shader">片段/像素着色器(Fragment/Pixel Shader)</h3>
+</li>
+<li>屏幕映射(Screen Mapping): 完全固定</li>
+<li>三角形设定(Triangle Setup): 完全固定</li>
+<li>三角形遍历(Triangle Traversal): 完全固定</li>
+</ul>
+<h4 id="像素片段着色器pixelfragment-shader-可编程">像素/片段着色器(Pixel/Fragment Shader): 可编程</h4>
 <ul>
-<li>决定像素上的最终颜色</li>
+<li>主要进行像素/片元的处理, 在每个片段上执行着色方程</li>
+<li>常用来处理场景光照及相关的效果, 如凹凸纹理映射和调色</li>
 <li>进行光照和阴影等高级效果处理</li>
+<li>着色器调用的像素并非和屏幕像素一一对应, 如计算被遮挡的物体</li>
+<li>该着色器通常在最终合并阶段设置片段颜色进行合并, 深度值也可以在该着色器修改</li>
+<li>SM4.0中共有16个4维向量可以从顶点着色器传到像素着色器, 使用几何着色器时增加到32个向量</li>
 </ul>
-<h3 id="测试混合阶段">测试混合阶段</h3>
+<h4 id="合并阶段merging-可配置">合并阶段(Merging): 可配置</h4>
 <ul>
-<li>进行裁切测试 Alpha测试 模板测试 深度测试</li>
-<li>没有经过测试的片段会被丢弃, 不需要进行混合阶段</li>
-<li>经过测试的片段会进入混合阶段</li>
+<li>将像素着色器中生成的各个片段的深度和颜色与帧缓冲结合在一起</li>
+<li>除了进行合并操作, 还可以进行相关缓存的处理(Z-buffer, Stencil等), 透明处理(Transparency), 混合(Blending), 合成(Compositing)</li>
+<li>不可编程, 但是高度可配置, 可以设置颜色混合来执行大量不同操作:
+<ul>
+<li>Alpha值的乘法, 加法, 减法的组合</li>
+<li>最大值, 最小值, 按位逻辑运算</li>
 </ul>
-<h4 id="alpha测试">Alpha测试</h4>
-<ul>
+</li>
 <li>根据片段的Alpha值进行混合, 用来产生半透明的效果</li>
-<li>半透明的物体需要遵循画家算法进行绘制, 排序难题</li>
-<li>或使用顺序无关的半透明渲染技术(OIT)技术</li>
+<li>半透明的物体需要遵循画家算法进行绘制, 或使用顺序无关的半透明渲染技术(OIT)技术</li>
 </ul>
 
     </article>
@@ -2082,14 +2104,21 @@
 <nav class="pagination-single">
   
     
-      <a href="http://npchitman.github.io/posts/pbr-theory/" class="pagination-single__left">
+      <a href="http://npchitman.github.io/posts/linux_ricing/" class="pagination-single__left">
         <div class="pagination-single__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
         </div>
-        <div class="pagination-single__left-title">PBR笔记 - 理论基础</div>      
+        <div class="pagination-single__left-title">Linux Ricing 1.0</div>      
       </a>
     
     <div class="grow"></div>
+    
+      <a href="http://npchitman.github.io/posts/pbr-theory/" class="pagination-single__right">      
+        <div class="pagination-single__right-title">PBR笔记 - 理论基础</div>
+        <div class="pagination-single__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
+        </div>
+      </a>
     
   
 </nav>
@@ -2458,20 +2487,15 @@ document.addEventListener('DOMContentLoaded', function () {
     </li>
     <li><a href="#gpu渲染管线工作流程">GPU渲染管线工作流程</a>
       <ul>
-        <li><a href="#顶点数据">顶点数据</a>
+        <li><a href="#现代编程语言">现代编程语言</a></li>
+        <li><a href="#实现步骤概述">实现步骤概述</a>
           <ul>
-            <li><a href="#常见图元信息">常见图元信息</a></li>
-          </ul>
-        </li>
-        <li><a href="#顶点着色器-vertex-shader">顶点着色器 Vertex Shader</a></li>
-        <li><a href="#细面曲分-可选-teselation-shader">细面曲分 (可选) Teselation Shader</a></li>
-        <li><a href="#几何着色器-可选-geometry-shader">几何着色器 (可选) Geometry Shader</a></li>
-        <li><a href="#图元组装">图元组装</a></li>
-        <li><a href="#光栅化">光栅化</a></li>
-        <li><a href="#片段像素着色器fragmentpixel-shader">片段/像素着色器(Fragment/Pixel Shader)</a></li>
-        <li><a href="#测试混合阶段">测试混合阶段</a>
-          <ul>
-            <li><a href="#alpha测试">Alpha测试</a></li>
+            <li><a href="#顶点着色器vertex-shader-完全可编程">顶点着色器(Vertex Shader): 完全可编程</a></li>
+            <li><a href="#细面曲分-teselation-shader-可选">细面曲分 (Teselation Shader): 可选</a></li>
+            <li><a href="#几何着色器geometry-shader-可选-完全可编程">几何着色器(Geometry Shader): 可选, 完全可编程</a></li>
+            <li><a href="#功能阶段">功能阶段</a></li>
+            <li><a href="#像素片段着色器pixelfragment-shader-可编程">像素/片段着色器(Pixel/Fragment Shader): 可编程</a></li>
+            <li><a href="#合并阶段merging-可配置">合并阶段(Merging): 可配置</a></li>
           </ul>
         </li>
       </ul>
