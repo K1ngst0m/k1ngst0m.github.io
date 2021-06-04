@@ -14,7 +14,7 @@
     <managingEditor>npchitman@outlook.com (陈乙己)</managingEditor>
     <webMaster>npchitman@outlook.com (陈乙己)</webMaster>
     <copyright>©2021, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 20 Feb 2021 10:33:41 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 25 Feb 2021 10:33:41 +0900</lastBuildDate>
     
         <atom:link href="http://npchitman.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -42,6 +42,40 @@
 
       
       <item>
+        <title>渲染管线流程</title>
+        <link>http://npchitman.github.io/posts/render_pipline/</link>
+        <pubDate>Thu, 25 Feb 2021 10:33:41 +0900</pubDate>
+        <author>npchitman@outlook.com (陈乙己)</author>
+        <atom:modified>Thu, 25 Feb 2021 10:33:41 +0900</atom:modified>
+        <guid>http://npchitman.github.io/posts/render_pipline/</guid>
+        <description>渲染管线主要功能是对给定虚拟相机, 三维物体, 光源, 照明模式, 纹理等条件情况下, 生成一副二维图像的过程 图形渲染管线工作流程 应用阶段(Appli</description>
+        
+        <dc:creator>陈乙己</dc:creator>
+        <media:content url="http://npchitman.github.ioimages/post_preview/render_pipeline.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>cg</category>
+            
+          
+        
+        
+          
+            
+              <category>cg</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
         <title>PBR笔记 - 理论基础</title>
         <link>http://npchitman.github.io/posts/pbr-theory/</link>
         <pubDate>Sat, 20 Feb 2021 10:33:41 +0900</pubDate>
@@ -65,40 +99,6 @@
           
             
               <category>CG</category>
-            
-          
-        
-        
-          
-            
-          
-        
-      </item>
-      
-      <item>
-        <title>渲染管线流程</title>
-        <link>http://npchitman.github.io/posts/render_pipline/</link>
-        <pubDate>Sat, 20 Feb 2021 10:33:41 +0900</pubDate>
-        <author>npchitman@outlook.com (陈乙己)</author>
-        <atom:modified>Sat, 20 Feb 2021 10:33:41 +0900</atom:modified>
-        <guid>http://npchitman.github.io/posts/render_pipline/</guid>
-        <description>渲染管线主要功能是对给定虚拟相机, 三维物体, 光源, 照明模式, 纹理等条件情况下, 生成一副二维图像的过程 图形渲染管线工作流程 应用阶段(Appli</description>
-        
-        <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/render_pipeline.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>cg</category>
-            
-          
-        
-        
-          
-            
-              <category>cg</category>
             
           
         
