@@ -7,7 +7,7 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Tags on Npchitman&#39;s Blog</title>
-    <link>http://47.100.5.11/cn/tags/</link>
+    <link>http://npchitman.github.io/cn/tags/</link>
     <description>Recent content in Tags on Npchitman&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
@@ -15,7 +15,7 @@
     <webMaster>npchitman@outlook.com (陈乙己)</webMaster>
     <copyright>©2021, All Rights Reserved</copyright>
     
-        <atom:link href="http://47.100.5.11/cn/tags/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://npchitman.github.io/cn/tags/index.xml" rel="self" type="application/rss+xml" />
     
 
       

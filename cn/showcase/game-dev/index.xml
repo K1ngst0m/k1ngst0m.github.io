@@ -7,7 +7,7 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Game on Npchitman&#39;s Blog</title>
-    <link>http://47.100.5.11/cn/showcase/game-dev/</link>
+    <link>http://npchitman.github.io/cn/showcase/game-dev/</link>
     <description>Recent content in Game on Npchitman&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
@@ -16,17 +16,17 @@
     <copyright>©2021, All Rights Reserved</copyright>
     <lastBuildDate>Sun, 19 Jan 2020 21:04:11 +0900</lastBuildDate>
     
-        <atom:link href="http://47.100.5.11/cn/showcase/game-dev/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://npchitman.github.io/cn/showcase/game-dev/index.xml" rel="self" type="application/rss+xml" />
     
 
       
       <item>
         <title>GEngine</title>
-        <link>http://47.100.5.11/cn/showcase/game-dev/gengine/</link>
+        <link>http://npchitman.github.io/cn/showcase/game-dev/gengine/</link>
         <pubDate>Tue, 19 Jan 2021 21:13:42 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Tue, 19 Jan 2021 21:13:42 +0900</atom:modified>
-        <guid>http://47.100.5.11/cn/showcase/game-dev/gengine/</guid>
+        <guid>http://npchitman.github.io/cn/showcase/game-dev/gengine/</guid>
         <description></description>
         
         <dc:creator>陈乙己</dc:creator>
@@ -40,11 +40,11 @@
       
       <item>
         <title>GServer</title>
-        <link>http://47.100.5.11/cn/showcase/game-dev/gserver/</link>
+        <link>http://npchitman.github.io/cn/showcase/game-dev/gserver/</link>
         <pubDate>Sun, 19 Jan 2020 21:13:42 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Sun, 19 Jan 2020 21:13:42 +0900</atom:modified>
-        <guid>http://47.100.5.11/cn/showcase/game-dev/gserver/</guid>
+        <guid>http://npchitman.github.io/cn/showcase/game-dev/gserver/</guid>
         <description></description>
         
         <dc:creator>陈乙己</dc:creator>
@@ -58,11 +58,11 @@
       
       <item>
         <title>Tetris</title>
-        <link>http://47.100.5.11/cn/showcase/game-dev/tetris/</link>
+        <link>http://npchitman.github.io/cn/showcase/game-dev/tetris/</link>
         <pubDate>Sun, 19 Jan 2020 21:13:42 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Sun, 19 Jan 2020 21:13:42 +0900</atom:modified>
-        <guid>http://47.100.5.11/cn/showcase/game-dev/tetris/</guid>
+        <guid>http://npchitman.github.io/cn/showcase/game-dev/tetris/</guid>
         <description></description>
         
         <dc:creator>陈乙己</dc:creator>

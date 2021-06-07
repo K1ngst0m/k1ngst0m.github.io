@@ -7,7 +7,7 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Others on Npchitman&#39;s Blog</title>
-    <link>http://47.100.5.11/cn/showcase/other/</link>
+    <link>http://npchitman.github.io/cn/showcase/other/</link>
     <description>Recent content in Others on Npchitman&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
@@ -16,17 +16,17 @@
     <copyright>©2021, All Rights Reserved</copyright>
     <lastBuildDate>Sun, 19 Jan 2020 21:04:11 +0900</lastBuildDate>
     
-        <atom:link href="http://47.100.5.11/cn/showcase/other/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://npchitman.github.io/cn/showcase/other/index.xml" rel="self" type="application/rss+xml" />
     
 
       
       <item>
         <title>Protobuf compiler online</title>
-        <link>http://47.100.5.11/cn/showcase/other/protocompiler/</link>
+        <link>http://npchitman.github.io/cn/showcase/other/protocompiler/</link>
         <pubDate>Sun, 19 Jan 2020 21:13:42 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Sun, 19 Jan 2020 21:13:42 +0900</atom:modified>
-        <guid>http://47.100.5.11/cn/showcase/other/protocompiler/</guid>
+        <guid>http://npchitman.github.io/cn/showcase/other/protocompiler/</guid>
         <description></description>
         
         <dc:creator>陈乙己</dc:creator>

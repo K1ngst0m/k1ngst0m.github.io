@@ -7,7 +7,7 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Linux on Npchitman&#39;s Blog</title>
-    <link>http://47.100.5.11/cn/showcase/linux/</link>
+    <link>http://npchitman.github.io/cn/showcase/linux/</link>
     <description>Recent content in Linux on Npchitman&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
@@ -16,17 +16,17 @@
     <copyright>©2021, All Rights Reserved</copyright>
     <lastBuildDate>Sun, 19 Jan 2020 21:04:11 +0900</lastBuildDate>
     
-        <atom:link href="http://47.100.5.11/cn/showcase/linux/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://npchitman.github.io/cn/showcase/linux/index.xml" rel="self" type="application/rss+xml" />
     
 
       
       <item>
         <title>Dotfiles</title>
-        <link>http://47.100.5.11/cn/showcase/linux/dotfiles/</link>
+        <link>http://npchitman.github.io/cn/showcase/linux/dotfiles/</link>
         <pubDate>Sun, 19 Jan 2020 21:13:42 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Sun, 19 Jan 2020 21:13:42 +0900</atom:modified>
-        <guid>http://47.100.5.11/cn/showcase/linux/dotfiles/</guid>
+        <guid>http://npchitman.github.io/cn/showcase/linux/dotfiles/</guid>
         <description></description>
         
         <dc:creator>陈乙己</dc:creator>
@@ -40,11 +40,11 @@
       
       <item>
         <title>vimQ</title>
-        <link>http://47.100.5.11/cn/showcase/linux/vimq/</link>
+        <link>http://npchitman.github.io/cn/showcase/linux/vimq/</link>
         <pubDate>Sun, 19 Jan 2020 21:13:42 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Sun, 19 Jan 2020 21:13:42 +0900</atom:modified>
-        <guid>http://47.100.5.11/cn/showcase/linux/vimq/</guid>
+        <guid>http://npchitman.github.io/cn/showcase/linux/vimq/</guid>
         <description></description>
         
         <dc:creator>陈乙己</dc:creator>

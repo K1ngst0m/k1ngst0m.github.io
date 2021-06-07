@@ -2,260 +2,260 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://47.100.5.11/showcase/game-dev/gengine/</loc>
+    <loc>http://npchitman.github.io/showcase/game-dev/gengine/</loc>
     <lastmod>2021-01-19T21:13:42+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/showcase/game-dev/gengine/"
+                href="http://npchitman.github.io/cn/showcase/game-dev/gengine/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/showcase/game-dev/gengine/"
+                href="http://npchitman.github.io/showcase/game-dev/gengine/"
                 />
   </url><url>
-    <loc>http://47.100.5.11/showcase/linux/dotfiles/</loc>
+    <loc>http://npchitman.github.io/showcase/linux/dotfiles/</loc>
     <lastmod>2020-01-19T21:13:42+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/showcase/linux/dotfiles/"
+                href="http://npchitman.github.io/cn/showcase/linux/dotfiles/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/showcase/linux/dotfiles/"
+                href="http://npchitman.github.io/showcase/linux/dotfiles/"
                 />
   </url><url>
-    <loc>http://47.100.5.11/showcase/linux/vimq/</loc>
+    <loc>http://npchitman.github.io/showcase/linux/vimq/</loc>
     <lastmod>2020-01-19T21:13:42+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/showcase/linux/vimq/"
+                href="http://npchitman.github.io/cn/showcase/linux/vimq/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/showcase/linux/vimq/"
+                href="http://npchitman.github.io/showcase/linux/vimq/"
                 />
   </url><url>
-    <loc>http://47.100.5.11/showcase/game-dev/gserver/</loc>
+    <loc>http://npchitman.github.io/showcase/game-dev/gserver/</loc>
     <lastmod>2020-01-19T21:13:42+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/showcase/game-dev/gserver/"
+                href="http://npchitman.github.io/cn/showcase/game-dev/gserver/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/showcase/game-dev/gserver/"
+                href="http://npchitman.github.io/showcase/game-dev/gserver/"
                 />
   </url><url>
-    <loc>http://47.100.5.11/showcase/other/protocompiler/</loc>
+    <loc>http://npchitman.github.io/showcase/other/protocompiler/</loc>
     <lastmod>2020-01-19T21:13:42+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/showcase/other/protocompiler/"
+                href="http://npchitman.github.io/cn/showcase/other/protocompiler/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/showcase/other/protocompiler/"
+                href="http://npchitman.github.io/showcase/other/protocompiler/"
                 />
   </url><url>
-    <loc>http://47.100.5.11/showcase/game-dev/tetris/</loc>
+    <loc>http://npchitman.github.io/showcase/game-dev/tetris/</loc>
     <lastmod>2020-01-19T21:13:42+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/showcase/game-dev/tetris/"
+                href="http://npchitman.github.io/cn/showcase/game-dev/tetris/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/showcase/game-dev/tetris/"
+                href="http://npchitman.github.io/showcase/game-dev/tetris/"
                 />
   </url><url>
-    <loc>http://47.100.5.11/</loc>
+    <loc>http://npchitman.github.io/</loc>
     <lastmod>2021-06-04T10:33:41+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/"
+                href="http://npchitman.github.io/cn/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/"
+                href="http://npchitman.github.io/"
                 />
   </url><url>
-    <loc>http://47.100.5.11/categories/</loc>
+    <loc>http://npchitman.github.io/categories/</loc>
     <lastmod>2021-06-04T10:33:41+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/categories/"
+                href="http://npchitman.github.io/cn/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/categories/"
+                href="http://npchitman.github.io/categories/"
                 />
   </url><url>
-    <loc>http://47.100.5.11/tags/cg/</loc>
+    <loc>http://npchitman.github.io/tags/cg/</loc>
     <lastmod>2021-06-04T10:33:41+09:00</lastmod>
   </url><url>
-    <loc>http://47.100.5.11/categories/cg/</loc>
+    <loc>http://npchitman.github.io/categories/cg/</loc>
     <lastmod>2021-06-04T10:33:41+09:00</lastmod>
   </url><url>
-    <loc>http://47.100.5.11/posts/</loc>
+    <loc>http://npchitman.github.io/posts/</loc>
     <lastmod>2021-06-04T10:33:41+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/posts/"
+                href="http://npchitman.github.io/cn/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/posts/"
+                href="http://npchitman.github.io/posts/"
                 />
   </url><url>
-    <loc>http://47.100.5.11/tags/</loc>
+    <loc>http://npchitman.github.io/tags/</loc>
     <lastmod>2021-06-04T10:33:41+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/tags/"
+                href="http://npchitman.github.io/cn/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/tags/"
+                href="http://npchitman.github.io/tags/"
                 />
   </url><url>
-    <loc>http://47.100.5.11/posts/deferred-rendering/</loc>
+    <loc>http://npchitman.github.io/posts/deferred-rendering/</loc>
     <lastmod>2021-06-04T10:33:41+09:00</lastmod>
   </url><url>
-    <loc>http://47.100.5.11/posts/anti-aliasing/</loc>
+    <loc>http://npchitman.github.io/posts/anti-aliasing/</loc>
     <lastmod>2021-06-04T10:33:41+09:00</lastmod>
   </url><url>
-    <loc>http://47.100.5.11/posts/optimization/</loc>
+    <loc>http://npchitman.github.io/posts/optimization/</loc>
     <lastmod>2021-06-04T10:33:41+09:00</lastmod>
   </url><url>
-    <loc>http://47.100.5.11/posts/texturing/</loc>
+    <loc>http://npchitman.github.io/posts/texturing/</loc>
     <lastmod>2021-06-04T10:33:41+09:00</lastmod>
   </url><url>
-    <loc>http://47.100.5.11/posts/transparency/</loc>
+    <loc>http://npchitman.github.io/posts/transparency/</loc>
     <lastmod>2021-06-04T10:33:41+09:00</lastmod>
   </url><url>
-    <loc>http://47.100.5.11/posts/pbr-theory/</loc>
+    <loc>http://npchitman.github.io/posts/pbr-theory/</loc>
     <lastmod>2021-02-20T10:33:41+09:00</lastmod>
   </url><url>
-    <loc>http://47.100.5.11/posts/render-pipline/</loc>
+    <loc>http://npchitman.github.io/posts/render-pipline/</loc>
     <lastmod>2021-02-20T10:33:41+09:00</lastmod>
   </url><url>
-    <loc>http://47.100.5.11/showcase/game-dev/</loc>
+    <loc>http://npchitman.github.io/showcase/game-dev/</loc>
     <lastmod>2020-01-19T21:04:11+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/showcase/game-dev/"
+                href="http://npchitman.github.io/cn/showcase/game-dev/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/showcase/game-dev/"
+                href="http://npchitman.github.io/showcase/game-dev/"
                 />
   </url><url>
-    <loc>http://47.100.5.11/showcase/linux/</loc>
+    <loc>http://npchitman.github.io/showcase/linux/</loc>
     <lastmod>2020-01-19T21:04:11+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/showcase/linux/"
+                href="http://npchitman.github.io/cn/showcase/linux/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/showcase/linux/"
+                href="http://npchitman.github.io/showcase/linux/"
                 />
   </url><url>
-    <loc>http://47.100.5.11/showcase/other/</loc>
+    <loc>http://npchitman.github.io/showcase/other/</loc>
     <lastmod>2020-01-19T21:04:11+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/showcase/other/"
+                href="http://npchitman.github.io/cn/showcase/other/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/showcase/other/"
+                href="http://npchitman.github.io/showcase/other/"
                 />
   </url><url>
-    <loc>http://47.100.5.11/showcase/</loc>
+    <loc>http://npchitman.github.io/showcase/</loc>
     <lastmod>2020-01-19T15:43:38+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/showcase/"
+                href="http://npchitman.github.io/cn/showcase/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/showcase/"
+                href="http://npchitman.github.io/showcase/"
                 />
   </url><url>
-    <loc>http://47.100.5.11/tags/linux/</loc>
+    <loc>http://npchitman.github.io/tags/linux/</loc>
     <lastmod>2019-12-18T10:33:41+09:00</lastmod>
   </url><url>
-    <loc>http://47.100.5.11/categories/linux/</loc>
+    <loc>http://npchitman.github.io/categories/linux/</loc>
     <lastmod>2019-12-18T10:33:41+09:00</lastmod>
   </url><url>
-    <loc>http://47.100.5.11/posts/linux_ricing/</loc>
+    <loc>http://npchitman.github.io/posts/linux_ricing/</loc>
     <lastmod>2019-12-18T10:33:41+09:00</lastmod>
   </url><url>
-    <loc>http://47.100.5.11/archive/</loc>
+    <loc>http://npchitman.github.io/archive/</loc>
     <lastmod>2019-10-19T11:44:14+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/archive/"
+                href="http://npchitman.github.io/cn/archive/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/archive/"
+                href="http://npchitman.github.io/archive/"
                 />
   </url><url>
-    <loc>http://47.100.5.11/about/</loc>
+    <loc>http://npchitman.github.io/about/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/about/"
+                href="http://npchitman.github.io/cn/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/about/"
+                href="http://npchitman.github.io/about/"
                 />
   </url><url>
-    <loc>http://47.100.5.11/series/</loc>
+    <loc>http://npchitman.github.io/series/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="http://47.100.5.11/cn/series/"
+                href="http://npchitman.github.io/cn/series/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://47.100.5.11/series/"
+                href="http://npchitman.github.io/series/"
                 />
   </url>
 </urlset>

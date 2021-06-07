@@ -7,7 +7,7 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Galleries on Npchitman&#39;s Blog</title>
-    <link>http://47.100.5.11/cn/gallery/</link>
+    <link>http://npchitman.github.io/cn/gallery/</link>
     <description>Recent content in Galleries on Npchitman&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
@@ -16,21 +16,21 @@
     <copyright>©2021, All Rights Reserved</copyright>
     <lastBuildDate>Thu, 31 Oct 2019 10:20:16 +0900</lastBuildDate>
     
-        <atom:link href="http://47.100.5.11/cn/gallery/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://npchitman.github.io/cn/gallery/index.xml" rel="self" type="application/rss+xml" />
     
 
       
       <item>
         <title>Game</title>
-        <link>http://47.100.5.11/cn/gallery/game/</link>
+        <link>http://npchitman.github.io/cn/gallery/game/</link>
         <pubDate>Thu, 31 Oct 2019 10:20:16 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Thu, 31 Oct 2019 10:20:16 +0900</atom:modified>
-        <guid>http://47.100.5.11/cn/gallery/game/</guid>
+        <guid>http://npchitman.github.io/cn/gallery/game/</guid>
         <description>Sample images from Pixabay</description>
         
         <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://47.100.5.11images/feature2/bam.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="http://npchitman.github.ioimages/feature2/bam.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
@@ -40,15 +40,15 @@
       
       <item>
         <title>Photo</title>
-        <link>http://47.100.5.11/cn/gallery/photo/</link>
+        <link>http://npchitman.github.io/cn/gallery/photo/</link>
         <pubDate>Thu, 31 Oct 2019 10:20:16 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Thu, 31 Oct 2019 10:20:16 +0900</atom:modified>
-        <guid>http://47.100.5.11/cn/gallery/photo/</guid>
+        <guid>http://npchitman.github.io/cn/gallery/photo/</guid>
         <description>Sample images from Pixabay</description>
         
         <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://47.100.5.11images/feature2/gallery.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="http://npchitman.github.ioimages/feature2/gallery.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
