@@ -7,26 +7,26 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Categories on Npchitman&#39;s Blog</title>
-    <link>http://npchitman.github.io/categories/</link>
+    <link>http://47.100.5.11/categories/</link>
     <description>Recent content in Categories on Npchitman&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>npchitman@outlook.com (陈乙己)</managingEditor>
     <webMaster>npchitman@outlook.com (陈乙己)</webMaster>
     <copyright>©2021, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 20 Feb 2021 10:33:41 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 04 Jun 2021 10:33:41 +0900</lastBuildDate>
     
-        <atom:link href="http://npchitman.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://47.100.5.11/categories/index.xml" rel="self" type="application/rss+xml" />
     
 
       
       <item>
-        <title>CG</title>
-        <link>http://npchitman.github.io/categories/cg/</link>
-        <pubDate>Sat, 20 Feb 2021 10:33:41 +0900</pubDate>
+        <title>cg</title>
+        <link>http://47.100.5.11/categories/cg/</link>
+        <pubDate>Fri, 04 Jun 2021 10:33:41 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         
-        <guid>http://npchitman.github.io/categories/cg/</guid>
+        <guid>http://47.100.5.11/categories/cg/</guid>
         <description></description>
         
         <dc:creator>陈乙己</dc:creator>
@@ -40,11 +40,11 @@
       
       <item>
         <title>linux</title>
-        <link>http://npchitman.github.io/categories/linux/</link>
+        <link>http://47.100.5.11/categories/linux/</link>
         <pubDate>Wed, 18 Dec 2019 10:33:41 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         
-        <guid>http://npchitman.github.io/categories/linux/</guid>
+        <guid>http://47.100.5.11/categories/linux/</guid>
         <description></description>
         
         <dc:creator>陈乙己</dc:creator>

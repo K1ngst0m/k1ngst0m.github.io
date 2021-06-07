@@ -7,7 +7,7 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Showcase overview on Npchitman&#39;s Blog</title>
-    <link>http://npchitman.github.io/showcase/</link>
+    <link>http://47.100.5.11/showcase/</link>
     <description>Recent content in Showcase overview on Npchitman&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -16,17 +16,17 @@
     <copyright>©2021, All Rights Reserved</copyright>
     <lastBuildDate>Sun, 19 Jan 2020 15:43:38 +0900</lastBuildDate>
     
-        <atom:link href="http://npchitman.github.io/showcase/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://47.100.5.11/showcase/index.xml" rel="self" type="application/rss+xml" />
     
 
       
       <item>
         <title>Game</title>
-        <link>http://npchitman.github.io/showcase/game-dev/</link>
+        <link>http://47.100.5.11/showcase/game-dev/</link>
         <pubDate>Sun, 19 Jan 2020 21:04:11 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Sun, 19 Jan 2020 21:04:11 +0900</atom:modified>
-        <guid>http://npchitman.github.io/showcase/game-dev/</guid>
+        <guid>http://47.100.5.11/showcase/game-dev/</guid>
         <description></description>
         
         <dc:creator>陈乙己</dc:creator>
@@ -40,11 +40,11 @@
       
       <item>
         <title>Linux</title>
-        <link>http://npchitman.github.io/showcase/linux/</link>
+        <link>http://47.100.5.11/showcase/linux/</link>
         <pubDate>Sun, 19 Jan 2020 21:04:11 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Sun, 19 Jan 2020 21:04:11 +0900</atom:modified>
-        <guid>http://npchitman.github.io/showcase/linux/</guid>
+        <guid>http://47.100.5.11/showcase/linux/</guid>
         <description></description>
         
         <dc:creator>陈乙己</dc:creator>
@@ -58,11 +58,11 @@
       
       <item>
         <title>Others</title>
-        <link>http://npchitman.github.io/showcase/other/</link>
+        <link>http://47.100.5.11/showcase/other/</link>
         <pubDate>Sun, 19 Jan 2020 21:04:11 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Sun, 19 Jan 2020 21:04:11 +0900</atom:modified>
-        <guid>http://npchitman.github.io/showcase/other/</guid>
+        <guid>http://47.100.5.11/showcase/other/</guid>
         <description></description>
         
         <dc:creator>陈乙己</dc:creator>
