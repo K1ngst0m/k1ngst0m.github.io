@@ -1844,7 +1844,7 @@
 <li>该阶段顶点坐标必须完成顶点从<code>模型空间</code>转换到<code>齐次裁剪空间</code>(世界, 观察, 裁剪)</li>
 <li><code>流输出(Stream output)</code>: <code>Shader Model4.0</code>以上支持, 顶点着色器除了将处理后的数据发送到光栅化阶段, 还可以输出到<code>流(有序数组)</code>, 输出到流的数据可以通过管线回传, 允许迭代处理, 是和模拟流动的水和其他特效</li>
 </ul>
-<h4 id="细面曲分-teselation-shader-可选">细面曲分 (Teselation Shader): 可选</h4>
+<h4 id="曲面细分-teselation-shader-可选">曲面细分 (Teselation Shader): 可选</h4>
 <ul>
 <li>利用镶嵌化处理技术对三角面进行细分, 以此来增加三角面的数量</li>
 <li>借助曲面细分的技术实现<code>LOD</code>机制</li>
@@ -2117,7 +2117,7 @@
     <div class="grow"></div>
     
       <a href="http://npchitman.github.io/posts/pbr-theory/" class="pagination-single__right">      
-        <div class="pagination-single__right-title">PBR笔记 - 理论基础</div>
+        <div class="pagination-single__right-title">PBR理论基础</div>
         <div class="pagination-single__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
         </div>
@@ -2494,7 +2494,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <li><a href="#实现步骤概述">实现步骤概述</a>
           <ul>
             <li><a href="#顶点着色器vertex-shader-完全可编程">顶点着色器(Vertex Shader): 完全可编程</a></li>
-            <li><a href="#细面曲分-teselation-shader-可选">细面曲分 (Teselation Shader): 可选</a></li>
+            <li><a href="#曲面细分-teselation-shader-可选">曲面细分 (Teselation Shader): 可选</a></li>
             <li><a href="#几何着色器geometry-shader-可选-完全可编程">几何着色器(Geometry Shader): 可选, 完全可编程</a></li>
             <li><a href="#功能阶段">功能阶段</a></li>
             <li><a href="#像素片段着色器pixelfragment-shader-可编程">像素/片段着色器(Pixel/Fragment Shader): 可编程</a></li>

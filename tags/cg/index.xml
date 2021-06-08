@@ -21,142 +21,6 @@
 
       
       <item>
-        <title>延迟渲染技术</title>
-        <link>http://npchitman.github.io/posts/deferred-rendering/</link>
-        <pubDate>Fri, 04 Jun 2021 10:33:41 +0900</pubDate>
-        <author>npchitman@outlook.com (陈乙己)</author>
-        <atom:modified>Fri, 04 Jun 2021 10:33:41 +0900</atom:modified>
-        <guid>http://npchitman.github.io/posts/deferred-rendering/</guid>
-        <description>正向渲染 (Forward Rendering/Shading) 根据所有光源照亮一个物体, 之后再渲染下一个物体 传统正向渲染思路: 先着色, 再进行深度测试 复杂度与光源关系很大, n个受到光源影响的物</description>
-        
-        <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/deferred-rendering-multiple-light.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>cg</category>
-            
-          
-        
-        
-          
-            
-              <category>cg</category>
-            
-          
-        
-        
-          
-            
-          
-        
-      </item>
-      
-      <item>
-        <title>抗锯齿类型总结</title>
-        <link>http://npchitman.github.io/posts/anti-aliasing/</link>
-        <pubDate>Fri, 04 Jun 2021 10:33:41 +0900</pubDate>
-        <author>npchitman@outlook.com (陈乙己)</author>
-        <atom:modified>Fri, 04 Jun 2021 10:33:41 +0900</atom:modified>
-        <guid>http://npchitman.github.io/posts/anti-aliasing/</guid>
-        <description>锯齿, 抗锯齿 锯齿 奈奎斯特极限(Nyquist Theorem): 采样频率是原始信号中最高频率的两倍 根本原因是因为采样分辨率不足, 要采样的最高频率超过奈奎斯特极</description>
-        
-        <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/taa.png" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>cg</category>
-            
-          
-        
-        
-          
-            
-              <category>cg</category>
-            
-          
-        
-        
-          
-            
-          
-        
-      </item>
-      
-      <item>
-        <title>游戏开发中渲染性能的优化</title>
-        <link>http://npchitman.github.io/posts/optimization/</link>
-        <pubDate>Fri, 04 Jun 2021 10:33:41 +0900</pubDate>
-        <author>npchitman@outlook.com (陈乙己)</author>
-        <atom:modified>Fri, 04 Jun 2021 10:33:41 +0900</atom:modified>
-        <guid>http://npchitman.github.io/posts/optimization/</guid>
-        <description>游戏渲染优化的方向: 更高的FPS, 更高的分辨率, 能够渲染更多的物体, 更真实的场景, 实现更高的复杂度 游戏开发中的渲染加速算法 常用空间数据结构(</description>
-        
-        <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/optimization.png" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>cg</category>
-            
-          
-        
-        
-          
-            
-              <category>cg</category>
-            
-          
-        
-        
-          
-            
-          
-        
-      </item>
-      
-      <item>
-        <title>纹理贴图相关技术</title>
-        <link>http://npchitman.github.io/posts/texturing/</link>
-        <pubDate>Fri, 04 Jun 2021 10:33:41 +0900</pubDate>
-        <author>npchitman@outlook.com (陈乙己)</author>
-        <atom:modified>Fri, 04 Jun 2021 10:33:41 +0900</atom:modified>
-        <guid>http://npchitman.github.io/posts/texturing/</guid>
-        <description>纹理贴图是使用图像, 函数及其他数据来源来改变物体表面外观的技术 纹理管线 The Texturing Pipeline 纹理管线是单个纹理应用纹理贴图的详细过程 投影方程(project</description>
-        
-        <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/texture-para.png" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>cg</category>
-            
-          
-        
-        
-          
-            
-              <category>cg</category>
-            
-          
-        
-        
-          
-            
-          
-        
-      </item>
-      
-      <item>
         <title>透明渲染与排序</title>
         <link>http://npchitman.github.io/posts/transparency/</link>
         <pubDate>Fri, 04 Jun 2021 10:33:41 +0900</pubDate>
@@ -191,7 +55,143 @@
       </item>
       
       <item>
-        <title>PBR笔记 - 理论基础</title>
+        <title>游戏开发中渲染性能的优化</title>
+        <link>http://npchitman.github.io/posts/optimization/</link>
+        <pubDate>Mon, 24 May 2021 10:33:41 +0900</pubDate>
+        <author>npchitman@outlook.com (陈乙己)</author>
+        <atom:modified>Mon, 24 May 2021 10:33:41 +0900</atom:modified>
+        <guid>http://npchitman.github.io/posts/optimization/</guid>
+        <description>游戏渲染优化的方向: 更高的FPS, 更高的分辨率, 能够渲染更多的物体, 更真实的场景, 实现更高的复杂度 游戏开发中的渲染加速算法 常用空间数据结构(</description>
+        
+        <dc:creator>陈乙己</dc:creator>
+        <media:content url="http://npchitman.github.ioimages/post_preview/optimization.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>cg</category>
+            
+          
+        
+        
+          
+            
+              <category>cg</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>纹理贴图相关技术</title>
+        <link>http://npchitman.github.io/posts/texturing/</link>
+        <pubDate>Thu, 20 May 2021 00:00:00 +0000</pubDate>
+        <author>npchitman@outlook.com (陈乙己)</author>
+        <atom:modified>Thu, 20 May 2021 00:00:00 +0000</atom:modified>
+        <guid>http://npchitman.github.io/posts/texturing/</guid>
+        <description>纹理贴图是使用图像, 函数及其他数据来源来改变物体表面外观的技术 纹理管线 The Texturing Pipeline 纹理管线是单个纹理应用纹理贴图的详细过程 投影方程(project</description>
+        
+        <dc:creator>陈乙己</dc:creator>
+        <media:content url="http://npchitman.github.ioimages/post_preview/texture-para.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>cg</category>
+            
+          
+        
+        
+          
+            
+              <category>cg</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>抗锯齿类型总结</title>
+        <link>http://npchitman.github.io/posts/anti-aliasing/</link>
+        <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
+        <author>npchitman@outlook.com (陈乙己)</author>
+        <atom:modified>Sun, 09 May 2021 00:00:00 +0000</atom:modified>
+        <guid>http://npchitman.github.io/posts/anti-aliasing/</guid>
+        <description>锯齿, 抗锯齿 锯齿 奈奎斯特极限(Nyquist Theorem): 采样频率是原始信号中最高频率的两倍 根本原因是因为采样分辨率不足, 要采样的最高频率超过奈奎斯特极</description>
+        
+        <dc:creator>陈乙己</dc:creator>
+        <media:content url="http://npchitman.github.ioimages/post_preview/taa.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>cg</category>
+            
+          
+        
+        
+          
+            
+              <category>cg</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>延迟渲染技术</title>
+        <link>http://npchitman.github.io/posts/deferred-rendering/</link>
+        <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+        <author>npchitman@outlook.com (陈乙己)</author>
+        <atom:modified>Mon, 12 Apr 2021 00:00:00 +0000</atom:modified>
+        <guid>http://npchitman.github.io/posts/deferred-rendering/</guid>
+        <description>正向渲染 (Forward Rendering/Shading) 根据所有光源照亮一个物体, 之后再渲染下一个物体 传统正向渲染思路: 先着色, 再进行深度测试 复杂度与光源关系很大, n个受到光源影响的物</description>
+        
+        <dc:creator>陈乙己</dc:creator>
+        <media:content url="http://npchitman.github.ioimages/post_preview/deferred-rendering-multiple-light.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>cg</category>
+            
+          
+        
+        
+          
+            
+              <category>cg</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>PBR理论基础</title>
         <link>http://npchitman.github.io/posts/pbr-theory/</link>
         <pubDate>Sat, 20 Feb 2021 10:33:41 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
