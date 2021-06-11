@@ -1350,8 +1350,8 @@
 <meta property="og:description" content="透明物体渲染及排序算法">
 
   
-    <meta property="og:image" content="http://npchitman.github.io/images/post_preview/pink-floyd.png">
-    <meta property="og:image:url" content="http://npchitman.github.io/images/post_preview/pink-floyd.png">
+    <meta property="og:image" content="http://npchitman.github.io/images/post_preview/transparency.gif">
+    <meta property="og:image:url" content="http://npchitman.github.io/images/post_preview/transparency.gif">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:app:name:iphone" content="Npchitman&#39;s Blog">
     <meta property="twitter:title" content="透明渲染与排序">
@@ -1399,7 +1399,7 @@
     "url" : "http://npchitman.github.io/posts/transparency/",
     "description": "透明物体渲染及排序算法",
     "keywords": ["cg"],
-    "image" : "http://npchitman.github.io/images/post_preview/pink-floyd.png",
+    "image" : "http://npchitman.github.io/images/post_preview/transparency.gif",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http://npchitman.github.io"
@@ -1723,7 +1723,25 @@
 </ul>
 <h2 id="透明排序">透明排序</h2>
 <ul>
-<li>需要将物体排序才能正确地绘制到场景中</li>
+<li>
+<p>渲染透明物体时, 需要开启深度测试, 对重合的部分进行混合(blender)运算, 深度写入需要关闭, 若是开启会导致后面的物体不可见</p>
+</li>
+<li>
+<p>需要将物体排序才能正确地绘制到场景中:</p>
+<ul>
+<li>绘制所有不透明的物体: 按照深度缓冲正常绘制</li>
+<li>对所有透明物体排序: 从远到近</li>
+<li>按顺序绘制所有透明的物体</li>
+</ul>
+</li>
+<li>
+<p>Early-Z:</p>
+<ul>
+<li>提前做深度测试(在片段着色器之前)</li>
+<li>通常由硬件实现</li>
+<li>Alpha测试和深度写入可能会使early-z失效</li>
+</ul>
+</li>
 </ul>
 <h3 id="深度缓冲-z-buffer">深度缓冲 (Z-Buffer)</h3>
 <ul>
@@ -1989,6 +2007,13 @@
       </a>
     
     <div class="grow"></div>
+    
+      <a href="http://npchitman.github.io/posts/game_engine/" class="pagination-single__right">      
+        <div class="pagination-single__right-title">游戏引擎工作流程</div>
+        <div class="pagination-single__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
+        </div>
+      </a>
     
   
 </nav>
