@@ -7,7 +7,7 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Categories on Npchitman&#39;s Blog</title>
-    <link>http://npchitman.github.io/categories/</link>
+    <link>https://npchitman.github.io/categories/</link>
     <description>Recent content in Categories on Npchitman&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -16,17 +16,17 @@
     <copyright>©2021, All Rights Reserved</copyright>
     <lastBuildDate>Wed, 09 Jun 2021 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="http://npchitman.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://npchitman.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
 
       
       <item>
         <title>cg</title>
-        <link>http://npchitman.github.io/categories/cg/</link>
+        <link>https://npchitman.github.io/categories/cg/</link>
         <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         
-        <guid>http://npchitman.github.io/categories/cg/</guid>
+        <guid>https://npchitman.github.io/categories/cg/</guid>
         <description></description>
         
         <dc:creator>陈乙己</dc:creator>
@@ -40,11 +40,11 @@
       
       <item>
         <title>c&#43;&#43;</title>
-        <link>http://npchitman.github.io/categories/c&#43;&#43;/</link>
+        <link>https://npchitman.github.io/categories/c&#43;&#43;/</link>
         <pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         
-        <guid>http://npchitman.github.io/categories/c&#43;&#43;/</guid>
+        <guid>https://npchitman.github.io/categories/c&#43;&#43;/</guid>
         <description></description>
         
         <dc:creator>陈乙己</dc:creator>
@@ -58,11 +58,11 @@
       
       <item>
         <title>linux</title>
-        <link>http://npchitman.github.io/categories/linux/</link>
+        <link>https://npchitman.github.io/categories/linux/</link>
         <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         
-        <guid>http://npchitman.github.io/categories/linux/</guid>
+        <guid>https://npchitman.github.io/categories/linux/</guid>
         <description></description>
         
         <dc:creator>陈乙己</dc:creator>

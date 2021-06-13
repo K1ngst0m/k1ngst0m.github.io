@@ -7,7 +7,7 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>cg on Npchitman&#39;s Blog</title>
-    <link>http://npchitman.github.io/tags/cg/</link>
+    <link>https://npchitman.github.io/tags/cg/</link>
     <description>Recent content in cg on Npchitman&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -16,21 +16,21 @@
     <copyright>©2021, All Rights Reserved</copyright>
     <lastBuildDate>Wed, 09 Jun 2021 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="http://npchitman.github.io/tags/cg/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://npchitman.github.io/tags/cg/index.xml" rel="self" type="application/rss+xml" />
     
 
       
       <item>
         <title>游戏引擎工作流程</title>
-        <link>http://npchitman.github.io/posts/game_engine/</link>
+        <link>https://npchitman.github.io/posts/game_engine/</link>
         <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Wed, 09 Jun 2021 00:00:00 +0000</atom:modified>
-        <guid>http://npchitman.github.io/posts/game_engine/</guid>
+        <guid>https://npchitman.github.io/posts/game_engine/</guid>
         <description>游戏引擎的主要工作是控制场景, 角色在场景中的互动, 主要包括三个部分: 数学引擎(Math Engine) 数学引擎包括了所有的线性代数和矩阵操作, 是首先要开发</description>
         
         <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/gameengine.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="https://npchitman.github.ioimages/post_preview/gameengine.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
@@ -56,15 +56,15 @@
       
       <item>
         <title>透明渲染与排序</title>
-        <link>http://npchitman.github.io/posts/transparency/</link>
+        <link>https://npchitman.github.io/posts/transparency/</link>
         <pubDate>Fri, 04 Jun 2021 10:33:41 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Fri, 04 Jun 2021 10:33:41 +0900</atom:modified>
-        <guid>http://npchitman.github.io/posts/transparency/</guid>
+        <guid>https://npchitman.github.io/posts/transparency/</guid>
         <description>透明渲染算法 常见的透明渲染算法有两种 Screen-Door Transparency 阿尔法覆盖(alpha to coverage) 使用棋盘格填充模式来绘制多边形 每隔1个像素绘制一点来绘制会使后面的物体部分</description>
         
         <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/transparency.gif" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="https://npchitman.github.ioimages/post_preview/transparency.gif" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
@@ -90,15 +90,15 @@
       
       <item>
         <title>游戏开发中渲染性能的优化</title>
-        <link>http://npchitman.github.io/posts/optimization/</link>
+        <link>https://npchitman.github.io/posts/optimization/</link>
         <pubDate>Mon, 24 May 2021 10:33:41 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Mon, 24 May 2021 10:33:41 +0900</atom:modified>
-        <guid>http://npchitman.github.io/posts/optimization/</guid>
+        <guid>https://npchitman.github.io/posts/optimization/</guid>
         <description>游戏渲染优化的方向: 更高的FPS, 更高的分辨率, 能够渲染更多的物体, 更真实的场景, 实现更高的复杂度 游戏开发中的渲染加速算法 常用空间数据结构(</description>
         
         <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/optimization.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="https://npchitman.github.ioimages/post_preview/optimization.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
@@ -124,15 +124,15 @@
       
       <item>
         <title>纹理贴图相关技术</title>
-        <link>http://npchitman.github.io/posts/texturing/</link>
+        <link>https://npchitman.github.io/posts/texturing/</link>
         <pubDate>Thu, 20 May 2021 00:00:00 +0000</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Thu, 20 May 2021 00:00:00 +0000</atom:modified>
-        <guid>http://npchitman.github.io/posts/texturing/</guid>
+        <guid>https://npchitman.github.io/posts/texturing/</guid>
         <description>纹理贴图是使用图像, 函数及其他数据来源来改变物体表面外观的技术 纹理管线 The Texturing Pipeline 纹理管线是单个纹理应用纹理贴图的详细过程 投影方程(project</description>
         
         <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/texture-para.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="https://npchitman.github.ioimages/post_preview/texture-para.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
@@ -158,15 +158,15 @@
       
       <item>
         <title>抗锯齿类型总结</title>
-        <link>http://npchitman.github.io/posts/anti-aliasing/</link>
+        <link>https://npchitman.github.io/posts/anti-aliasing/</link>
         <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Sun, 09 May 2021 00:00:00 +0000</atom:modified>
-        <guid>http://npchitman.github.io/posts/anti-aliasing/</guid>
+        <guid>https://npchitman.github.io/posts/anti-aliasing/</guid>
         <description>锯齿, 抗锯齿 锯齿 奈奎斯特极限(Nyquist Theorem): 采样频率是原始信号中最高频率的两倍 根本原因是因为采样分辨率不足, 要采样的最高频率超过奈奎斯特极</description>
         
         <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/taa.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="https://npchitman.github.ioimages/post_preview/taa.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
@@ -192,15 +192,15 @@
       
       <item>
         <title>延迟渲染技术</title>
-        <link>http://npchitman.github.io/posts/deferred-rendering/</link>
+        <link>https://npchitman.github.io/posts/deferred-rendering/</link>
         <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Mon, 12 Apr 2021 00:00:00 +0000</atom:modified>
-        <guid>http://npchitman.github.io/posts/deferred-rendering/</guid>
+        <guid>https://npchitman.github.io/posts/deferred-rendering/</guid>
         <description>正向渲染 (Forward Rendering/Shading) 根据所有光源照亮一个物体, 之后再渲染下一个物体 传统正向渲染思路: 先着色, 再进行深度测试 复杂度与光源关系很大, n个受到光源影响的物</description>
         
         <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/deferred-rendering-multiple-light.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="https://npchitman.github.ioimages/post_preview/deferred-rendering-multiple-light.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
@@ -226,15 +226,15 @@
       
       <item>
         <title>PBR理论基础</title>
-        <link>http://npchitman.github.io/posts/pbr-theory/</link>
+        <link>https://npchitman.github.io/posts/pbr-theory/</link>
         <pubDate>Sat, 20 Feb 2021 10:33:41 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Sat, 20 Feb 2021 10:33:41 +0900</atom:modified>
-        <guid>http://npchitman.github.io/posts/pbr-theory/</guid>
+        <guid>https://npchitman.github.io/posts/pbr-theory/</guid>
         <description>核心 微平面理论(Microfacet Theory) 将物体表面建模成无数微观尺度上有随机朝向的理想镜面反射的小平面(microfacet) 实际PBR工作流</description>
         
         <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/halo_infinite.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="https://npchitman.github.ioimages/post_preview/halo_infinite.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
@@ -260,15 +260,15 @@
       
       <item>
         <title>渲染管线流程</title>
-        <link>http://npchitman.github.io/posts/render-pipline/</link>
+        <link>https://npchitman.github.io/posts/render-pipline/</link>
         <pubDate>Sat, 20 Feb 2021 10:33:41 +0900</pubDate>
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Sat, 20 Feb 2021 10:33:41 +0900</atom:modified>
-        <guid>http://npchitman.github.io/posts/render-pipline/</guid>
+        <guid>https://npchitman.github.io/posts/render-pipline/</guid>
         <description>渲染管线主要功能是对给定虚拟相机, 三维物体, 光源, 照明模式, 纹理等条件情况下, 生成一副二维图像的过程 图形渲染管线工作流程 主要包含四个阶段: 应</description>
         
         <dc:creator>陈乙己</dc:creator>
-        <media:content url="http://npchitman.github.ioimages/post_preview/render_pipeline.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="https://npchitman.github.ioimages/post_preview/render_pipeline.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         

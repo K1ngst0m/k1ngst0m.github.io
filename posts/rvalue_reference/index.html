@@ -651,9 +651,9 @@
 
   
     
-    var baseurl = JSON.parse("\"http://npchitman.github.io\"");
+    var baseurl = JSON.parse("\"https://npchitman.github.io\"");
     
-    var permalink = JSON.parse("\"http://npchitman.github.io/posts/rvalue_reference/\"");
+    var permalink = JSON.parse("\"https://npchitman.github.io/posts/rvalue_reference/\"");
     
     var langprefix = JSON.parse("\"\"");
     var searchResults = null;
@@ -1345,13 +1345,13 @@
 
 <meta property="og:site_name" content="Npchitman&#39;s Blog">
 <meta property="og:title" content="c&#43;&#43;右值引用">
-<meta property="og:url" content="http://npchitman.github.io/posts/rvalue_reference/">
+<meta property="og:url" content="https://npchitman.github.io/posts/rvalue_reference/">
 <meta property="og:type" content="article">
 <meta property="og:description" content="对c&#43;&#43;11中右值引用, 移动语义, 完美转发的理解">
 
   
-    <meta property="og:image" content="http://npchitman.github.io/images/post_preview/gameengine.png">
-    <meta property="og:image:url" content="http://npchitman.github.io/images/post_preview/gameengine.png">
+    <meta property="og:image" content="https://npchitman.github.io/images/post_preview/gameengine.png">
+    <meta property="og:image:url" content="https://npchitman.github.io/images/post_preview/gameengine.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:app:name:iphone" content="Npchitman&#39;s Blog">
     <meta property="twitter:title" content="c&#43;&#43;右值引用">
@@ -1367,7 +1367,7 @@
 
 <meta name="apple-mobile-web-app-status-bar-style" content="#fff">
 
-<link rel="canonical" href="http://npchitman.github.io/posts/rvalue_reference/">
+<link rel="canonical" href="https://npchitman.github.io/posts/rvalue_reference/">
 
 <link rel="manifest" href="/manifest.json">
 
@@ -1396,18 +1396,18 @@
     "headline": "c++右值引用",
     "datePublished": "2021-05-11T00:00:00Z",
     "dateModified": "2021-05-11T00:00:00Z",
-    "url" : "http://npchitman.github.io/posts/rvalue_reference/",
+    "url" : "https://npchitman.github.io/posts/rvalue_reference/",
     "description": "对c++11中右值引用, 移动语义, 完美转发的理解",
     "keywords": ["c++"],
-    "image" : "http://npchitman.github.io/images/post_preview/gameengine.png",
+    "image" : "https://npchitman.github.io/images/post_preview/gameengine.png",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "http://npchitman.github.io"
+      "@id": "https://npchitman.github.io"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Npchitman's Blog",
-      "url": "http://npchitman.github.io"
+      "url": "https://npchitman.github.io"
     }
   }
 </script>
@@ -1653,14 +1653,14 @@
   
   <li >
     
-      <a href="http://npchitman.github.io/" class="capitalize">Npchitman&#39;s Blog</a>
+      <a href="https://npchitman.github.io/" class="capitalize">Npchitman&#39;s Blog</a>
     
   </li>
   
   
   <li >
     
-      <a href="http://npchitman.github.io/posts/" class="capitalize">Posts</a>
+      <a href="https://npchitman.github.io/posts/" class="capitalize">Posts</a>
     
   </li>
   
@@ -1699,7 +1699,7 @@
   🏷️
   
 
-  <li><a href="http://npchitman.github.io/tags/c&#43;&#43;/" class="single__tag" title="c&#43;&#43;">#c&#43;&#43;</a></li>
+  <li><a href="https://npchitman.github.io/tags/c&#43;&#43;/" class="single__tag" title="c&#43;&#43;">#c&#43;&#43;</a></li>
 
 </ul>
 
@@ -1709,8 +1709,8 @@
       <h2 id="c03及之前的标准">c++03及之前的标准</h2>
 <p>c++03及之前的标准中, 表达式的值类型(value categories)属性为左值或右值:</p>
 <ul>
-<li>左值对应内存中确定存储地址的对象的表达式的值</li>
-<li>非以上情况的表达式即为右值, 如字面量, 临时对象等表达式</li>
+<li>左值对应内存中确定存储地址的对象的表达式的值, 表达式结束后依然存在</li>
+<li>非以上情况的表达式即为右值, 如字面量, 临时对象等表达式, 表达式结束后就不存在</li>
 </ul>
 <p>左值与右值的根本区别在于是否允许取地址运算符&amp;获得对应的内存地址, c++03 及之前的标准定义了表达式中左值到右值的三类隐式自动转换:</p>
 <ul>
@@ -1747,7 +1747,26 @@
 </div><h3 id="右值引用的作用">右值引用的作用</h3>
 <p>和左值引用的组合可以实现移动语义, 右值引用还能实现完美转发, 实现更高效, 更通用的代码</p>
 <h4 id="移动语义-move-semantics">移动语义 (Move Semantics)</h4>
-<p>移动语义通过右值引用支持, 用于减少值复制带来的开销, 提升性能</p>
+<p>移动的意思是转移所有权, 由于右值都是临时的值, 临时值释放后不再持有属性的所有权, 相当于转移资源所有权的行为, 除了临时值, 左值在一些情况下也适合转移所有权:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">func</span><span class="p">(){</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="n">result</span><span class="p">;</span>
+    <span class="c1">// 此时将result赋值给ans后不再被使用
+</span><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="n">xxx</span><span class="p">){</span><span class="n">ans</span> <span class="o">=</span> <span class="n">result</span><span class="p">;}</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>移动语义通过右值引用支持, 用于减少值复制带来的开销, 提升性能</p>
 <p>复制在一些情况(如向量复制, 通常是函数调用的情况)的资源消耗高, 某些情况下本意并不需要两个副本, 而是想要将值&quot;移动&quot;到另一个变量上:</p>
 <p>下面的交换函数, 作出了三次拷贝操作仅仅是为了修改原先的值:</p>
 <div class="highlight"><div class="chroma">
@@ -2027,7 +2046,7 @@
 <nav class="pagination-single">
   
     
-      <a href="http://npchitman.github.io/posts/anti-aliasing/" class="pagination-single__left">
+      <a href="https://npchitman.github.io/posts/anti-aliasing/" class="pagination-single__left">
         <div class="pagination-single__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
         </div>
@@ -2036,7 +2055,7 @@
     
     <div class="grow"></div>
     
-      <a href="http://npchitman.github.io/posts/texturing/" class="pagination-single__right">      
+      <a href="https://npchitman.github.io/posts/texturing/" class="pagination-single__right">      
         <div class="pagination-single__right-title">纹理贴图相关技术</div>
         <div class="pagination-single__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
