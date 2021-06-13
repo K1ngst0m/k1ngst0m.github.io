@@ -1350,8 +1350,8 @@
 <meta property="og:description" content="对c&#43;&#43;11中右值引用, 移动语义, 完美转发的理解">
 
   
-    <meta property="og:image" content="https://npchitman.github.io/images/post_preview/gameengine.png">
-    <meta property="og:image:url" content="https://npchitman.github.io/images/post_preview/gameengine.png">
+    <meta property="og:image" content="https://npchitman.github.io/images/post_preview/rvalue_reference.jpg">
+    <meta property="og:image:url" content="https://npchitman.github.io/images/post_preview/rvalue_reference.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:app:name:iphone" content="Npchitman&#39;s Blog">
     <meta property="twitter:title" content="c&#43;&#43;右值引用">
@@ -1399,7 +1399,7 @@
     "url" : "https://npchitman.github.io/posts/rvalue_reference/",
     "description": "对c++11中右值引用, 移动语义, 完美转发的理解",
     "keywords": ["c++"],
-    "image" : "https://npchitman.github.io/images/post_preview/gameengine.png",
+    "image" : "https://npchitman.github.io/images/post_preview/rvalue_reference.jpg",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://npchitman.github.io"
@@ -1744,16 +1744,15 @@
 </span><span class="c1"></span><span class="n">A</span><span class="o">&amp;&amp;</span> <span class="n">a_ref4</span> <span class="o">=</span> <span class="n">A</span><span class="p">();</span> <span class="c1">// 合法
 </span></code></pre></td></tr></table>
 </div>
-</div><h3 id="右值引用的作用">右值引用的作用</h3>
-<p>和左值引用的组合可以实现移动语义, 右值引用还能实现完美转发, 实现更高效, 更通用的代码</p>
-<h4 id="引用折叠">引用折叠</h4>
+</div><p>和左值引用的组合可以实现移动语义, 右值引用还能实现完美转发, 实现更高效, 更通用的代码</p>
+<h3 id="引用折叠reference-collapsing">引用折叠(Reference Collapsing)</h3>
 <p>由于 c++中禁止<code>reference to reference</code>, 编译器需要对四种情况(LL, LR, RL, RR)进行处理, 将其整理成单一的引用</p>
 <p><strong>引用折叠规则</strong>:</p>
 <ul>
 <li>所有右值引用折叠到右值引用上仍是一个右值引用(A&amp;&amp; &amp;&amp; -&gt; A&amp;&amp;)</li>
 <li>所有其他引用类型之间的折叠都将变成左值引用</li>
 </ul>
-<h4 id="万能引用-universal-reference">万能引用 (Universal Reference)</h4>
+<h3 id="万能引用-universal-reference">万能引用 (Universal Reference)</h3>
 <ul>
 <li><code>&amp;&amp;</code>既能接收左值类型的参数, 也能接收右值类型的参数:</li>
 </ul>
@@ -1771,7 +1770,7 @@
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="移动语义-move-semantics">移动语义 (Move Semantics)</h4>
+</div><h3 id="移动语义-move-semantics">移动语义 (Move Semantics)</h3>
 <p>移动的意思是转移所有权, 由于右值都是临时的值, 临时值释放后不再持有属性的所有权, 相当于转移资源所有权的行为, 除了临时值, 左值在一些情况下也适合转移所有权:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1855,7 +1854,7 @@
 </div>
 </div><p>由于 move 使参数变为临时变量, 不能被程序其他地方引用, 所以保证了移动语义的运作</p>
 <p>在类中实现<code>移动构造函数(move constructor)</code>来用作移动语义(或者可以实现移动赋值运算符), 编译器通常不会提供移动构造函数的默认实现</p>
-<h4 id="完美转发-perfect-forwarding">完美转发 (Perfect Forwarding)</h4>
+<h3 id="完美转发-perfect-forwarding">完美转发 (Perfect Forwarding)</h3>
 <p><code>std::forward</code>用作完美转发, 用于保持原来的值属性(左右)不变, 定义如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2465,14 +2464,10 @@ document.addEventListener('DOMContentLoaded', function () {
     <li><a href="#c03-及之前的标准">c++03 及之前的标准</a></li>
     <li><a href="#c11-右值引用">c++11 右值引用</a>
       <ul>
-        <li><a href="#右值引用的作用">右值引用的作用</a>
-          <ul>
-            <li><a href="#引用折叠">引用折叠</a></li>
-            <li><a href="#万能引用-universal-reference">万能引用 (Universal Reference)</a></li>
-            <li><a href="#移动语义-move-semantics">移动语义 (Move Semantics)</a></li>
-            <li><a href="#完美转发-perfect-forwarding">完美转发 (Perfect Forwarding)</a></li>
-          </ul>
-        </li>
+        <li><a href="#引用折叠reference-collapsing">引用折叠(Reference Collapsing)</a></li>
+        <li><a href="#万能引用-universal-reference">万能引用 (Universal Reference)</a></li>
+        <li><a href="#移动语义-move-semantics">移动语义 (Move Semantics)</a></li>
+        <li><a href="#完美转发-perfect-forwarding">完美转发 (Perfect Forwarding)</a></li>
       </ul>
     </li>
   </ul>

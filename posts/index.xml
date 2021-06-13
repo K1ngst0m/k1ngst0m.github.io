@@ -166,7 +166,7 @@
         <description>c++03 及之前的标准 c++03 及之前的标准中, 表达式的值类型(value categories)属性为左值或右值: 左值对应内存中确定存储地址的对象的表达式的</description>
         
         <dc:creator>陈乙己</dc:creator>
-        <media:content url="https://npchitman.github.ioimages/post_preview/gameengine.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="https://npchitman.github.ioimages/post_preview/rvalue_reference.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
