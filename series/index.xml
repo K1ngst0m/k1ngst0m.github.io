@@ -7,7 +7,7 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Series on Npchitman&#39;s Blog</title>
-    <link>https://npchitman.github.io/series/</link>
+    <link>https://npchitman.com/series/</link>
     <description>Recent content in Series on Npchitman&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -15,7 +15,7 @@
     <webMaster>npchitman@outlook.com (陈乙己)</webMaster>
     <copyright>©2021, All Rights Reserved</copyright>
     
-        <atom:link href="https://npchitman.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://npchitman.com/series/index.xml" rel="self" type="application/rss+xml" />
     
 
       
