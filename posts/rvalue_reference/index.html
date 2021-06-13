@@ -1706,8 +1706,8 @@
     </div>
     <article class="single__contents" data-dir="ltr" data-ani="true">
       
-      <h2 id="c03及之前的标准">c++03及之前的标准</h2>
-<p>c++03及之前的标准中, 表达式的值类型(value categories)属性为左值或右值:</p>
+      <h2 id="c03-及之前的标准">c++03 及之前的标准</h2>
+<p>c++03 及之前的标准中, 表达式的值类型(value categories)属性为左值或右值:</p>
 <ul>
 <li>左值对应内存中确定存储地址的对象的表达式的值, 表达式结束后依然存在</li>
 <li>非以上情况的表达式即为右值, 如字面量, 临时对象等表达式, 表达式结束后就不存在</li>
@@ -1746,7 +1746,32 @@
 </div>
 </div><h3 id="右值引用的作用">右值引用的作用</h3>
 <p>和左值引用的组合可以实现移动语义, 右值引用还能实现完美转发, 实现更高效, 更通用的代码</p>
-<h4 id="移动语义-move-semantics">移动语义 (Move Semantics)</h4>
+<h4 id="引用折叠">引用折叠</h4>
+<p>由于 c++中禁止<code>reference to reference</code>, 编译器需要对四种情况(LL, LR, RL, RR)进行处理, 将其整理成单一的引用</p>
+<p><strong>引用折叠规则</strong>:</p>
+<ul>
+<li>所有右值引用折叠到右值引用上仍是一个右值引用(A&amp;&amp; &amp;&amp; -&gt; A&amp;&amp;)</li>
+<li>所有其他引用类型之间的折叠都将变成左值引用</li>
+</ul>
+<h4 id="万能引用-universal-reference">万能引用 (Universal Reference)</h4>
+<ul>
+<li><code>&amp;&amp;</code>既能接收左值类型的参数, 也能接收右值类型的参数:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">ReturnType</span> <span class="n">Function</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">param</span><span class="p">){</span>
+    <span class="c1">// TODO:
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="移动语义-move-semantics">移动语义 (Move Semantics)</h4>
 <p>移动的意思是转移所有权, 由于右值都是临时的值, 临时值释放后不再持有属性的所有权, 相当于转移资源所有权的行为, 除了临时值, 左值在一些情况下也适合转移所有权:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1785,7 +1810,7 @@
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>使用move消除不必要的拷贝:</p>
+</div><p>使用 move 消除不必要的拷贝:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1796,13 +1821,13 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="n">swap</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">){</span>
-    <span class="n">T</span> <span class="nf">tmp</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">a</span><span class="p">));</span> 
-    <span class="n">a</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>    
-    <span class="n">b</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span> 
+    <span class="n">T</span> <span class="nf">tmp</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>move函数返回参数的值, 但是不强制保留源参数的值, 例如使用move将vectorB的元素移动到vectorA, 执行完该语句后, vectorA获得了vectorB的元素, 此时B内为空, 里面的内容已经&quot;移动&quot;到A中:</p>
+</div><p>move 函数返回参数的值, 但是不强制保留源参数的值, 例如使用 move 将 vectorB 的元素移动到 vectorA, 执行完该语句后, vectorA 获得了 vectorB 的元素, 此时 B 内为空, 里面的内容已经&quot;移动&quot;到 A 中:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1811,7 +1836,7 @@
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">A</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">B</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>move的定义如下, 参数接收左值或右值参数, 将其作为右值返回, 不会触发复制构造函数:</p>
+</div><p>move 的定义如下, 参数接收左值或右值参数, 将其作为右值返回, 不会触发复制构造函数:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1828,23 +1853,44 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>由于move使参数变为临时变量, 不能被程序其他地方引用, 所以保证了移动语义的运作</p>
-<p>在类中实现移动构造函数来实现移动语义(或者可以实现移动赋值运算符), 编译器通常不会提供移动构造函数的默认实现</p>
+</div><p>由于 move 使参数变为临时变量, 不能被程序其他地方引用, 所以保证了移动语义的运作</p>
+<p>在类中实现<code>移动构造函数(move constructor)</code>来用作移动语义(或者可以实现移动赋值运算符), 编译器通常不会提供移动构造函数的默认实现</p>
 <h4 id="完美转发-perfect-forwarding">完美转发 (Perfect Forwarding)</h4>
-<p>完美转发的定义如下:</p>
+<p><code>std::forward</code>用作完美转发, 用于保持原来的值属性(左右)不变, 定义如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">_Tp</span><span class="o">&gt;</span>
-<span class="k">constexpr</span> <span class="n">_Tp</span><span class="o">&amp;&amp;</span> <span class="n">forward</span><span class="p">(</span><span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;</span> <span class="n">__t</span><span class="p">)</span> <span class="k">noexcept</span>
-<span class="p">{</span> <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">__t</span><span class="p">);</span> <span class="p">}</span>
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">// 左值应用模板函数
+</span><span class="c1"></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">forward</span><span class="p">(</span><span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;</span> <span class="n">param</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">param</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 右值应用模板函数
+</span><span class="c1"></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">forward</span><span class="p">(</span><span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;</span> <span class="n">param</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">param</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
+</div><p><code>forward</code>实现了两个模板函数, 一个接收左值, 一个接收右值, <code>forward</code>对参数进行强制转换, 转换的目标类型符合引用折叠规则, 左值参数最终转换后仍为左值, 右值参数最终转为右值</p>
+
     </article>
     
     
@@ -2416,11 +2462,13 @@ document.addEventListener('DOMContentLoaded', function () {
   <div class="toc " data-dir="ltr" data-folding="true" data-ani="true">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#c03及之前的标准">c++03及之前的标准</a></li>
+    <li><a href="#c03-及之前的标准">c++03 及之前的标准</a></li>
     <li><a href="#c11-右值引用">c++11 右值引用</a>
       <ul>
         <li><a href="#右值引用的作用">右值引用的作用</a>
           <ul>
+            <li><a href="#引用折叠">引用折叠</a></li>
+            <li><a href="#万能引用-universal-reference">万能引用 (Universal Reference)</a></li>
             <li><a href="#移动语义-move-semantics">移动语义 (Move Semantics)</a></li>
             <li><a href="#完美转发-perfect-forwarding">完美转发 (Perfect Forwarding)</a></li>
           </ul>

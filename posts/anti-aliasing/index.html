@@ -1766,55 +1766,55 @@
 <h3 id="超级采样抗锯齿-ssaa-super-sampling">超级采样抗锯齿 SSAA (Super Sampling)</h3>
 <ul>
 <li>比较早期的抗锯齿算法, 比较消耗资源</li>
-<li>原理是先将图像映射到缓存并放大, 再用超级采样把放大的图像像素进行采样, 通常选取2/4个临近像素, 混合后生成最终像素</li>
+<li>原理是先将图像映射到缓存并放大, 再用超级采样把放大的图像像素进行采样, 通常选取 2/4 个临近像素, 混合后生成最终像素</li>
 <li>通常使用两种超级采样法:
 <ul>
-<li><code>顺序栅格超级采样 (OGSS, Ordererd Grid Super-Sampling)</code>, 采样时选取2个临近像素</li>
-<li><code>旋转栅格超级采样 (RGSS, Rotated Grid Super-Sampling)</code>, 采样时选取4个临近像素</li>
+<li><code>顺序栅格超级采样 (OGSS, Ordererd Grid Super-Sampling)</code>, 采样时选取 2 个临近像素</li>
+<li><code>旋转栅格超级采样 (RGSS, Rotated Grid Super-Sampling)</code>, 采样时选取 4 个临近像素</li>
 </ul>
 </li>
 <li><code>全场景抗锯齿(FSAA, Full-Scene Anti-Aliasing)</code>: 以较高的分辨率对场景进行绘制, 然后对相邻的采样样本进行平均</li>
 </ul>
 <h3 id="多重采样抗锯齿-msaamulti-sampling">多重采样抗锯齿 MSAA(Multi Sampling)</h3>
 <ul>
-<li>特殊的超级采样抗锯齿(SSAA), 来自于OpenGL</li>
-<li>MSAA只对<code>z-buffer</code>和<code>stencil-buffer</code>中的数据进行SSAA的处理, 即只对多边形边缘进行处理</li>
-<li>相比SSAA资源消耗大大减弱(通常还有GPU支持加速), 但画质表现会损失一些</li>
-<li>MSAA对于半透明物体, 边缘不明确或者非常复杂的物体(草丛, 铁丝网)的处理比较力不从心</li>
-<li>不适合延迟渲染(光栅化信息存在GBuffer), 适用在前向渲染中</li>
+<li>特殊的超级采样抗锯齿(SSAA), 来自于 OpenGL</li>
+<li>MSAA 只对<code>z-buffer</code>和<code>stencil-buffer</code>中的数据进行 SSAA 的处理, 即只对多边形边缘进行处理</li>
+<li>相比 SSAA 资源消耗大大减弱(通常还有 GPU 支持加速), 但画质表现会损失一些</li>
+<li>MSAA 对于半透明物体, 边缘不明确或者非常复杂的物体(草丛, 铁丝网)的处理比较力不从心</li>
+<li>不适合延迟渲染(光栅化信息存在 GBuffer), 适用在前向渲染中</li>
 </ul>
 <h3 id="子像素增强抗锯齿smaa-enhanced-subpixel-morphological">子像素增强抗锯齿(SMAA Enhanced Subpixel Morphological)</h3>
 <ul>
 <li>后处理抗锯齿</li>
-<li>与FXAA类似, 性能消耗小, 比FXAA清晰</li>
-<li>处理流程建立在MLAA算法上</li>
-<li>动态画面上效果不好, 可以和TAA同时开启</li>
+<li>与 FXAA 类似, 性能消耗小, 比 FXAA 清晰</li>
+<li>处理流程建立在 MLAA 算法上</li>
+<li>动态画面上效果不好, 可以和 TAA 同时开启</li>
 </ul>
 <h3 id="覆盖采样抗锯齿-csaacoverage-sampling">覆盖采样抗锯齿 CSAA(Coverage Sampling)</h3>
 <ul>
-<li>在MSAA基础上进一步节省显存使用量及带宽</li>
-<li>CSAA将边缘多边形里需要取样的子像素覆盖掉, 把原像素坐标强制安置在硬件和驱动程序预先算好的坐标中, 相比于MSAA能够最高效率地执行边缘取样, 16xCSAA性能下降相当于4xMSAA, 效果相当于8xMSAA</li>
+<li>在 MSAA 基础上进一步节省显存使用量及带宽</li>
+<li>CSAA 将边缘多边形里需要取样的子像素覆盖掉, 把原像素坐标强制安置在硬件和驱动程序预先算好的坐标中, 相比于 MSAA 能够最高效率地执行边缘取样, 16xCSAA 性能下降相当于 4xMSAA, 效果相当于 8xMSAA</li>
 </ul>
 <h3 id="高分辨率抗锯齿-hraaquincunx-high-resolution">高分辨率抗锯齿 HRAA/Quincunx (High Resolution)</h3>
 <ul>
-<li>出自Nvidia, 五点梅花状采样, 其中四个样本在像素单元的角上, 最后一个在中心</li>
+<li>出自 Nvidia, 五点梅花状采样, 其中四个样本在像素单元的角上, 最后一个在中心</li>
 </ul>
 <h3 id="可编程过滤抗锯齿-cfaa-custom-filtter">可编程过滤抗锯齿 CFAA (Custom Filtter)</h3>
 <ul>
-<li>扩大取样面积的MSAA, 可以更灵活选取对抗锯齿影响较大的像素进行缩放, 以较少的性能牺牲换取平滑效果, 从而减小显卡资源消耗</li>
+<li>扩大取样面积的 MSAA, 可以更灵活选取对抗锯齿影响较大的像素进行缩放, 以较少的性能牺牲换取平滑效果, 从而减小显卡资源消耗</li>
 </ul>
 <h3 id="形态抗锯齿-mlaa-morphological">形态抗锯齿 MLAA (Morphological)</h3>
 <ul>
-<li>出自AMD, 完全基于CPU处理的后处理抗锯齿方案</li>
-<li>MLAA将跨越边缘像素的前景和背景色进行混合, 用第二种颜色填充该像素, 更有效改进图像边缘的变现效果</li>
+<li>出自 AMD, 完全基于 CPU 处理的后处理抗锯齿方案</li>
+<li>MLAA 将跨越边缘像素的前景和背景色进行混合, 用第二种颜色填充该像素, 更有效改进图像边缘的变现效果</li>
 <li>资源消耗较大</li>
 <li>仅使用颜色辨识, 无法辨识哪些边缘需要进行计算, 导致文字, 表格受到影响</li>
 </ul>
 <h3 id="快速近似抗锯齿-fxaa-fast-approximate">快速近似抗锯齿 FXAA (Fast Approximate)</h3>
 <ul>
-<li>传统MSAA的一种高性能近似, 可以同时开启, 是后处理抗锯齿</li>
-<li>FXAA是一种单程像素着色器, 相比MLAA不依赖于GPU的API, 兼容不同硬件</li>
-<li>性能比MLAA好, 画面接近于MSAA</li>
+<li>传统 MSAA 的一种高性能近似, 可以同时开启, 是后处理抗锯齿</li>
+<li>FXAA 是一种单程像素着色器, 相比 MLAA 不依赖于 GPU 的 API, 兼容不同硬件</li>
+<li>性能比 MLAA 好, 画面接近于 MSAA</li>
 <li>会出现字体破坏情况, 但不会造成镜面模糊和亚像素模糊(闪烁现象/时间性锯齿)</li>
 </ul>
 <h3 id="taa-temporal">TAA (Temporal)</h3>
@@ -1829,33 +1829,33 @@
 <p>以后处理的方式融入渲染流</p>
 </li>
 <li>
-<p>相机抖动: 相机随时间抖动时, 引入了额外的子像素信息, 通过融合子像素获得时域上的超采样效果, 使得静态场景中与SSAA效果一致</p>
+<p>相机抖动: 相机随时间抖动时, 引入了额外的子像素信息, 通过融合子像素获得时域上的超采样效果, 使得静态场景中与 SSAA 效果一致</p>
 </li>
 <li>
 <p>实现细节</p>
 <ol>
-<li>开始移动相机: 利用图形学的Motion Vector计算像素点当前帧和上一帧的移动</li>
+<li>开始移动相机: 利用图形学的 Motion Vector 计算像素点当前帧和上一帧的移动</li>
 <li>采样出现的问题: 移动相机后, 历史像素上, 因为当前画面的一个矩形像素点不可能刚好映射到上一帧的矩形像素, 需要引入插值来近似上一帧颜色, 导致像素模糊</li>
-<li>遮挡/动态物体: 即历史像素与当前像素毫无关联的情况, 时域EMA加权给历史像素很大的权重, 导致历史画面残留在当前画面上, 需要丢弃无关样本, 解决方案是使用颜色空间的Clipping, 计算当前像素机器邻域的均值和方差, 若历史颜色不在这个范围内, 则丢弃, 丢弃后的颜色与当前颜色重新进行加权</li>
-<li>物体边缘: 单纯使用Motion Vector, 仍会出现锯齿, 解决方式是取Motion Vector3x3邻域最长的向量</li>
+<li>遮挡/动态物体: 即历史像素与当前像素毫无关联的情况, 时域 EMA 加权给历史像素很大的权重, 导致历史画面残留在当前画面上, 需要丢弃无关样本, 解决方案是使用颜色空间的 Clipping, 计算当前像素机器邻域的均值和方差, 若历史颜色不在这个范围内, 则丢弃, 丢弃后的颜色与当前颜色重新进行加权</li>
+<li>物体边缘: 单纯使用 Motion Vector, 仍会出现锯齿, 解决方式是取 Motion Vector3x3 邻域最长的向量</li>
 <li>闪烁: 不收敛, 闪烁, 子像素出现在最高票信息中, 混合过程中, 少量高频信号极大影响混合后效果, 导致像素闪烁</li>
 </ol>
 </li>
 </ul>
 <h3 id="时间性抗锯齿-txaa-temporal">时间性抗锯齿 TXAA (Temporal)</h3>
 <ul>
-<li>TAA + MSAA, 通过引入额外的深度信息来实现延迟渲染中使用MSAA</li>
-<li>TXAA还能对帧之间的整个场景进行抖动采样, 减少闪烁(时间性锯齿)</li>
-<li>TXAA目前有2X和4X两种模式, 2X效果堪比8X MSAA, 性能减少相当于2X MSAA</li>
+<li>TAA + MSAA, 通过引入额外的深度信息来实现延迟渲染中使用 MSAA</li>
+<li>TXAA 还能对帧之间的整个场景进行抖动采样, 减少闪烁(时间性锯齿)</li>
+<li>TXAA 目前有 2X 和 4X 两种模式, 2X 效果堪比 8X MSAA, 性能减少相当于 2X MSAA</li>
 </ul>
 <h3 id="多帧采样抗锯齿-mfaa-multi-frame">多帧采样抗锯齿 MFAA (Multi-Frame)</h3>
 <ul>
-<li>MSAA的优化版, 近乎相同效果同时提升性能</li>
-<li>只有Maxwell架构的GPU显卡才能使用</li>
-<li>同样开启4倍效果时
+<li>MSAA 的优化版, 近乎相同效果同时提升性能</li>
+<li>只有 Maxwell 架构的 GPU 显卡才能使用</li>
+<li>同样开启 4 倍效果时
 <ul>
-<li>MSAA针对每个边缘像素周围4个像素进行采样</li>
-<li>MFAA采用交错的方式采样边缘某个像素周围的两个像素</li>
+<li>MSAA 针对每个边缘像素周围 4 个像素进行采样</li>
+<li>MFAA 采用交错的方式采样边缘某个像素周围的两个像素</li>
 </ul>
 </li>
 </ul>

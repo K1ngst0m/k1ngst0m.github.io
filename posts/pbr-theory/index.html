@@ -1710,12 +1710,12 @@
 <h3 id="微平面理论microfacet-theory">微平面理论(Microfacet Theory)</h3>
 <ul>
 <li>将物体表面建模成无数微观尺度上有随机朝向的理想镜面反射的<code>小平面(microfacet)</code></li>
-<li>实际PBR工作流中, 微平面通过<code>粗糙度贴图</code>或<code>高光贴图</code>来表示</li>
+<li>实际 PBR 工作流中, 微平面通过<code>粗糙度贴图</code>或<code>高光贴图</code>来表示</li>
 <li>微观尺度上, 表面越粗糙反射越模糊, 越光滑反射越集中</li>
 <li>到达微观尺度后任何平面都可以用称为微平面的细小镜面来进行描绘</li>
 <li>用统计学的方法估算微平面粗糙程度
 <ol>
-<li><code>半程向量(Halfway Vector)</code>: 位于光线向量l和视线向量v之间的中间向量</li>
+<li><code>半程向量(Halfway Vector)</code>: 位于光线向量 l 和视线向量 v 之间的中间向量</li>
 <li>用基于一个平面的粗糙度(Roughness)来计算出半程向量的方向与微平面平均取向方向一致的概率</li>
 </ol>
 </li>
@@ -1740,7 +1740,7 @@
 <li>光线与粒子碰撞后吸收光线所携带的一部分或是全部能量, 转为热量</li>
 <li>并非所有能量会被全部吸收, 光线会继续沿着随机方向发散, 再和其他粒子碰撞直至能量完全耗尽或者再次离开这个表面</li>
 <li>光线脱离物体表面后将会协同构成该表面的(漫反射)颜色</li>
-<li>PBR对漫反射进行简化, 假设平面上每一点所有折射光都会被完全吸收而不会散开</li>
+<li>PBR 对漫反射进行简化, 假设平面上每一点所有折射光都会被完全吸收而不会散开</li>
 <li>保留<code>次表面散射(Subsurface Scattering)</code>的着色器能更好地显示皮肤, 大理石, 蜡质等类视觉效果</li>
 </ol>
 </li>
@@ -1759,8 +1759,8 @@
 <ul>
 <li>表示观察看到的反射光线的向量与视角相关的现象</li>
 <li>光线以不同角度入射会有不同反射率, 掠射角度(90)下反射率最大</li>
-<li><code>F0</code>: 平行于表面法向量入射的菲涅尔反射值, 任意角度的菲涅尔反射可由F0和入射角度计算得出</li>
-<li>光线对于不同物质有不同的反射率, 非金属F0: 0.02~0.04, 金属F0: 0.7~1.0</li>
+<li><code>F0</code>: 平行于表面法向量入射的菲涅尔反射值, 任意角度的菲涅尔反射可由 F0 和入射角度计算得出</li>
+<li>光线对于不同物质有不同的反射率, 非金属 F0: 0.02~0.04, 金属 F0: 0.7~1.0</li>
 </ul>
 <h3 id="线性空间光照linear-space-lighting">线性空间光照(Linear Space Lighting)</h3>
 <ul>
@@ -1772,14 +1772,14 @@
 <li>图片文件夹存储的都是伽马纠正过的颜色值</li>
 </ul>
 </li>
-<li>PBR将贴图和颜色去除伽马纠正从伽马空间转换到线性空间, 再传递给着色器进行光照计算</li>
+<li>PBR 将贴图和颜色去除伽马纠正从伽马空间转换到线性空间, 再传递给着色器进行光照计算</li>
 <li>线性空间下<code>渲染管线</code>流程: 去除伽马纠正-&gt;着色-&gt;伽马纠正-&gt;显示</li>
 <li>颜色值的计算和操作必须在线性空间中执行</li>
 <li>描述<code>物体表面属性</code>的贴图(如粗糙度, 高光贴图, 金属贴图)必须保证是线性空间</li>
 </ul>
 <h3 id="色调映射复制tone-mappingreproduction">色调映射/复制(Tone Mapping/reproduction)</h3>
 <ul>
-<li>表示以感知上令人信服的方式将HDR场景的强度值转换为显示强度的过程(将宽范围光照级别拟合到屏幕的有限色域的过程)</li>
+<li>表示以感知上令人信服的方式将 HDR 场景的强度值转换为显示强度的过程(将宽范围光照级别拟合到屏幕的有限色域的过程)</li>
 <li>基于<code>HDR</code>渲染出来的亮度值会超过显示器能显示的亮度, 需要使用<code>色调映射</code>转为<code>LDR</code>(显示器能正常显示)</li>
 </ul>
 <h3 id="物质的光学特性real-world-measurement-based-substance-properties">物质的光学特性(Real-World Measurement Based Substance Properties)</h3>
@@ -1787,7 +1787,7 @@
 <li>物质分为三大类: <code>绝缘体(Insulatiors)</code>, <code>半导体(semi-conductors)</code>, <code>导体(conductors)</code></li>
 <li>渲染和游戏通常只关注<code>导体</code>和<code>绝缘体</code></li>
 <li>菲涅尔反射率代表材质的反射颜色和强度, 是真实世界的核心测量数值</li>
-<li>非金属反射颜色: 单色/灰色镜面反射颜色(单个float)</li>
+<li>非金属反射颜色: 单色/灰色镜面反射颜色(单个 float)</li>
 <li>金属反射颜色: 彩色镜面反射(RGB)</li>
 </ul>
 <h3 id="光照与材质解耦decoupling-of-lighting-and-material">光照与材质解耦(Decoupling of Lighting and Material)</h3>
@@ -1953,7 +1953,7 @@
 <ol>
 <li>表示一个光源所输出的能量;</li>
 <li>可以看作该光源包含各种波长的一个函数, 辐射通量计算该函数的总面积;</li>
-<li>以瓦特为单位, 通常使用RGB来作为辐射通量的表示, 对于视觉上的影响可以忽略;</li>
+<li>以瓦特为单位, 通常使用 RGB 来作为辐射通量的表示, 对于视觉上的影响可以忽略;</li>
 </ol>
 </li>
 <li>
@@ -1985,36 +1985,36 @@
 <li>
 <p><strong>反射率方程(The Reflectance Equation)</strong>:</p>
 <ol>
-<li>基于PBR的渲染方程的特化版本(近似)</li>
+<li>基于 PBR 的渲染方程的特化版本(近似)</li>
 </ol>
 </li>
 </ul>
-<h3 id="双向反射分布函数brdf">双向反射分布函数BRDF</h3>
-<h4 id="brdf介绍">BRDF介绍</h4>
+<h3 id="双向反射分布函数-brdf">双向反射分布函数 BRDF</h3>
+<h4 id="brdf-介绍">BRDF 介绍</h4>
 <p>(BRDF, Bidrectional Reflective Distribution Function)</p>
 <ul>
-<li>BRDF用于描述光如何从给定的两个方向(入射光方向l和出射光方向v)表面进行反射的函数</li>
+<li>BRDF 用于描述光如何从给定的两个方向(入射光方向 l 和出射光方向 v)表面进行反射的函数</li>
 <li>定义：出射辐射率的微分(differential outgoing radiance)和入射辐照度的微分(differential incoming irradiance), 即辐射率(radiance)和辐照度(irradiance)之比</li>
 <li>输入: 光的入射, 出射方向, 平面法线, 微平面粗糙度</li>
 <li>输出: (近似) 每束光线 对一个材质平面 最终反射的光线的权
 <ol>
-<li>(能量守恒) 完全光滑情况, 所有入射光线BRDF 返回0.0, 只有一束与出射光线拥有相同的角度光线会得到1.0返回值</li>
+<li>(能量守恒) 完全光滑情况, 所有入射光线 BRDF 返回 0.0, 只有一束与出射光线拥有相同的角度光线会得到 1.0 返回值</li>
 </ol>
 </li>
-<li>BRDF具有可逆性, 遵循能量守恒(经验模型不一定满足), 线性特征(可进行多重BRDF计算镜面漫反射)</li>
-<li>BRDF模型可以分为三类: 经验模型(Empirical Models), 数据驱动模型(Data-driven Models), 基于物理的模型(Physical-based Models)</li>
-<li>采用入射和出射方向作为参数的<code>Blinn-Phong</code>也认为是一个BRDF, 由于不遵循能量守恒, 不是PBR</li>
+<li>BRDF 具有可逆性, 遵循能量守恒(经验模型不一定满足), 线性特征(可进行多重 BRDF 计算镜面漫反射)</li>
+<li>BRDF 模型可以分为三类: 经验模型(Empirical Models), 数据驱动模型(Data-driven Models), 基于物理的模型(Physical-based Models)</li>
+<li>采用入射和出射方向作为参数的<code>Blinn-Phong</code>也认为是一个 BRDF, 由于不遵循能量守恒, 不是 PBR</li>
 <li>实时渲染管线通常使用 <code>Cook-Torrance BRDF</code></li>
 <li><strong>BxDF</strong>:
 <ol>
-<li>对于BRDF(反射), BTDF(折射), BSDF(散射), BSSRDF(次表面散射)等几种双向分布函数的一个统一表示</li>
+<li>对于 BRDF(反射), BTDF(折射), BSDF(散射), BSSRDF(次表面散射)等几种双向分布函数的一个统一表示</li>
 <li>BSDF = BRDF + BTDF</li>
-<li>BSSRDF: 相比与BRDF可以指定不同光线入射位置和出射位置</li>
-<li>BSDF, BTDF, BSSRDF用于表示透明材质和次表面散射材质</li>
+<li>BSSRDF: 相比与 BRDF 可以指定不同光线入射位置和出射位置</li>
+<li>BSDF, BTDF, BSSRDF 用于表示透明材质和次表面散射材质</li>
 </ol>
 </li>
 </ul>
-<h4 id="漫反射brdfdiffuse-brdf">漫反射BRDF(Diffuse BRDF)</h4>
+<h4 id="漫反射-brdfdiffuse-brdf">漫反射 BRDF(Diffuse BRDF)</h4>
 <ul>
 <li>
 <p>传统型:</p>
@@ -2045,13 +2045,13 @@
 <ol>
 <li>应使用直观的参数, 非物理类晦涩参数</li>
 <li>参数尽可能少</li>
-<li>参数合理范围在0-1</li>
+<li>参数合理范围在 0-1</li>
 <li>允许参数在有意义时超出正常的合理范围</li>
 <li>所有参数组合应尽可能健壮和合理</li>
 </ol>
 </li>
 <li>
-<p><strong>BRDF参数</strong>:</p>
+<p><strong>BRDF 参数</strong>:</p>
 <ol>
 <li><strong>baseColor</strong>(基础色): 表面颜色, 通常由纹理提供</li>
 <li><strong>subsurface</strong>(次表面): 使用次表面近似控制漫反射形状</li>
@@ -2059,17 +2059,17 @@
 <li><strong>specular</strong>(镜面反射强度): 入射镜面反射量, 用于取代折射率</li>
 <li><strong>specularTint</strong>(镜面反射颜色): 对美术控制的让步, 用于基础色(base color)的入射镜面反射进行颜色控制, 掠射镜面反射仍然非彩色</li>
 <li><strong>roughness</strong>(粗糙度): 表面粗糙度, 控制漫反射和镜面反射</li>
-<li><strong>anisotropic</strong>(各向异性强度): 各向异性强度, 用于控制镜面反射高光的纵横比(0同向异性, 1各向异性)</li>
+<li><strong>anisotropic</strong>(各向异性强度): 各向异性强度, 用于控制镜面反射高光的纵横比(0 同向异性, 1 各向异性)</li>
 <li><strong>sheen(光泽度)</strong>: 额外的掠射分量(gazing component), 主要用于布料</li>
-<li><strong>sheenTint(光泽颜色)</strong>: 对sheen的颜色控制</li>
+<li><strong>sheenTint(光泽颜色)</strong>: 对 sheen 的颜色控制</li>
 <li><strong>clearcoat(清漆强度)</strong>: 有特殊用途的第二个镜面波瓣(specular lobe)</li>
 <li><strong>clearcoarGloss(清漆光泽度)</strong>: 控制透明图层光泽度, 0 = &ldquo;缎面(satin)&ldquo;外观, 1 = &ldquo;光泽(gloss)&ldquo;外观</li>
 </ol>
 </li>
 </ul>
-<h4 id="镜面反射brdfspecular-brdf">镜面反射BRDF(Specular BRDF)</h4>
+<h4 id="镜面反射-brdfspecular-brdf">镜面反射 BRDF(Specular BRDF)</h4>
 <ul>
-<li>目前业界主流基于物理的Specular BRDF: <code>Microfacet Cook-Torrance BRDF</code></li>
+<li>目前业界主流基于物理的 Specular BRDF: <code>Microfacet Cook-Torrance BRDF</code></li>
 </ul>
 <h5 id="cook-torrance-brdf-模型">Cook-Torrance BRDF 模型</h5>
 <ul>
@@ -2079,7 +2079,7 @@
 <li>
 <p><strong>Lambertian</strong>: c / π</p>
 <ol>
-<li>π用于对漫反射光进行标准化</li>
+<li>π 用于对漫反射光进行标准化</li>
 <li>足够应付大多数实时渲染</li>
 </ol>
 </li>
@@ -2092,7 +2092,7 @@
 </ol>
 </li>
 <li>
-<p>UE4使用的函数:</p>
+<p>UE4 使用的函数:</p>
 <ol>
 <li><code>Specular D</code>: Trowbridge-Reitz GGX</li>
 <li><code>Specular F</code>: Fresnel-Shilick Approximation</li>
@@ -2102,7 +2102,7 @@
 </ul>
 <h4 id="法线分布函数-normal-distribution-function-">法线分布函数( Normal Distribution Function )</h4>
 <ul>
-<li>统计学上近似表示半程向量h取向一致的微平面比率</li>
+<li>统计学上近似表示半程向量 h 取向一致的微平面比率</li>
 <li>输入: 材料的粗糙程度</li>
 <li>Trowbridge-Reitz GGX in GLSL:</li>
 </ul>
@@ -2201,7 +2201,7 @@
 <p>垂直观察物体时该表面只有<code>基础反射率(Base Reflectivity)</code>, 利用<code>折射指数</code>计算得出</p>
 </li>
 <li>
-<p>当视线法线夹角增大时反射性会增大, 90度理论上能完全反射光线</p>
+<p>当视线法线夹角增大时反射性会增大, 90 度理论上能完全反射光线</p>
 </li>
 <li>
 <p>使用<code>Freshnel-Schlick</code>近似法求得近似解 ( 菲涅尔原始方程较复杂 )</p>
@@ -2213,7 +2213,7 @@
 <p>统一金属和非金属公式: 通常预先计算出<code>F0</code>, 然后基于相应观察角的<code>Freshnel-Schlick</code>近似对这个值进行插值</p>
 </li>
 <li>
-<p><code>F0</code>规律: 非金属通常不会高于0.17, 导体材质大多在0.7-1.0</p>
+<p><code>F0</code>规律: 非金属通常不会高于 0.17, 导体材质大多在 0.7-1.0</p>
 </li>
 <li>
 <p>Freshel Schlick in GLSL:</p>
@@ -2841,11 +2841,11 @@ document.addEventListener('DOMContentLoaded', function () {
     </li>
     <li><a href="#渲染方程-反射率方程">渲染方程 反射率方程</a>
       <ul>
-        <li><a href="#双向反射分布函数brdf">双向反射分布函数BRDF</a>
+        <li><a href="#双向反射分布函数-brdf">双向反射分布函数 BRDF</a>
           <ul>
-            <li><a href="#brdf介绍">BRDF介绍</a></li>
-            <li><a href="#漫反射brdfdiffuse-brdf">漫反射BRDF(Diffuse BRDF)</a></li>
-            <li><a href="#镜面反射brdfspecular-brdf">镜面反射BRDF(Specular BRDF)</a></li>
+            <li><a href="#brdf-介绍">BRDF 介绍</a></li>
+            <li><a href="#漫反射-brdfdiffuse-brdf">漫反射 BRDF(Diffuse BRDF)</a></li>
+            <li><a href="#镜面反射-brdfspecular-brdf">镜面反射 BRDF(Specular BRDF)</a></li>
             <li><a href="#法线分布函数-normal-distribution-function-">法线分布函数( Normal Distribution Function )</a></li>
             <li><a href="#几何函数-geometry-function">几何函数 (Geometry Function)</a></li>
           </ul>

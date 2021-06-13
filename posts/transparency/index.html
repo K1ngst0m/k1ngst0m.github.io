@@ -1712,14 +1712,14 @@
 <ul>
 <li>阿尔法覆盖(alpha to coverage)</li>
 <li>使用棋盘格填充模式来绘制多边形</li>
-<li>每隔1个像素绘制一点来绘制会使后面的物体部分可见, 由于屏幕上像素比较紧凑, 不会露馅</li>
+<li>每隔 1 个像素绘制一点来绘制会使后面的物体部分可见, 由于屏幕上像素比较紧凑, 不会露馅</li>
 <li>优点: 可以任意时间和顺序绘制物体, 不需要特殊的硬件支持</li>
-<li>缺点: 透明效果在50%的时候最好, 不易于控制, 屏幕中的每个区域只能绘制一个透明物体</li>
+<li>缺点: 透明效果在 50%的时候最好, 不易于控制, 屏幕中的每个区域只能绘制一个透明物体</li>
 </ul>
-<h3 id="alpha混合-alpha-blending">Alpha混合 (Alpha Blending)</h3>
+<h3 id="alpha-混合-alpha-blending">Alpha 混合 (Alpha Blending)</h3>
 <ul>
-<li>Alpha值用于表示透明度, 用来混合源像素和目标像素</li>
-<li>从渲染管线接收像素的RGBA + z-buffer值来绘制</li>
+<li>Alpha 值用于表示透明度, 用来混合源像素和目标像素</li>
+<li>从渲染管线接收像素的 RGBA + z-buffer 值来绘制</li>
 </ul>
 <h2 id="透明排序">透明排序</h2>
 <ul>
@@ -1739,7 +1739,7 @@
 <ul>
 <li>提前做深度测试(在片段着色器之前)</li>
 <li>通常由硬件实现</li>
-<li>Alpha测试和深度写入可能会使early-z失效</li>
+<li>Alpha 测试和深度写入可能会使 early-z 失效</li>
 </ul>
 </li>
 </ul>
@@ -1748,7 +1748,7 @@
 <li>主流选择</li>
 <li>深度缓冲可在硬件或软件中完成, 是可见性问题的一个解决方案</li>
 <li>每个像素只存储一个对象, 重叠时透明对象后边的可见对象不能存储, 无法显示</li>
-<li>使用A-buffer解决该问题, A-buffer具有深度像素(deep pixel), 可以在单个像素中存储一系列呈现在所有对象之后被解析为单个像素的多个片段</li>
+<li>使用 A-buffer 解决该问题, A-buffer 具有深度像素(deep pixel), 可以在单个像素中存储一系列呈现在所有对象之后被解析为单个像素的多个片段</li>
 </ul>
 <h3 id="画家算法--优先填充算法-painters-algorithm">画家算法 / 优先填充算法 (Painter&rsquo;s Algorithm)</h3>
 <ul>
@@ -1763,8 +1763,8 @@
 <h3 id="深度剥离算法-depth-peeling">深度剥离算法 (Depth Peeling)</h3>
 <ul>
 <li>对深度值进行排序</li>
-<li>标准深度检测, 将Z值最小的点输出到屏幕上</li>
-<li>进行多遍渲染, 每个顶点深度值与之前的深度值进行比较, 凡是小于等于第一遍得到的z值, 将其剥离</li>
+<li>标准深度检测, 将 Z 值最小的点输出到屏幕上</li>
+<li>进行多遍渲染, 每个顶点深度值与之前的深度值进行比较, 凡是小于等于第一遍得到的 z 值, 将其剥离</li>
 </ul>
 
     </article>
@@ -2372,7 +2372,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <li><a href="#透明渲染算法">透明渲染算法</a>
       <ul>
         <li><a href="#screen-door-transparency">Screen-Door Transparency</a></li>
-        <li><a href="#alpha混合-alpha-blending">Alpha混合 (Alpha Blending)</a></li>
+        <li><a href="#alpha-混合-alpha-blending">Alpha 混合 (Alpha Blending)</a></li>
       </ul>
     </li>
     <li><a href="#透明排序">透明排序</a>

@@ -1686,7 +1686,7 @@
 <div class="single__infos">
   <time class="single__info" title="Written At">📅&nbsp;Jun 9, 2021 </time>
   
-  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;3&nbsp;min read </span>
+  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;2&nbsp;min read </span>
   
   <span class="single__info">
     
@@ -1720,22 +1720,22 @@
 <h2 id="渲染引擎rendering-engine"><strong>渲染引擎(Rendering Engine)</strong></h2>
 <ul>
 <li>
-<p>渲染引擎的主要工作是将场景显示到屏幕上, 需要GPU的支持</p>
+<p>渲染引擎的主要工作是将场景显示到屏幕上, 需要 GPU 的支持</p>
 </li>
 <li>
-<p>程序与GPU的交互需要使用图形API, 图形API的主要任务是将CPU数据送到GPU中处理, 常见的图形API有<code>OpenGL</code>, <code>DirectX</code>, <code>Vulkan</code></p>
+<p>程序与 GPU 的交互需要使用图形 API, 图形 API 的主要任务是将 CPU 数据送到 GPU 中处理, 常见的图形 API 有<code>OpenGL</code>, <code>DirectX</code>, <code>Vulkan</code></p>
 </li>
 <li>
-<p>引擎会渲染不同类型的<code>对象(game object)</code>, 主要有: 3D模型, 图片, 文字, 精灵图(Sprites)等, 这些对象需要包含的渲染信息有:</p>
+<p>引擎会渲染不同类型的<code>对象(game object)</code>, 主要有: 3D 模型, 图片, 文字, 精灵图(Sprites)等, 这些对象需要包含的渲染信息有:</p>
 <ul>
 <li>顶点位置(Vertex Position)</li>
-<li>UV坐标(UV Coordinates)</li>
+<li>UV 坐标(UV Coordinates)</li>
 <li>法向量(Normals)</li>
 <li>纹理(Textures)</li>
 </ul>
 </li>
 <li>
-<p>通过rendering manager管理不同类型的对象, 将这些对象输入到缓冲区, 再放入渲染管线中, 渲染信息通过着色器(shader)控制<br />
+<p>通过 rendering manager 管理不同类型的对象, 将这些对象输入到缓冲区, 再放入渲染管线中, 渲染信息通过着色器(shader)控制<br />
 <img src="https://images.squarespace-cdn.com/content/v1/54851541e4b0fb60932ad015/1452220956766-RGJ8HFWOAURTN84NPCNL/ke17ZwdGBToddI8pDm48kIFT0Mo7lk8iQbOoVKfqQSpZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxer5TYhZAf7tc5Rzp696dnwlaaUnBNAtz2-6hpA2TV-lABSt7jOc3LHIqoNwQfW_U/image-asset.jpeg" alt="render_manager" /></p>
 </li>
 </ul>
@@ -1749,7 +1749,7 @@
 <p>通过<code>Entity Manager</code>提供渲染对象所需要的信息, 使用<code>Math Engine</code>来设置物体空间属性(坐标, 坐标空间等), 通过矩阵和向量操作来移动和旋转物体</p>
 <p><img src="https://images.squarespace-cdn.com/content/v1/54851541e4b0fb60932ad015/1452197445864-HB8BFCXIAT2BKU6BB0R9/ke17ZwdGBToddI8pDm48kOPtmt9kq3Df9ydK2LHH3aVZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpylqRopIr8MtadqV3j0Cvvq7E6hUOLllO--Pv16fxd-R6fhjohGdXzQgJSf7wCH6zU/image-asset.jpeg" alt="game loop" /></p>
 <h4 id="渲染render">渲染(Render)</h4>
-<p>通过<code>Rendering Manager</code>控制<code>Game Loop</code>的另一部分, 如3D角色, 精灵图, 天空盒等</p>
+<p>通过<code>Rendering Manager</code>控制<code>Game Loop</code>的另一部分, 如 3D 角色, 精灵图, 天空盒等</p>
 <p><img src="https://images.squarespace-cdn.com/content/v1/54851541e4b0fb60932ad015/1452197662751-M05XRB6KSZVQOPG8SMSZ/ke17ZwdGBToddI8pDm48kD02LBfcZeH2tV5TPe8RxN5Zw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpw_WZhiGRANAZZVvF4eCtNTYzdJjbeY54PefwgHrP4KuctPvun93_g2BGjiqgTa_B4/image-asset.jpeg" alt="game loop" /></p>
 <h2 id="物理引擎physics-engine">物理引擎(Physics Engine)</h2>
 <ul>

@@ -1686,7 +1686,7 @@
 <div class="single__infos">
   <time class="single__info" title="Written At">📅&nbsp;Feb 20, 2021 </time>
   
-  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;10&nbsp;min read </span>
+  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;9&nbsp;min read </span>
   
   <span class="single__info">
     
@@ -1711,7 +1711,7 @@
 <p>主要包含四个阶段: 应用阶段(Application Stage), 几何阶段(Geometry Stage), 光栅化阶段(Rasterization Stage), 像素处理阶段(Pixel Processing Stage)</p>
 <p><img src="https://learning.oreilly.com/library/view/real-time-rendering-fourth/9781351816144/images/fig2_2.jpg" alt="render_pipeline_stage" /></p>
 <h3 id="应用阶段application"><strong>应用阶段(Application)</strong></h3>
-<p>图像在应用中的处理阶段, 运行在CPU上, 主要工作为: 定义当下要构建世界的模型图元, 对CPU种的各个Shader进行编程和参数设定, 最后将渲染图元(rendering primitives)等信息传递给GPU, 通过GPU处理显示在屏幕上</p>
+<p>图像在应用中的处理阶段, 运行在 CPU 上, 主要工作为: 定义当下要构建世界的模型图元, 对 CPU 种的各个 Shader 进行编程和参数设定, 最后将渲染图元(rendering primitives)等信息传递给 GPU, 通过 GPU 处理显示在屏幕上</p>
 <ul>
 <li>开发者通过程序对图元数据进行配置和调控, 由于可以对该阶段进行完全控制, 可以通过更改实现方法来改变性能</li>
 <li>通常该阶段在几个并行处理器上执行, 称为<code>超量体系(superscalar)</code>结构</li>
@@ -1719,7 +1719,7 @@
 <li>该阶段将<code>摄像机位置</code>, <code>光照</code>和<code>模型的图元数据</code>输出到几何阶段</li>
 </ul>
 <h3 id="几何阶段geometry"><strong>几何阶段(Geometry)</strong></h3>
-<p>Application Stage结束后, GPU获得rendering primitives和一些相关指令和参数进行处理, 首先会进入几何阶段, 几何阶段可以分为Vertex Shading, Projection, Clipping和Screen Mapping4个阶段</p>
+<p>Application Stage 结束后, GPU 获得 rendering primitives 和一些相关指令和参数进行处理, 首先会进入几何阶段, 几何阶段可以分为 Vertex Shading, Projection, Clipping 和 Screen Mapping4 个阶段</p>
 <h4 id="顶点着色vertex-shadering">顶点着色(Vertex Shadering)</h4>
 <p>该阶段主要任务是, 计算顶点的位置, 将其从模型空间转到视图空间</p>
 <p><img src="https://learning.oreilly.com/library/view/real-time-rendering-fourth/9781351816144/images/fig2_4.jpg" alt="wordspace2viewspace" /></p>
@@ -1727,7 +1727,7 @@
 <li><strong>模型视点变换(Model to View Transform)</strong>:
 <ol>
 <li><code>模型变换(model transform)</code>: 从<code>model space</code>到<code>world space</code>, 转到适合模型渲染的空间中</li>
-<li><code>视图变换(view transform)</code>: 转换到观察空间(<code>view space</code>), 将相机放在原点, 进行视点校准(朝向z轴负方向, y轴指向上方, x轴指向右边)</li>
+<li><code>视图变换(view transform)</code>: 转换到观察空间(<code>view space</code>), 将相机放在原点, 进行视点校准(朝向 z 轴负方向, y 轴指向上方, x 轴指向右边)</li>
 </ol>
 </li>
 </ul>
@@ -1744,17 +1744,17 @@
 </ul>
 <p><img src="https://images.squarespace-cdn.com/content/v1/54851541e4b0fb60932ad015/1453961259647-HEB3DFKQY55FWDWKLJIG/ke17ZwdGBToddI8pDm48kEdywJRLs9TW7TFNXAhOMa1Zw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxerYRl7bPJJB-Ckj7FzhoHDlmuNoTu7vZdsqnKiLozb3lpNxsjZAK7_YjvzjXb6GE/image-asset.jpeg" alt="vertex_inputs" /></p>
 <h4 id="可选阶段-曲面细分tesselation">可选阶段: 曲面细分(Tesselation)</h4>
-<p>在Dx11被引入, 在已有图元基础上去增加更多的顶点, 形成更精细的模型, 通过Tesselation, 原有的模型增加了大量vertex, 再应用Displacement Mapping(存储高度信息, 真正改变顶点位置), 改变每个顶点的高度信息, 增加模型细节<br />
+<p>在 Dx11 被引入, 在已有图元基础上去增加更多的顶点, 形成更精细的模型, 通过 Tesselation, 原有的模型增加了大量 vertex, 再应用 Displacement Mapping(存储高度信息, 真正改变顶点位置), 改变每个顶点的高度信息, 增加模型细节<br />
 <img src="https://docs.microsoft.com/en-us/windows/win32/direct3d11/images/d3d11-pipeline-stages-tessellation.png" alt="tesselation_pipeline" /><br />
 具体工作流程有三个部分:</p>
 <ul>
-<li><code>Hull Shader</code>: 可编程, 接收控制点信息, 与一些系数发送到Domain Shader, 同时发送一些系数到Tesselator</li>
+<li><code>Hull Shader</code>: 可编程, 接收控制点信息, 与一些系数发送到 Domain Shader, 同时发送一些系数到 Tesselator</li>
 <li><code>Tesselation</code>: 细分控制点信息</li>
 <li><code>Domain Shader</code>: 可编程, 将所有接收到的信息整合</li>
 </ul>
 <p><img src="https://docs.microsoft.com/en-us/windows/win32/direct3d11/images/tess-prog.png" alt="tesselation" /></p>
 <h4 id="可选阶段-几何着色geometry-shader">可选阶段: 几何着色(Geometry Shader)</h4>
-<p>在Dx10被引入, 在图元外添加(tesselation为图元内添加)额外的vertex, 将原始图元转为新图元, 构建不一样的模型</p>
+<p>在 Dx10 被引入, 在图元外添加(tesselation 为图元内添加)额外的 vertex, 将原始图元转为新图元, 构建不一样的模型</p>
 <ul>
 <li>
 <p>粒子系统(Particle System)</p>
@@ -1771,11 +1771,11 @@
 </ul>
 </li>
 <li>
-<p>通过Geometry Shader实现粒子系统:</p>
+<p>通过 Geometry Shader 实现粒子系统:</p>
 <ul>
-<li>使用一个vertex代表一个粒子</li>
-<li>在该阶段将每个vertex拓展成两个三角形以形成一个正方形</li>
-<li>可以使用几何着色器来决定下一个粒子的位置, 新建一个vertex</li>
+<li>使用一个 vertex 代表一个粒子</li>
+<li>在该阶段将每个 vertex 拓展成两个三角形以形成一个正方形</li>
+<li>可以使用几何着色器来决定下一个粒子的位置, 新建一个 vertex</li>
 </ul>
 </li>
 </ul>
@@ -1784,23 +1784,23 @@
 <ol>
 <li>将视体变换到一个单位立方体内(<code>规范立方体(Canonical View Volume, CVV</code>, 对角顶点为(-1, -1, -1), (1, 1, 1))</li>
 <li>主要有两种投影方法: <code>正交投影(orthographic/parallel projection)</code>, <code>透视投影(perspective projection)</code></li>
-<li>完成投影后, z坐标将不会保存于得到的图片中, 实现了从3d转为2d</li>
-<li>z坐标信息仍会存储在z-buffer种, 用于后续使用</li>
+<li>完成投影后, z 坐标将不会保存于得到的图片中, 实现了从 3d 转为 2d</li>
+<li>z 坐标信息仍会存储在 z-buffer 种, 用于后续使用</li>
 </ol>
 <p><img src="https://learning.oreilly.com/library/view/real-time-rendering-fourth/9781351816144/images/fig2_5.jpg" alt="projection" /></p>
 <h4 id="裁剪clipping"><strong>裁剪(Clipping)</strong></h4>
 <p>去除相对于屏幕外的物体</p>
 <ol>
-<li>只有当图元处于CVV中才需要将其发送到光栅化阶段</li>
-<li>图元相对于CVV分三种情况: 完全位于内部(不处理), 部分位于内部(裁剪处理), 完全位于外部(直接丢弃)</li>
+<li>只有当图元处于 CVV 中才需要将其发送到光栅化阶段</li>
+<li>图元相对于 CVV 分三种情况: 完全位于内部(不处理), 部分位于内部(裁剪处理), 完全位于外部(直接丢弃)</li>
 </ol>
 <p><img src="https://learning.oreilly.com/library/view/real-time-rendering-fourth/9781351816144/images/fig2_6.jpg" alt="clipping" /></p>
 <h4 id="屏幕映射screen-mapping"><strong>屏幕映射(Screen mapping)</strong></h4>
 <p>将之前步骤得到的坐标映射到对应的屏幕坐标系</p>
 <ol>
 <li>首先进行平移, 再缩放</li>
-<li>映射过程中z坐标不受影响</li>
-<li>新的x, y坐标称为屏幕坐标系, 与z坐标一起进入光栅化阶段</li>
+<li>映射过程中 z 坐标不受影响</li>
+<li>新的 x, y 坐标称为屏幕坐标系, 与 z 坐标一起进入光栅化阶段</li>
 </ol>
 <p><img src="https://learning.oreilly.com/library/view/real-time-rendering-fourth/9781351816144/images/fig2_7.jpg" alt="screen_mapping" /></p>
 <h3 id="光栅化rasterization">光栅化(Rasterization)</h3>
@@ -1835,7 +1835,7 @@
 <li>
 <p><strong>像素着色(Pixel Shading)</strong></p>
 <ol>
-<li>在可编程GPU进行</li>
+<li>在可编程 GPU 进行</li>
 <li>该阶段主要任务是, 将之前阶段获得各个图元对应的像素位置和相应信息, 为每个像素进行正确的着色</li>
 <li>纹理贴图: 从顶点着色器中获得纹理的坐标, 去纹理单元中裁剪出这个图元对应的纹理, 再给每个像素复制</li>
 <li>使用插值的着色数据作为输入, 输出一种或多种颜色信息到下一阶段</li>
@@ -1844,16 +1844,16 @@
 <li>
 <p><strong>融合(Merging)</strong></p>
 <ol>
-<li>该阶段输入的每个pixel都有相应的颜色信息, 存储在color buffer上</li>
-<li>融合的主要任务是合成当前存储于buffer中的片段信息整合, 得到具体的一帧图像信息</li>
+<li>该阶段输入的每个 pixel 都有相应的颜色信息, 存储在 color buffer 上</li>
+<li>融合的主要任务是合成当前存储于 buffer 中的片段信息整合, 得到具体的一帧图像信息</li>
 <li>非完全可编程, 但高度可配置</li>
 <li>常见的缓冲区有:
 <ol>
-<li><code>帧缓冲(frame buffer)</code>: 通常包含一个系统所具有的所有缓冲器(或是color buffer和z-buffer的组合)</li>
+<li><code>帧缓冲(frame buffer)</code>: 通常包含一个系统所具有的所有缓冲器(或是 color buffer 和 z-buffer 的组合)</li>
 <li><code>颜色缓冲器</code>: 颜色(RGB)的矩阵列, 每个像素的信息都存在颜色缓冲器中</li>
-<li><code>深度缓冲(z-buffer)</code>: 负责可见性的处理, 通常通过z-buffer来实现</li>
+<li><code>深度缓冲(z-buffer)</code>: 负责可见性的处理, 通常通过 z-buffer 来实现</li>
 <li><code>alpha通道(alpha channel)</code>: 和颜色缓冲器计算每个像素的不透明值, 在深度测试前传入片段中运行, 通常用于不影响深度缓冲的全透明片段处理</li>
-<li><code>模板缓冲(stencil buffer)</code>: 记录所呈现图元位置的离屏缓存, 每个像素通常占用8位, 用于进行一些特效制作</li>
+<li><code>模板缓冲(stencil buffer)</code>: 记录所呈现图元位置的离屏缓存, 每个像素通常占用 8 位, 用于进行一些特效制作</li>
 <li><code>累计缓冲(accumulation buffer)</code>: 用一组操作符对图像进行累积, 用于产生<code>动态模糊(motion blur)</code>, <code>景深(depth of field)</code>, <code>后处理反走样(post-process anti-aliasing)</code>, <code>软阴影(soft shadows)</code>等;</li>
 </ol>
 </li>
@@ -1875,23 +1875,23 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/3D-Pipeline.svg/1500px-3D-Pipeline.svg.png" alt="render_pipeline" /></p>
 </li>
 <li>
-<p><strong>Vulkan的渲染管线流程</strong>:<br />
+<p><strong>Vulkan 的渲染管线流程</strong>:<br />
 <img src="https://vulkan-tutorial.com/images/vulkan_simplified_pipeline.svg" alt="vulkan_render_pipeline" /></p>
 </li>
 <li>
-<p><strong>D3D11的渲染管线流程</strong>:<br />
+<p><strong>D3D11 的渲染管线流程</strong>:<br />
 <img src="https://docs.microsoft.com/en-us/windows/win32/direct3d11/images/d3d11-pipeline-stages.jpg" alt="d3d11_render_pipeline" /></p>
 </li>
 </ul>
-<h2 id="gpu渲染管线工作流程">GPU渲染管线工作流程</h2>
+<h2 id="gpu-渲染管线工作流程">GPU 渲染管线工作流程</h2>
 <h3 id="现代编程语言">现代编程语言</h3>
 <ul>
 <li>现代着色阶段(<code>Shader model 4.0</code>, <code>DirectX 10</code>及以后)使用<code>通用着色核心(common-shader core)</code>, 表明顶点, 片段, 几何着色器共享一套编程模型</li>
-<li>目前着色语言都是C-like, 如<code>GLSL</code>, <code>CG</code>, <code>HLSL</code></li>
+<li>目前着色语言都是 C-like, 如<code>GLSL</code>, <code>CG</code>, <code>HLSL</code></li>
 <li>被编译成独立于机器语言的<code>汇编语言IL</code>, 通常在驱动中转化成实际机器语言, 可以兼容不同硬件实现</li>
-<li>IL可以理解成定义一个着色语言编译器的虚拟机, 处理多种类型寄存器和数据源, 预编一系列指令处理器</li>
-<li>很多图形操作使用<code>短矢量(最高四位)</code>, 处理器拥有4路<code>SIMD(single-instruction multiple-data, 单指令多数据)</code>兼容性</li>
-<li>每个寄存器包含四个独立的值, 32位单精度浮点的标量和矢量是其基本数据类型, 也支持结构体, 数组和矩阵
+<li>IL 可以理解成定义一个着色语言编译器的虚拟机, 处理多种类型寄存器和数据源, 预编一系列指令处理器</li>
+<li>很多图形操作使用<code>短矢量(最高四位)</code>, 处理器拥有 4 路<code>SIMD(single-instruction multiple-data, 单指令多数据)</code>兼容性</li>
+<li>每个寄存器包含四个独立的值, 32 位单精度浮点的标量和矢量是其基本数据类型, 也支持结构体, 数组和矩阵
 <ul>
 <li><strong>矢量</strong>: 位置(xyzw), 法线, 矩阵行, 颜色(rgba), 纹理坐标(uvwq)</li>
 <li><strong>标量</strong>: 计数器, 索引, 位掩码</li>
@@ -1902,13 +1902,13 @@
 <ul>
 <li>顶点着色前进行<code>输入装配(Input Assembler)</code>阶段, 将一些数据流组织在一起, 发送到管线</li>
 </ul>
-<p>GPU实现了几何和光栅化概念管线阶段, 步骤如下:</p>
+<p>GPU 实现了几何和光栅化概念管线阶段, 步骤如下:</p>
 <h4 id="顶点着色器vertex-shader-完全可编程">顶点着色器(Vertex Shader): 完全可编程</h4>
 <ul>
 <li>顶点属性包括<code>位置</code>, <code>颜色</code>, <code>法线</code>, <code>纹理坐标</code></li>
 <li>对每个顶点属性进行变换, 变形等操作, 提供修改/创建/忽略顶点相关属性的功能</li>
 <li>不能创建和删除顶点, 一个顶点的结果不能传递到另一个顶点</li>
-<li>每个顶点独立处理, 使得GPU上着色器处理器可以并行应用到传入的顶点流上</li>
+<li>每个顶点独立处理, 使得 GPU 上着色器处理器可以并行应用到传入的顶点流上</li>
 <li>可以在这里进行光照计算, 由于精度不高通常在片段着色器中计算</li>
 <li>该阶段顶点坐标必须完成顶点从<code>模型空间</code>转换到<code>齐次裁剪空间</code>(世界, 观察, 裁剪)</li>
 <li><code>流输出(Stream output)</code>: <code>Shader Model4.0</code>以上支持, 顶点着色器除了将处理后的数据发送到光栅化阶段, 还可以输出到<code>流(有序数组)</code>, 输出到流的数据可以通过管线回传, 允许迭代处理, 是和模拟流动的水和其他特效</li>
@@ -1929,7 +1929,7 @@
 <ul>
 <li><code>Shader Model 3.0</code>以上支持</li>
 <li>主要对输入图元(单个对象及相关的顶点)进行操作</li>
-<li>允许GPU高效创建和销毁几何图元:
+<li>允许 GPU 高效创建和销毁几何图元:
 <ul>
 <li>几何增长: 改变新传递的图元的拓扑结构</li>
 <li>接受任意拓扑类型的图元, 输出点, 折线(line strip), 三角形条(triangle strips)</li>
@@ -1960,7 +1960,7 @@
 <li>常用来处理场景光照及相关(如阴影)的效果处理, 如凹凸纹理映射和调色</li>
 <li>着色器调用的像素并非和屏幕像素一一对应, 如计算被遮挡的物体的片段</li>
 <li>该着色器通常在最终合并阶段设置片段颜色进行合并, 深度值也可以在该着色器修改</li>
-<li>SM4.0中共有16个4维向量可以从顶点着色器传到像素着色器, 使用几何着色器时增加到32个</li>
+<li>SM4.0 中共有 16 个 4 维向量可以从顶点着色器传到像素着色器, 使用几何着色器时增加到 32 个</li>
 </ul>
 <h4 id="合并阶段merging-可配置">合并阶段(Merging): 可配置</h4>
 <ul>
@@ -1968,7 +1968,7 @@
 <li>除了进行合并操作, 还可以进行相关缓存的处理(<code>z-buffer</code>, <code>Stencil</code>等), 透明处理(<code>Transparency</code>), 混合(<code>Blending</code>), 合成(<code>Compositing</code>)</li>
 <li>该阶段不可编程, 但是高度可配置, 可以设置颜色混合来执行大量不同操作:
 <ul>
-<li>Alpha值的乘法, 加法, 减法的组合, 根据片段的Alpha值进行混合, 用来产生半透明的效果</li>
+<li>Alpha 值的乘法, 加法, 减法的组合, 根据片段的 Alpha 值进行混合, 用来产生半透明的效果</li>
 <li>最大值, 最小值, 按位逻辑运算</li>
 </ul>
 </li>
@@ -2564,7 +2564,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <li><a href="#总结">总结</a></li>
       </ul>
     </li>
-    <li><a href="#gpu渲染管线工作流程">GPU渲染管线工作流程</a>
+    <li><a href="#gpu-渲染管线工作流程">GPU 渲染管线工作流程</a>
       <ul>
         <li><a href="#现代编程语言">现代编程语言</a></li>
         <li><a href="#实现步骤概述">实现步骤概述</a>

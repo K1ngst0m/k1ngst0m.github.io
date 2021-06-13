@@ -1706,10 +1706,10 @@
     </div>
     <article class="single__contents" data-dir="ltr" data-ani="true">
       
-      <p>游戏渲染优化的方向: 更高的FPS, 更高的分辨率, 能够渲染更多的物体, 更真实的场景, 实现更高的复杂度</p>
+      <p>游戏渲染优化的方向: 更高的 FPS, 更高的分辨率, 能够渲染更多的物体, 更真实的场景, 实现更高的复杂度</p>
 <h2 id="游戏开发中的渲染加速算法">游戏开发中的渲染加速算法</h2>
 <h3 id="常用空间数据结构spatial-data-structures">常用空间数据结构(Spatial Data Structures)</h3>
-<p>空间数据结构是将几何体组织在N维空间的一系列数据结构, 可以用于很多实时渲染的加速查询, 如:</p>
+<p>空间数据结构是将几何体组织在 N 维空间的一系列数据结构, 可以用于很多实时渲染的加速查询, 如:</p>
 <ul>
 <li>场景管理</li>
 <li>裁剪算法</li>
@@ -1717,7 +1717,7 @@
 <li>光线追踪</li>
 <li>碰撞检测等</li>
 </ul>
-<p>空间数据结构的组织通常是层次结构(最顶层嵌套递归包含之下的层次), 访问复杂度可以达到O(logn), 但是构造开销较大, 通常需要作为一个预处理的过程来完成</p>
+<p>空间数据结构的组织通常是层次结构(最顶层嵌套递归包含之下的层次), 访问复杂度可以达到 O(logn), 但是构造开销较大, 通常需要作为一个预处理的过程来完成</p>
 <p>常见的空间数据结构有:</p>
 <ul>
 <li>
@@ -1732,14 +1732,14 @@
 <p>二叉空间分割树(BSP, Binary Space Partition Trees)</p>
 <ul>
 <li>基于空间细分(Space Subdivision)的数据结构, 可任意细分</li>
-<li>BSP递归地将空间使用超平面划分为凸面体的几何, 使用BSP树实现:
+<li>BSP 递归地将空间使用超平面划分为凸面体的几何, 使用 BSP 树实现:
 <ul>
 <li>每个节点表示一个有向超平面, 左子树为前向(front), 右子树为背向(back)</li>
-<li>如果使用一种特定方式遍历, 树的内容可以从任意角度进行前后排序: 可以近似轴对齐, 精确对齐多边形BSP</li>
+<li>如果使用一种特定方式遍历, 树的内容可以从任意角度进行前后排序: 可以近似轴对齐, 精确对齐多边形 BSP</li>
 </ul>
 </li>
-<li>类似于画家算法, BSP方便将表面从后往前渲染出来, 适用于场景固定不变, 仅视点移动的情况</li>
-<li>BSP树有两大类别: 轴对齐(Axis-Aligned)和多边形对齐(Polygon-Aligned)</li>
+<li>类似于画家算法, BSP 方便将表面从后往前渲染出来, 适用于场景固定不变, 仅视点移动的情况</li>
+<li>BSP 树有两大类别: 轴对齐(Axis-Aligned)和多边形对齐(Polygon-Aligned)</li>
 </ul>
 </li>
 <li>
@@ -1759,9 +1759,9 @@
 </ul>
 </li>
 <li>
-<p>kd树(k-dimensional tree)</p>
+<p>kd 树(k-dimensional tree)</p>
 <ul>
-<li>对k维空间中的实例点进行存储以便快速检索的树形结构</li>
+<li>对 k 维空间中的实例点进行存储以便快速检索的树形结构</li>
 <li>主要应用于多维空间关键字搜索</li>
 </ul>
 </li>
@@ -1774,7 +1774,7 @@
 </li>
 </ul>
 <h3 id="裁剪技术-culling">裁剪技术 (culling)</h3>
-<p>裁剪操作可以发生在渲染管线的任意阶段, 可以预处理, 通过硬件实现, 在CPU中配置, 裁剪通常可以使用几何计算来实现, 也可以使用帧缓冲中的内容, 理想的裁剪算法预期是只发送图元中通过管线的精确可见集(Exact Visible Set, EVS)</p>
+<p>裁剪操作可以发生在渲染管线的任意阶段, 可以预处理, 通过硬件实现, 在 CPU 中配置, 裁剪通常可以使用几何计算来实现, 也可以使用帧缓冲中的内容, 理想的裁剪算法预期是只发送图元中通过管线的精确可见集(Exact Visible Set, EVS)</p>
 <ul>
 <li>
 <p>背面裁剪(Backface Culling)</p>
@@ -1788,7 +1788,7 @@
 <p>视锥裁剪(View Frustum Culling), 层次视锥裁剪(Hierarchical View Frustum Culling)</p>
 <ul>
 <li>将视锥之外的多边形删除</li>
-<li>计算在CPU上进行, 排除的物体不需要通过管线中的几何和光栅化阶段</li>
+<li>计算在 CPU 上进行, 排除的物体不需要通过管线中的几何和光栅化阶段</li>
 <li>利用空间数据结构可以分层进行裁剪</li>
 </ul>
 </li>
@@ -1799,8 +1799,8 @@
 <li>算法两种主要形式: 基于点的遮挡裁剪, 基于单元的遮挡裁剪</li>
 <li>常见的遮挡剔除算法(Occlusion Culling Algorithm):
 <ul>
-<li>硬件遮挡查询(Hardware Occlusion Queries): 通过硬件查询一组多边形是否可见(通常是复杂物体或包围体), 使用z-buffer</li>
-<li>层次Z缓冲(Hierarchical Z-buffering): 用八叉树来维护场景模型, 将画面的z-buffer作为图像金字塔(Z-pyramid), 作为算法的遮挡表示</li>
+<li>硬件遮挡查询(Hardware Occlusion Queries): 通过硬件查询一组多边形是否可见(通常是复杂物体或包围体), 使用 z-buffer</li>
+<li>层次 Z 缓冲(Hierarchical Z-buffering): 用八叉树来维护场景模型, 将画面的 z-buffer 作为图像金字塔(Z-pyramid), 作为算法的遮挡表示</li>
 <li>遮挡地平线(Occlusion Horizons)</li>
 <li>遮挡物收缩(Occluder Shrinking)</li>
 </ul>
@@ -1823,7 +1823,7 @@
 </ul>
 <h3 id="层次细节技术lod-level-of-detail">层次细节技术(LOD, Level of Detail)</h3>
 <ul>
-<li>LOD切换技术:
+<li>LOD 切换技术:
 <ul>
 <li>Discrete Geometry LODs</li>
 <li>Blend LODs</li>
@@ -1831,7 +1831,7 @@
 <li>CLODs and Geomorphic LODs</li>
 </ul>
 </li>
-<li>LOD选取技术:
+<li>LOD 选取技术:
 <ul>
 <li>Range-Based</li>
 <li>Project Area-Based</li>
@@ -1848,24 +1848,24 @@
 <ul>
 <li>定位瓶颈: 对于管线的每个阶段, 若改变负载或计算能力导致性能发生改变, 则为一个瓶颈</li>
 <li>进行优化: 指定发生瓶颈的阶段, 减小该阶段负载, 直到性能不再改善, 或者达到要求位置</li>
-<li>重复1, 2</li>
+<li>重复 1, 2</li>
 </ul>
 <p>如果无法对最慢的阶段优化, 可以增加其他部分的负载, 达到更好的效果(不等白不等)</p>
 <h3 id="瓶颈定位策略">瓶颈定位策略</h3>
 <h4 id="基本思想">基本思想</h4>
 <ul>
-<li>使用profile查看耗时详细信息</li>
+<li>使用 profile 查看耗时详细信息</li>
 <li>基于工作量变化的控制变量法</li>
 <li>排除法</li>
-<li>管线每个阶段都依赖于GPU频率(GPU Core Clock, GPU Memory Lock), 可以使用PowerStrip减小相关时钟速度, 观察性能变化</li>
+<li>管线每个阶段都依赖于 GPU 频率(GPU Core Clock, GPU Memory Lock), 可以使用 PowerStrip 减小相关时钟速度, 观察性能变化</li>
 </ul>
 <h4 id="应用程序阶段瓶颈定位">应用程序阶段瓶颈定位</h4>
 <ul>
-<li>可以使用profile工具了解哪些API调用耗费高(CPU占用状态), 但不能准确知道哪阶段减慢速度</li>
-<li>采用基于工作量变化的控制变量法: 设置一系列测试, 每个测试减少特定阶段执行的工作量, 其中一个测试导致FPS增加, 则已经达到瓶颈阶段</li>
+<li>可以使用 profile 工具了解哪些 API 调用耗费高(CPU 占用状态), 但不能准确知道哪阶段减慢速度</li>
+<li>采用基于工作量变化的控制变量法: 设置一系列测试, 每个测试减少特定阶段执行的工作量, 其中一个测试导致 FPS 增加, 则已经达到瓶颈阶段</li>
 <li>或使用上述方法的排除法: 不降低工作量的前提减少其他阶段的工作量, 如果性能没改变, 则瓶颈为该阶段</li>
-<li>对CPU进行降频(Underclock)</li>
-<li>排除法: GPU阶段无瓶颈则CPU为瓶颈所在</li>
+<li>对 CPU 进行降频(Underclock)</li>
+<li>排除法: GPU 阶段无瓶颈则 CPU 为瓶颈所在</li>
 </ul>
 <h4 id="几何阶段瓶颈定位">几何阶段瓶颈定位</h4>
 <ul>
@@ -1883,7 +1883,7 @@
 <li>纹理带宽瓶颈定位</li>
 </ul>
 <h3 id="渲染管线的优化策略">渲染管线的优化策略</h3>
-<h4 id="对cpu的优化策略">对CPU的优化策略</h4>
+<h4 id="对-cpu-的优化策略">对 CPU 的优化策略</h4>
 <ul>
 <li>减少资源锁定</li>
 <li>批次的尺寸最大化</li>
@@ -1893,7 +1893,7 @@
 <li>内存层面的最大化</li>
 <li>代码层面的优化</li>
 </ul>
-<h4 id="api调用策略">API调用策略</h4>
+<h4 id="api-调用策略">API 调用策略</h4>
 <ul>
 <li>实例化(Instance)渲染</li>
 <li>批处理(batching)</li>
@@ -1921,11 +1921,11 @@
 <p>一般策略</p>
 <ul>
 <li>善用背面裁剪</li>
-<li>在特定时期关闭z-buffer</li>
+<li>在特定时期关闭 z-buffer</li>
 <li>优先使用原生纹理和像素格式</li>
 <li>进行合适的纹理压缩</li>
 <li>基于物体和观察者之间的距离, 使用不同的像素着色器</li>
-<li>通过计数得到通过z缓冲与否像素的数量, 得到进一步优化方法</li>
+<li>通过计数得到通过 z 缓冲与否像素的数量, 得到进一步优化方法</li>
 <li>early z pass</li>
 </ul>
 </li>
@@ -1933,14 +1933,14 @@
 <p>加速片元着色</p>
 <ul>
 <li>优先渲染度</li>
-<li>帮助early-z优化, 避免多余片元处理</li>
+<li>帮助 early-z 优化, 避免多余片元处理</li>
 <li>在纹理中存储复杂功能, 如将纹理作为查找表(LUT)</li>
 <li>将更多片元工作移到顶点着色器</li>
 <li>使用必须的最低精度</li>
 <li>避免过度标准化(normalization)</li>
-<li>考虑使用LOD</li>
+<li>考虑使用 LOD</li>
 <li>不必要的地方禁用三线性过滤</li>
-<li>尽可能使用简单shader类型</li>
+<li>尽可能使用简单 shader 类型</li>
 </ul>
 </li>
 <li>
@@ -1949,21 +1949,21 @@
 <li>减少纹理尺寸</li>
 <li>压缩所有彩色纹理</li>
 <li>避免没必要的昂贵纹理格式</li>
-<li>尽可能在小表面上使用mip mapping</li>
+<li>尽可能在小表面上使用 mip mapping</li>
 </ul>
 </li>
 <li>
 <p>优化帧缓冲带宽</p>
 <ul>
 <li>首先渲染深度</li>
-<li>减少alpha混合</li>
+<li>减少 alpha 混合</li>
 <li>尽可能关闭深度写入</li>
 <li>避免无关颜色缓冲区清除</li>
 <li>默认大致上从前向后进行渲染</li>
 <li>优化天空盒渲染, 按需选取策略</li>
 <li>仅在必要时使用浮点帧缓冲区</li>
-<li>尽可能使用16位z-buffer</li>
-<li>尽可能使用16位颜色</li>
+<li>尽可能使用 16 位 z-buffer</li>
+<li>尽可能使用 16 位颜色</li>
 </ul>
 </li>
 </ul>
@@ -2586,9 +2586,9 @@ document.addEventListener('DOMContentLoaded', function () {
         </li>
         <li><a href="#渲染管线的优化策略">渲染管线的优化策略</a>
           <ul>
-            <li><a href="#对cpu的优化策略">对CPU的优化策略</a></li>
+            <li><a href="#对-cpu-的优化策略">对 CPU 的优化策略</a></li>
             <li><a href="#应用程序阶段优化策略">应用程序阶段优化策略</a></li>
-            <li><a href="#api调用策略">API调用策略</a></li>
+            <li><a href="#api-调用策略">API 调用策略</a></li>
             <li><a href="#几何阶段的优化策略">几何阶段的优化策略</a></li>
             <li><a href="#光照计算的优化策略">光照计算的优化策略</a></li>
             <li><a href="#光栅化的优化策略">光栅化的优化策略</a></li>

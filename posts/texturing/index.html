@@ -1734,15 +1734,15 @@
 <h3 id="立方体贴图-cube-map">立方体贴图 (Cube Map)</h3>
 <ul>
 <li>
-<p>使用6幅二维纹理图像构成以原点为中心的纹理立方体:</p>
+<p>使用 6 幅二维纹理图像构成以原点为中心的纹理立方体:</p>
 <ul>
-<li>每个2D纹理是一个立方体的一个面</li>
+<li>每个 2D 纹理是一个立方体的一个面</li>
 <li>每个片段纹理座标(s, t, r)被当作方向向量看待</li>
 <li>每个纹素(texel)都表示从原点看到的纹理立方体上的图像</li>
 </ul>
 </li>
 <li>
-<p>Cube Map支持双线性滤波和mip mapping, 可能会出现接缝处问题, 需要处理其他面的相邻样本, 每个纹素的角度范围等</p>
+<p>Cube Map 支持双线性滤波和 mip mapping, 可能会出现接缝处问题, 需要处理其他面的相邻样本, 每个纹素的角度范围等</p>
 </li>
 </ul>
 <h3 id="程序贴图纹理-procedural-texturing">程序贴图纹理 (Procedural Texturing)</h3>
@@ -1758,11 +1758,11 @@
 </ul>
 <p>常见的凹凸贴图有:</p>
 <ul>
-<li>凹凸贴图(Bump Mapping): 计算vertex光强时, 不直接使用该原始向量, 而是在原始法向量上加一个扰动得到修改法向量, 经过光强计算得到凹凸不平的表面效果</li>
-<li>移位贴图(Displacement Mapping): 直接作用于vertex, 根据移位贴图中对应vertex的像素值, 使vertex沿法向量移动, 产生真正的凹凸表面</li>
-<li>法线贴图(Normal Mapping): 需要法向量信息, 可由高度贴图得到, 通过rgb通道存储法向量, 利用该信息计算光强, 产生凹凸阴影的效果(不增加多边形), 不发生自遮挡</li>
-<li>视差贴图(Parallax/Virtaul Displacement Mapping): 以视线和height map计算比较陡峭的视角给vertex较多的位移, 较平缓的视角给vertex较少的位移</li>
-<li>浮雕贴图(Relief Mapping): 能发生自遮挡, 闭塞的效果, 相当于&quot;在Shader里做光线追踪&quot;, 算法相对复杂</li>
+<li>凹凸贴图(Bump Mapping): 计算 vertex 光强时, 不直接使用该原始向量, 而是在原始法向量上加一个扰动得到修改法向量, 经过光强计算得到凹凸不平的表面效果</li>
+<li>移位贴图(Displacement Mapping): 直接作用于 vertex, 根据移位贴图中对应 vertex 的像素值, 使 vertex 沿法向量移动, 产生真正的凹凸表面</li>
+<li>法线贴图(Normal Mapping): 需要法向量信息, 可由高度贴图得到, 通过 rgb 通道存储法向量, 利用该信息计算光强, 产生凹凸阴影的效果(不增加多边形), 不发生自遮挡</li>
+<li>视差贴图(Parallax/Virtaul Displacement Mapping): 以视线和 height map 计算比较陡峭的视角给 vertex 较多的位移, 较平缓的视角给 vertex 较少的位移</li>
+<li>浮雕贴图(Relief Mapping): 能发生自遮挡, 闭塞的效果, 相当于&quot;在 Shader 里做光线追踪&quot;, 算法相对复杂</li>
 </ul>
 <h3 id="纹理缓存-texture-caching">纹理缓存 (Texture Caching)</h3>
 <p>常见的纹理缓存使用策略:</p>
@@ -1778,15 +1778,15 @@
 <li>
 <p>最近最常使用策略(MRU, Most Recently Used)</p>
 <ul>
-<li>当前帧载入纹理时会发生抖动(Thrashing)的情况, 不适合使用LRU(每帧画面中会对每张纹理图像进行交换)</li>
-<li>使用MRU策略, 直到画面中没有纹理交换为止, 切换到LRU</li>
+<li>当前帧载入纹理时会发生抖动(Thrashing)的情况, 不适合使用 LRU(每帧画面中会对每张纹理图像进行交换)</li>
+<li>使用 MRU 策略, 直到画面中没有纹理交换为止, 切换到 LRU</li>
 </ul>
 </li>
 <li>
 <p>预取策略(Prefectching)</p>
 <ul>
-<li>瓦片地图(tiles): 对于大数据纹理(如飞行和地形模拟系统), 传统方法将其分解成更小的硬件可以处理的tiles</li>
-<li>裁剪图(clipmap): 将整个数据集视为mipmap; 对于任何特定视图, 只需mipmap较低级别的一小部分即可; 需要GPU支持Dx10</li>
+<li>瓦片地图(tiles): 对于大数据纹理(如飞行和地形模拟系统), 传统方法将其分解成更小的硬件可以处理的 tiles</li>
+<li>裁剪图(clipmap): 将整个数据集视为 mipmap; 对于任何特定视图, 只需 mipmap 较低级别的一小部分即可; 需要 GPU 支持 Dx10</li>
 </ul>
 </li>
 </ul>
@@ -1795,7 +1795,7 @@
 <li>固定速率纹理压缩(Fixed-rate Texture Compression): 通过硬件解码压缩处理, 可以使用更少的纹理内存, 从而增加有效的高速缓存大小
 <ul>
 <li>硬件上实现较昂贵</li>
-<li>DxTC / BC(Block Compression, Dx10): Dx的标准压缩模式, 使用S3TC(S3 Texture Compression)方法, 通过创建一个固定大小, 具有独立的编码片段, 解码简单, 速度快, 每个压缩图片都可以单独处理, 无共享查找表(look up tables), 简化过程</li>
+<li>DxTC / BC(Block Compression, Dx10): Dx 的标准压缩模式, 使用 S3TC(S3 Texture Compression)方法, 通过创建一个固定大小, 具有独立的编码片段, 解码简单, 速度快, 每个压缩图片都可以单独处理, 无共享查找表(look up tables), 简化过程</li>
 </ul>
 </li>
 </ul>

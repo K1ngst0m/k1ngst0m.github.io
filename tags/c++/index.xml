@@ -27,7 +27,7 @@
         <author>npchitman@outlook.com (陈乙己)</author>
         <atom:modified>Tue, 11 May 2021 00:00:00 +0000</atom:modified>
         <guid>https://npchitman.github.io/posts/rvalue_reference/</guid>
-        <description>c++03及之前的标准 c++03及之前的标准中, 表达式的值类型(value categories)属性为左值或右值: 左值对应内存中确定存储地址</description>
+        <description>c++03 及之前的标准 c++03 及之前的标准中, 表达式的值类型(value categories)属性为左值或右值: 左值对应内存中确定存储地址的对象的表达式的</description>
         
         <dc:creator>陈乙己</dc:creator>
         <media:content url="https://npchitman.github.ioimages/post_preview/gameengine.png" medium="image"><media:title type="html">featured image</media:title></media:content>

@@ -1715,7 +1715,7 @@
 <p>传统正向渲染思路: 先着色, 再进行深度测试</p>
 </li>
 <li>
-<p>复杂度与光源关系很大, n个受到光源影响的物体, m个光源, 复杂度为O(m*n), 比较适合户外光源较少的情形</p>
+<p>复杂度与光源关系很大, n 个受到光源影响的物体, m 个光源, 复杂度为 O(m*n), 比较适合户外光源较少的情形</p>
 </li>
 <li>
 <p>程序要对每个光源需要渲染的片段进行迭代, 如果旧的片段被新的覆盖(深度测试), 最终不显示, 就造成了浪费</p>
@@ -1731,15 +1731,15 @@
 <ul>
 <li>基本思想: 在二维空间进行光照计算(先深度测试, 再着色)</li>
 <li>几何缓冲区(G-buffer, Geometric Buffer): 延迟渲染将所有物体先绘制到这里, 再逐光源进行着色, 避免深度测试后丢弃的片元被计算</li>
-<li>对于O(m*n)的正向渲染(n个物体, m个光源), 标准的延迟渲染为O(m+n): m次物体绘制 + n次光源着色</li>
+<li>对于 O(m*n)的正向渲染(n 个物体, m 个光源), 标准的延迟渲染为 O(m+n): m 次物体绘制 + n 次光源着色</li>
 </ul>
 <h3 id="几何缓冲区-g-buffer">几何缓冲区 (G-Buffer)</h3>
 <ul>
 <li>
-<p>G-Buffer用于存储像素对应的位置(Position), 法线(Normal), 漫反射颜色(Diffuse Color)等, 根据这些信息, 在二维空间中进行光照处理</p>
+<p>G-Buffer 用于存储像素对应的位置(Position), 法线(Normal), 漫反射颜色(Diffuse Color)等, 根据这些信息, 在二维空间中进行光照处理</p>
 </li>
 <li>
-<p>G-Buffer直接存储位置, 颜色, 法线等对象到帧缓存中, 过程几乎不消耗处理时间, 非常高效</p>
+<p>G-Buffer 直接存储位置, 颜色, 法线等对象到帧缓存中, 过程几乎不消耗处理时间, 非常高效</p>
 </li>
 <li>
 <p>深度测试已经将不需要的信息消除, 只用渲染需要的信息, 省下很多无用的调用</p>
@@ -1750,16 +1750,16 @@
 <li>
 <p>处理过程:</p>
 <ul>
-<li>几何处理阶段(Geometry Pass): 获取对象的各种几何信息, 将第二步所需的各种数据存储(渲染)到多个G-buffer中</li>
-<li>光照处理阶段A(Lighting Pass): 渲染屏幕大小的二维矩形, 使用第一步在G-buffer中存储的数据对此矩阵进行着色计算(计算过程与正向渲染一样, 输入变量的位置变为G-buffer)</li>
+<li>几何处理阶段(Geometry Pass): 获取对象的各种几何信息, 将第二步所需的各种数据存储(渲染)到多个 G-buffer 中</li>
+<li>光照处理阶段 A(Lighting Pass): 渲染屏幕大小的二维矩形, 使用第一步在 G-buffer 中存储的数据对此矩阵进行着色计算(计算过程与正向渲染一样, 输入变量的位置变为 G-buffer)</li>
 </ul>
 </li>
 <li>
 <p>优点:</p>
 <ul>
-<li>复杂度O(m + n)</li>
+<li>复杂度 O(m + n)</li>
 <li>只渲染可见像素</li>
-<li>使用更少的shader</li>
+<li>使用更少的 shader</li>
 <li>后处理支持好</li>
 <li>大光源下优势明显</li>
 </ul>
@@ -1768,26 +1768,26 @@
 <p>缺点:</p>
 <ul>
 <li>内存开销较大</li>
-<li>读写G-buffer的内存带宽用量是性能瓶颈</li>
+<li>读写 G-buffer 的内存带宽用量是性能瓶颈</li>
 <li>对透明物体渲染需要结合正向渲染</li>
-<li>对MSAA支持不友好, 需要开启MRT</li>
+<li>对 MSAA 支持不友好, 需要开启 MRT</li>
 </ul>
 </li>
 </ul>
 <h3 id="改进方法">改进方法</h3>
 <p>主要有两种方法:</p>
 <ul>
-<li>延迟光照(Light Pre-Pass, Deferred Lighting): 最小化G-Buffer数据结构</li>
+<li>延迟光照(Light Pre-Pass, Deferred Lighting): 最小化 G-Buffer 数据结构</li>
 <li>分块延迟渲染(Tile-Based Deferred Rendering): 将多个光照组合处理</li>
 </ul>
 <h4 id="延迟光照lightpre-passdeferred-lighting">延迟光照(LightPre-Pass/Deferred Lighting)</h4>
 <ul>
-<li>减少G-buffer开销(reduce G-buffer overhead)</li>
-<li>对MSAA使用有利(使用z值和normal, 很容易找到边缘)</li>
+<li>减少 G-buffer 开销(reduce G-buffer overhead)</li>
+<li>对 MSAA 使用有利(使用 z 值和 normal, 很容易找到边缘)</li>
 <li>具体思路:
 <ul>
-<li><strong>几何阶段(Geometry Stage)</strong>: 渲染场景中不透明(opaque)的几何体, 将法向量n和镜面扩展因子(specular spread factor)m写入缓冲区, 即n/m-buffer, 类似于G-buffer, 包含信息更小更轻量, 适合输出单个缓冲区, 不需要MRT支持</li>
-<li><strong>光照阶段(Lighting Stage)</strong>: 计算漫反射和镜面着色方程, 将结果写入不同的漫反射和镜面反射累积缓冲区(Light Accumulation Buffer), 可以在单独的pass中完成(使用MRT)或者两个, 环境光照可以使用full-scene pass进行计算</li>
+<li><strong>几何阶段(Geometry Stage)</strong>: 渲染场景中不透明(opaque)的几何体, 将法向量 n 和镜面扩展因子(specular spread factor)m 写入缓冲区, 即 n/m-buffer, 类似于 G-buffer, 包含信息更小更轻量, 适合输出单个缓冲区, 不需要 MRT 支持</li>
+<li><strong>光照阶段(Lighting Stage)</strong>: 计算漫反射和镜面着色方程, 将结果写入不同的漫反射和镜面反射累积缓冲区(Light Accumulation Buffer), 可以在单独的 pass 中完成(使用 MRT)或者两个, 环境光照可以使用 full-scene pass 进行计算</li>
 <li><strong>着色阶段(Shading Stage)</strong>: 对场景中不透明几何体进行第二次渲染, 从纹理中读取漫反射和镜面反射值, 对前面步骤中漫反射和镜面反射累积缓冲区进行调整, 将最终结果写入颜色缓冲区, 若上阶段没有处理环境光, 则该阶段处理, 只需计算累积缓冲区的信息</li>
 </ul>
 </li>
@@ -1795,28 +1795,28 @@
 <h4 id="分块延迟渲染tbdr-tile-based-deferred-rendering">分块延迟渲染(TBDR, Tile-Based Deferred Rendering)</h4>
 <ul>
 <li>
-<p>传统DR的问题: 每个光源即使重叠, 仍是独立进行, 会重复读取G-buffer中相同位置的数据, 计算后以相加混合方式写入颜色缓冲, 光源数量会影响内存带宽用量</p>
+<p>传统 DR 的问题: 每个光源即使重叠, 仍是独立进行, 会重复读取 G-buffer 中相同位置的数据, 计算后以相加混合方式写入颜色缓冲, 光源数量会影响内存带宽用量</p>
 </li>
 <li>
-<p>TBDR思想: 将屏幕划分成细小的栅格(如32x32像素为一个Tile), 计算每个分块受到哪些光源影响, 将光源索引存储在分块光源列表里, 最后逐个方块进行着色, 对每像素读取G-Buffer和光源列表及相关信息, 大致步骤如下:</p>
+<p>TBDR 思想: 将屏幕划分成细小的栅格(如 32x32 像素为一个 Tile), 计算每个分块受到哪些光源影响, 将光源索引存储在分块光源列表里, 最后逐个方块进行着色, 对每像素读取 G-Buffer 和光源列表及相关信息, 大致步骤如下:</p>
 <ul>
-<li>将屏幕分成一个个小块tile</li>
-<li>根据这些Depth求得每个tile的bounding box</li>
-<li>对每个bounding box和light进行求交, 得到与该tile作用的light序列</li>
-<li>根据得到的序列计算tile的光照效果</li>
+<li>将屏幕分成一个个小块 tile</li>
+<li>根据这些 Depth 求得每个 tile 的 bounding box</li>
+<li>对每个 bounding box 和 light 进行求交, 得到与该 tile 作用的 light 序列</li>
+<li>根据得到的序列计算 tile 的光照效果</li>
 </ul>
 </li>
 <li>
-<p>G-buffer数据只会被读取一次, 写入color buffer也是1次, 大幅降低内存带宽用量</p>
+<p>G-buffer 数据只会被读取一次, 写入 color buffer 也是 1 次, 大幅降低内存带宽用量</p>
 </li>
 <li>
-<p>compute shader: 在渲染管线外进行, 通常处理大量并行计算, 节省CPU资源</p>
+<p>compute shader: 在渲染管线外进行, 通常处理大量并行计算, 节省 CPU 资源</p>
 </li>
 <li>
-<p>该方法需要进行光源剔除(light culling, 计算光源影响哪些分块), 可以在CPU或GPU(通常使用compute shader)中实现, 使用GPU更快, 减少CPU-GPU传输, 并且可以计算每个分块的深度范围(depth range), 更有效地剔除</p>
+<p>该方法需要进行光源剔除(light culling, 计算光源影响哪些分块), 可以在 CPU 或 GPU(通常使用 compute shader)中实现, 使用 GPU 更快, 减少 CPU-GPU 传输, 并且可以计算每个分块的深度范围(depth range), 更有效地剔除</p>
 </li>
 <li>
-<p>合理分摊开销, 性能优于Light Pre-Pass</p>
+<p>合理分摊开销, 性能优于 Light Pre-Pass</p>
 </li>
 </ul>
 
