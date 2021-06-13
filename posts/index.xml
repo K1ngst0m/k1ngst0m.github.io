@@ -191,40 +191,6 @@
       </item>
       
       <item>
-        <title>c&#43;&#43;多态, 虚函数原理</title>
-        <link>https://npchitman.com/posts/virtual-function/</link>
-        <pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate>
-        <author>npchitman@outlook.com (陈乙己)</author>
-        <atom:modified>Tue, 11 May 2021 00:00:00 +0000</atom:modified>
-        <guid>https://npchitman.com/posts/virtual-function/</guid>
-        <description></description>
-        
-        <dc:creator>陈乙己</dc:creator>
-        <media:content url="https://npchitman.comimages/post_preview/rvalue_reference.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>c&#43;&#43;</category>
-            
-          
-        
-        
-          
-            
-              <category>c&#43;&#43;</category>
-            
-          
-        
-        
-          
-            
-          
-        
-      </item>
-      
-      <item>
         <title>抗锯齿类型总结</title>
         <link>https://npchitman.com/posts/anti-aliasing/</link>
         <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
