@@ -157,6 +157,40 @@
       </item>
       
       <item>
+        <title>c&#43;&#43;右值引用</title>
+        <link>http://npchitman.github.io/posts/rvalue_reference/</link>
+        <pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate>
+        <author>npchitman@outlook.com (陈乙己)</author>
+        <atom:modified>Tue, 11 May 2021 00:00:00 +0000</atom:modified>
+        <guid>http://npchitman.github.io/posts/rvalue_reference/</guid>
+        <description>c++03及之前的标准 c++03及之前的标准中, 表达式的值类型(value categories)属性为左值或右值: 左值对应内存中确定存储地址</description>
+        
+        <dc:creator>陈乙己</dc:creator>
+        <media:content url="http://npchitman.github.ioimages/post_preview/gameengine.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>c&#43;&#43;</category>
+            
+          
+        
+        
+          
+            
+              <category>c&#43;&#43;</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
         <title>抗锯齿类型总结</title>
         <link>http://npchitman.github.io/posts/anti-aliasing/</link>
         <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
