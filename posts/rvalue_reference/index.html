@@ -1686,7 +1686,7 @@
 <div class="single__infos">
   <time class="single__info" title="Written At">📅&nbsp;May 11, 2021 </time>
   
-  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;6&nbsp;min read </span>
+  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;7&nbsp;min read </span>
   
   <span class="single__info">
     
@@ -1722,14 +1722,88 @@
 <h2 id="c11-右值引用">c++11 右值引用</h2>
 <p>右值引用是c++11引入的重要特性之一, 解决了大量历史遗留问题, 消除了诸如<code>std::vector</code>, <code>std::string</code>之类的额外开销, 并使<code>std::function</code>实现成为可能</p>
 <h3 id="值类型-value-categories">值类型 (value categories)</h3>
+<p>c++11中, 一共有5种值类型:</p>
 <ul>
-<li><strong>左值(lvalue)</strong>: 表达式(不一定是赋值表达式)后依然存在的持久对象</li>
-<li><strong>右值(rvalue)</strong>: 划分为纯右值和将亡值
-<ul>
-<li><strong>纯右值(prvalue, pure value)</strong>: 与c++03的右值概念相同, 要么是字面量(<code>10</code>, <code>true</code>), 要么是求值结果相当于字面量或匿名临时对象, 如<code>1+2</code>, 常见的纯右值有非引用返回的临时变量, 运算表达式产生的临时变量, 原始字面量, lambda表达式</li>
-<li><strong>将亡值(xvalue, expiring value)</strong>: 即将被销毁, 确能够被移动的值</li>
+<li>lvalue(Left-hand-side value)</li>
+<li>rvalue(Right-hand-side value)</li>
+<li>xvalue(eXpiring value)</li>
+<li>prvalue(Pure rvalue)</li>
+<li>glvalue(Generalized lvalue)</li>
 </ul>
+<p>下图表示了值类型之间的关系:</p>
+<p><img src="https://blog.panicsoftware.com/wp-content/uploads/2019/02/value_categories-1.jpg" alt="value_categories" /></p>
+<p>一个值可以分成两个独立的属性:</p>
+<ul>
+<li>
+<p>i: 是否有身份(identity): 是否占用一定的内存, 比如局部变量有身份, 临时变量没有身份</p>
 </li>
+<li>
+<p>m: 是否可移动(move from): 自己的资源是否允许被移动</p>
+</li>
+<li>
+<p><strong>泛左值(glvalue)</strong>: 有身份的值</p>
+</li>
+<li>
+<p><strong>传统右值(rvalue)</strong>: 可移动的值</p>
+</li>
+<li>
+<p><strong>左值(lvalue)</strong>: 有身份不可移动, 与传统c++中的左值意义相同, 表达式(不一定是赋值表达式)后依然存在的持久对象</p>
+</li>
+<li>
+<p><strong>将亡值(xvalue, expiring value)</strong>: 有身份可移动, 顾名思义, 即将被销毁, 确能够被移动的值</p>
+</li>
+</ul>
+<blockquote>
+<p>[ Note: An expression is an xvalue if it is:</p>
+<ul>
+<li>
+<p>the result of calling a function, whether implicitly or explicitly, whose return type is an rvalue reference to object type,</p>
+</li>
+<li>
+<p>a cast to an rvalue reference to object type,</p>
+</li>
+<li>
+<p>a class member access expression designating a non-static data member of non-reference type in which the object expression is an xvalue, or</p>
+</li>
+<li>
+<p>a .* pointer-to-member expression in which the first operand is an xvalue and the second operand is a pointer to data member.</p>
+</li>
+</ul>
+<p>In general, the effect of this rule is that named rvalue references are treated as lvalues and unnamed rvalue references to objects are treated as xvalues; rvalue references to functions are treated as lvalues whether named or not. —end note ]</p>
+</blockquote>
+<p>将亡值举例:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">// 对右值引用函数的调用
+</span><span class="c1"></span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+
+<span class="n">func</span><span class="p">();</span> <span class="c1">// 原型: Foo&amp;&amp; func();
+</span><span class="c1"></span>
+<span class="c1">// 把一个左值强制转换为右值引用, 实际上与move等价
+</span><span class="c1"></span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+
+<span class="c1">// xvalue的成员
+</span><span class="c1"></span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">x</span><span class="p">).</span><span class="n">m_data</span><span class="p">;</span>
+<span class="n">func</span><span class="p">().</span><span class="n">m_data</span><span class="p">;</span>
+<span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">).</span><span class="n">m_data</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>纯右值(prvalue, pure value)</strong>: 无身份可移动, 与c++03的右值概念相同, 要么是字面量(<code>10</code>, <code>true</code>), 要么是求值结果相当于字面量或匿名临时对象, 如<code>1+2</code>, 常见的纯右值有非引用返回的临时变量, 运算表达式产生的临时变量, 原始字面量, lambda表达式</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
