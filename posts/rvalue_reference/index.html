@@ -1686,7 +1686,7 @@
 <div class="single__infos">
   <time class="single__info" title="Written At">📅&nbsp;May 11, 2021 </time>
   
-  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;4&nbsp;min read </span>
+  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;6&nbsp;min read </span>
   
   <span class="single__info">
     
@@ -1720,7 +1720,40 @@
 </ul>
 <p>c++在用临时对象或函数返回值给左值对象时的<code>深拷贝(deep copy)</code>一直受诟病, 考虑到临时对象的生命周期仅在表达式中持续, 如果把临时对象的内容直接<code>移动(move)</code>给被赋值的左值对象, 效率改善将是显著的, 这就是移动语义的来源</p>
 <h2 id="c11-右值引用">c++11 右值引用</h2>
-<p>左值和右值引用的形式</p>
+<p>右值引用是c++11引入的重要特性之一, 解决了大量历史遗留问题, 消除了诸如<code>std::vector</code>, <code>std::string</code>之类的额外开销, 并使<code>std::function</code>实现成为可能</p>
+<h3 id="将亡值-expiring-value">将亡值 (eXpiring value)</h3>
+<ul>
+<li><strong>左值(lvalue)</strong>: 表达式(不一定是赋值表达式)后依然存在的持久对象</li>
+<li><strong>右值(rvalue)</strong>: 划分为纯右值和将亡值
+<ul>
+<li><strong>纯右值(prvalue, pure value)</strong>: 与c++03的右值概念相同, 要么是字面量(<code>10</code>, <code>true</code>), 要么是求值结果相当于字面量或匿名临时对象, 如<code>1+2</code>, 常见的纯右值有非引用返回的临时变量, 运算表达式产生的临时变量, 原始字面量, lambda表达式</li>
+<li><strong>将亡值(xvalue, expiring value)</strong>: 即将被销毁, 确能够被移动的值</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">foo</span><span class="p">(){</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">temp</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+    <span class="k">return</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>以上代码在c++03之前, 函数<code>foo</code>的返回值<code>temp</code>在内部创建, 赋值给<code>v</code>, <code>v</code>在获得该对象时, 会将<code>temp</code>拷贝一份, 然后把<code>temp</code>销毁, 如果<code>temp</code>非常大那将造成大量额外的开销(传统c++饱受诟病的问题)</p>
+<p>最后一行中, v是左值, foo()返回纯右值, foo()产生的返回值一旦被v复制后, 将立即销毁, 无法获取也不能修改</p>
+<p><strong>将亡值定义了一种行为</strong>: 临时值能够被识别, 同时又能被移动</p>
+<p>c++11后, 编译器会做以下工作: 左值<code>temp</code>会被隐式右值转换, 等价于<code>static_cast&lt;std::vector&lt;int&gt;&gt; &amp;&amp;&gt;(temp)</code>, 此处的v会将foo局部返回值进行移动, 即移动语义(Move Senmatics);</p>
+<h3 id="右值引用的形式">右值引用的形式</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1855,6 +1888,56 @@
 </div><p>由于 move 使参数变为临时变量, 不能被程序其他地方引用, 所以保证了移动语义的运作</p>
 <p>在类中实现<code>移动构造函数(move constructor)</code>来用作移动语义(或者可以实现移动赋值运算符), 编译器通常不会提供移动构造函数的默认实现</p>
 <h3 id="完美转发-perfect-forwarding">完美转发 (Perfect Forwarding)</h3>
+<p>一个声明的右值引用其实是一个左值, 进行参数转发的时候造成了一些问题:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">reference</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;左值&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">reference</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;右值&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">pass</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;普通传参:&#34;</span><span class="p">;</span>
+    <span class="n">reference</span><span class="p">(</span><span class="n">v</span><span class="p">);</span> <span class="c1">// 始终调用 reference(int&amp;)
+</span><span class="c1"></span><span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;传递右值:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">pass</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 1是右值, 但输出是左值
+</span><span class="c1"></span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;传递左值:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">pass</span><span class="p">(</span><span class="n">l</span><span class="p">);</span> <span class="c1">// l 是左值, 输出左值
+</span><span class="c1"></span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>pass(1)</code>来说, 虽然传递的是右值, 但由于<code>v</code>是一个引用, 所以同时也是左值, 因此<code>reference(v)</code>会调用<code>reference(int&amp;)</code>, 输出左值, 而对于<code>pass(l)</code>而言, <code>l</code>是一个左值, 由于引用折叠的原因, <code>&amp;&amp;</code>可以作为&quot;万能引用&quot;, 成功传递;</p>
 <p><code>std::forward</code>用作完美转发, 用于保持原来的值属性(左右)不变, 定义如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1889,6 +1972,71 @@
 </code></pre></td></tr></table>
 </div>
 </div><p><code>forward</code>实现了两个模板函数, 一个接收左值, 一个接收右值, <code>forward</code>对参数进行强制转换, 转换的目标类型符合引用折叠规则, 左值参数最终转换后仍为左值, 右值参数最终转为右值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;utility&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">void</span> <span class="nf">reference</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;左值引用&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">reference</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;右值引用&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">pass</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;              普通传参: &#34;</span><span class="p">;</span>
+    <span class="n">reference</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;       std::move 传参: &#34;</span><span class="p">;</span>
+    <span class="n">reference</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;    std::forward 传参: &#34;</span><span class="p">;</span>
+    <span class="n">reference</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;static_cast&lt;T&amp;&amp;&gt; 传参: &#34;</span><span class="p">;</span>
+    <span class="n">reference</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;传递右值:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">pass</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;传递左值:&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">pass</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>无论传递参数是左值还是右值, 普通传参都会将参数作为左值进行转发, 所以<code>std::move</code>总是接受到一个左值, 从而转发调用了<code>reference(int&amp;&amp;)</code>输出右值引用</p>
 <h2 id="总结">总结</h2>
 <p>右值引用区分了左值和右值, 使用右值引用来减少不必要的内存分配提升程序性能, 还能减少引用类型不同带来的函数重载</p>
 
@@ -2466,6 +2614,8 @@ document.addEventListener('DOMContentLoaded', function () {
     <li><a href="#c03-及之前的标准">c++03 及之前的标准</a></li>
     <li><a href="#c11-右值引用">c++11 右值引用</a>
       <ul>
+        <li><a href="#将亡值-expiring-value">将亡值 (eXpiring value)</a></li>
+        <li><a href="#右值引用的形式">右值引用的形式</a></li>
         <li><a href="#引用折叠reference-collapsing">引用折叠(Reference Collapsing)</a></li>
         <li><a href="#万能引用-universal-reference">万能引用 (Universal Reference)</a></li>
         <li><a href="#移动语义-move-semantics">移动语义 (Move Semantics)</a></li>
