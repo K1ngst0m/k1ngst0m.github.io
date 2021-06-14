@@ -1721,7 +1721,7 @@
 <p>c++在用临时对象或函数返回值给左值对象时的<code>深拷贝(deep copy)</code>一直受诟病, 考虑到临时对象的生命周期仅在表达式中持续, 如果把临时对象的内容直接<code>移动(move)</code>给被赋值的左值对象, 效率改善将是显著的, 这就是移动语义的来源</p>
 <h2 id="c11-右值引用">c++11 右值引用</h2>
 <p>右值引用是c++11引入的重要特性之一, 解决了大量历史遗留问题, 消除了诸如<code>std::vector</code>, <code>std::string</code>之类的额外开销, 并使<code>std::function</code>实现成为可能</p>
-<h3 id="将亡值-expiring-value">将亡值 (eXpiring value)</h3>
+<h3 id="值类型-value-categories">值类型 (value categories)</h3>
 <ul>
 <li><strong>左值(lvalue)</strong>: 表达式(不一定是赋值表达式)后依然存在的持久对象</li>
 <li><strong>右值(rvalue)</strong>: 划分为纯右值和将亡值
@@ -1750,7 +1750,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>以上代码在c++03之前, 函数<code>foo</code>的返回值<code>temp</code>在内部创建, 赋值给<code>v</code>, <code>v</code>在获得该对象时, 会将<code>temp</code>拷贝一份, 然后把<code>temp</code>销毁, 如果<code>temp</code>非常大那将造成大量额外的开销(传统c++饱受诟病的问题)</p>
-<p>最后一行中, v是左值, foo()返回纯右值, foo()产生的返回值一旦被v复制后, 将立即销毁, 无法获取也不能修改</p>
+<p>最后一行中, <code>v</code>是左值, <code>foo()</code>返回纯右值, <code>foo()</code>产生的返回值一旦被<code>v</code>复制后, 将立即销毁, 无法获取也不能修改</p>
 <p><strong>将亡值定义了一种行为</strong>: 临时值能够被识别, 同时又能被移动</p>
 <p>c++11后, 编译器会做以下工作: 左值<code>temp</code>会被隐式右值转换, 等价于<code>static_cast&lt;std::vector&lt;int&gt;&gt; &amp;&amp;&gt;(temp)</code>, 此处的v会将foo局部返回值进行移动, 即移动语义(Move Senmatics);</p>
 <h3 id="右值引用的形式">右值引用的形式</h3>
@@ -2614,7 +2614,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <li><a href="#c03-及之前的标准">c++03 及之前的标准</a></li>
     <li><a href="#c11-右值引用">c++11 右值引用</a>
       <ul>
-        <li><a href="#将亡值-expiring-value">将亡值 (eXpiring value)</a></li>
+        <li><a href="#值类型-value-categories">值类型 (value categories)</a></li>
         <li><a href="#右值引用的形式">右值引用的形式</a></li>
         <li><a href="#引用折叠reference-collapsing">引用折叠(Reference Collapsing)</a></li>
         <li><a href="#万能引用-universal-reference">万能引用 (Universal Reference)</a></li>
