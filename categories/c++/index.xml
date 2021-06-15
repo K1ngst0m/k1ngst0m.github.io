@@ -21,6 +21,40 @@
 
       
       <item>
+        <title>c&#43;&#43; 对象模型</title>
+        <link>https://npchitman.com/posts/c&#43;&#43;objmodel/</link>
+        <pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate>
+        <author>npchitman@outlook.com (陈乙己)</author>
+        <atom:modified>Tue, 11 May 2021 00:00:00 +0000</atom:modified>
+        <guid>https://npchitman.com/posts/c&#43;&#43;objmodel/</guid>
+        <description>概述 类的成员类型 c++中, 类的成员类型分为: 成员变量(data members) 静态成员变量(class static data members) 非静态成员变量(class nonstatic data members) 成员函数(me</description>
+        
+        <dc:creator>陈乙己</dc:creator>
+        <media:content url="https://npchitman.comimages/post_preview/rvalue_reference.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>c&#43;&#43;</category>
+            
+          
+        
+        
+          
+            
+              <category>c&#43;&#43;</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
         <title>c&#43;&#43;右值引用</title>
         <link>https://npchitman.com/posts/rvalue_reference/</link>
         <pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate>
