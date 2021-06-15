@@ -1770,7 +1770,7 @@
 <span class="p">};</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="简单对象模型">简单对象模型</h2>
+</div><h2 id="简单对象模型-simple-object-model">简单对象模型 (Simple Object Model)</h2>
 <p>在这个模型中, 对象是一系列的槽 <code>slot</code> 组成, <code>slot</code> 本质上是一个指针, 指向一个成员变量, 成员变量的布局按声明顺序排列, 内存结构如图所示:<br />
 <img src="https://miro.medium.com/max/400/0*1A9Rc7uABuK53zhV.JPG" alt="simple" /></p>
 <p>该模型中, 成员本身不在对象内, 对象里只有指向成员的指针, 使用这种结构可以避免不同类型需要不同大小的存储空间, 可以根据索引来取得成员, 对象模型的大小取决于系统中指针大小和成员数量</p>
@@ -1778,7 +1778,7 @@
 <li><strong>优点</strong>: 节省内存空间, 每个槽大小固定, 无论成员多大, 都只有一个指针大小</li>
 <li><strong>缺点</strong>: 执行效率低下, 继承越多, 效率越低</li>
 </ul>
-<h2 id="表格驱动对象模型">表格驱动对象模型</h2>
+<h2 id="表格驱动对象模型-table-driven-object-model">表格驱动对象模型 (Table-driven Object Model)</h2>
 <p>该对象模型对简单对象模型进行了一层封装, 现在只有两个 <code>slot</code>指针, 分别指向:</p>
 <ul>
 <li>成员变量表(Memeber Data Table)</li>
@@ -1795,7 +1795,7 @@
 </li>
 </ul>
 <p>尽管该模型没有实际用在 c++内, 成员函数表的理念成为运行时多态(虚函数表)高效实现的基础</p>
-<h2 id="c对象模型">C++对象模型</h2>
+<h2 id="c对象模型-c-object-model">C++对象模型 (C++ Object Model)</h2>
 <p>c++对象模型从简单对象模型派生, 对简单模型内存空间做了优化, 分为三个区域:</p>
 <ul>
 <li><strong>对象 object 内存区(class obejct)</strong>: 非静态成员变量, 虚函数指针</li>
@@ -2420,9 +2420,9 @@ document.addEventListener('DOMContentLoaded', function () {
         <li><a href="#c的对象模型">c++的对象模型</a></li>
       </ul>
     </li>
-    <li><a href="#简单对象模型">简单对象模型</a></li>
-    <li><a href="#表格驱动对象模型">表格驱动对象模型</a></li>
-    <li><a href="#c对象模型">C++对象模型</a>
+    <li><a href="#简单对象模型-simple-object-model">简单对象模型 (Simple Object Model)</a></li>
+    <li><a href="#表格驱动对象模型-table-driven-object-model">表格驱动对象模型 (Table-driven Object Model)</a></li>
+    <li><a href="#c对象模型-c-object-model">C++对象模型 (C++ Object Model)</a>
       <ul>
         <li><a href="#虚函数-virtual-function">虚函数 (Virtual Function)</a></li>
       </ul>
