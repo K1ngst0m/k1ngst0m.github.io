@@ -1811,9 +1811,9 @@
 <h3 id="rttiruntime-type-informationidentification">RTTI(RunTime Type Information/Identification)</h3>
 <p>RTTI指运行时类型识别, c++引入这个机制为了让程序能够在运行时确定对象类型, 主要包含三个部分:</p>
 <ul>
-<li><code>type_info</code>类: 用于查询类型的信息, 有两个成员: 指向类<code>typeinfo</code>虚函数表的指针, 指向类型字符串名字的指针</li>
+<li><code>dynamic_cast</code>: 用于多态类型(向上向下)的转换, 进行类型检查, 安全性比<code>static_cast</code>好, 只适用于指针或引用, 对于不明确的指针转换将失败(返回nullptr), 不引发异常</li>
+<li><code>type_info</code>类: 描述编译器在程序中生成的类型信息, 存储指向类型字符串名字的指针, 还可以存储适合比较两个类型是否相等或其排列顺序的编码值</li>
 <li><code>typeid</code>操作符: C++内部定义的运算符号, 与<code>sizeof()</code>类似, 返回对应类型的<code>type_info</code>对象</li>
-<li><code>type_index</code>类:</li>
 </ul>
 <p>无论是c++内置数据类型还是自定义类型, <code>typeid</code>可以直接输出该类型</p>
 <p>如果表达式的类型自定义类, 且至少包含一个虚函数, 则<code>typeid</code>操作符返回表达式的动态类型, 需要在运行时计算, 否则<code>typeid</code>操作符返回表达式的静态类型, 在编译时就可以计算</p>
