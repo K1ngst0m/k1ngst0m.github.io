@@ -1881,7 +1881,7 @@
 <p><strong>虚函数表(virtual table)</strong>: 存放指向虚函数的指针, 每个类独立拥有一个自己的虚函数表</p>
 </li>
 <li>
-<p><strong>虚指针(vptr)</strong>: 在类生成的实例中, 一个指向对应类虚函数表的指针, 由类的构造函数, 复制构造函数, 析构函数来自动完成虚指针的创建, 重置和销毁, 每个类用于支持<code>RTTI(runtime type identification)</code>的<code>type_info</code>对象地址存放在虚函数表中, 通常在虚函数表的第一个<code>slot</code>中</p>
+<p><strong>虚指针(vptr)</strong>: 在类生成的实例中, 一个指向对应类虚函数表的指针, 每个类用于支持<code>RTTI(runtime type identification)</code>的<code>type_info</code>对象地址存放在虚函数表中, 通常在虚函数表的第一个<code>slot</code>中</p>
 </li>
 <li>
 <p>msvc虚表结构(rtti):<br />
