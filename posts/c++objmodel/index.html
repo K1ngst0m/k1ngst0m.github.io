@@ -1331,7 +1331,7 @@
 
 
     
-<meta name="description" content="c&#43;&#43; 对象模型" />
+<meta name="description" content="c&#43;&#43; 对象模型, RAII, 虚函数" />
 
 
 <meta name="keywords" content="c&#43;&#43;">
@@ -1347,7 +1347,7 @@
 <meta property="og:title" content="c&#43;&#43; 对象模型">
 <meta property="og:url" content="https://npchitman.com/posts/c&#43;&#43;objmodel/">
 <meta property="og:type" content="article">
-<meta property="og:description" content="c&#43;&#43; 对象模型">
+<meta property="og:description" content="c&#43;&#43; 对象模型, RAII, 虚函数">
 
   
     <meta property="og:image" content="https://npchitman.com/images/post_preview/objmodel.jpg">
@@ -1355,7 +1355,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:app:name:iphone" content="Npchitman&#39;s Blog">
     <meta property="twitter:title" content="c&#43;&#43; 对象模型">
-    <meta property="twitter:description" content="c&#43;&#43; 对象模型">
+    <meta property="twitter:description" content="c&#43;&#43; 对象模型, RAII, 虚函数">
   
 
 <meta name="generator" content="Hugo 0.78.1" />
@@ -1397,7 +1397,7 @@
     "datePublished": "2021-05-15T00:00:00Z",
     "dateModified": "2021-05-15T00:00:00Z",
     "url" : "https://npchitman.com/posts/c++objmodel/",
-    "description": "c++ 对象模型",
+    "description": "c++ 对象模型, RAII, 虚函数",
     "keywords": ["c++"],
     "image" : "https://npchitman.com/images/post_preview/objmodel.jpg",
     "mainEntityOfPage": {
@@ -1686,7 +1686,7 @@
 <div class="single__infos">
   <time class="single__info" title="Written At">📅&nbsp;May 15, 2021 </time>
   
-  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;3&nbsp;min read </span>
+  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;4&nbsp;min read </span>
   
   <span class="single__info">
     
@@ -1808,6 +1808,72 @@
 <li><strong>优点</strong>: 空间利用率和运行效率高</li>
 <li><strong>缺点</strong>: 当需要使用到类的非静态数据成员进行增删改时, 需要重编译</li>
 </ul>
+<h3 id="rttiruntime-type-informationidentification">RTTI(RunTime Type Information/Identification)</h3>
+<p>RTTI指运行时类型识别, c++引入这个机制为了让程序能够在运行时确定对象类型, 主要包含三个部分:</p>
+<ul>
+<li><code>type_info</code>类: 用于查询类型的信息, 有两个成员: 指向类<code>typeinfo</code>虚函数表的指针, 指向类型字符串名字的指针</li>
+<li><code>typeid</code>操作符: C++内部定义的运算符号, 与<code>sizeof()</code>类似, 返回对应类型的<code>type_info</code>对象</li>
+<li><code>type_index</code>类:</li>
+</ul>
+<p>无论是c++内置数据类型还是自定义类型, <code>typeid</code>可以直接输出该类型</p>
+<p>如果表达式的类型自定义类, 且至少包含一个虚函数, 则<code>typeid</code>操作符返回表达式的动态类型, 需要在运行时计算, 否则<code>typeid</code>操作符返回表达式的静态类型, 在编译时就可以计算</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;typeinfo&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">A</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+     <span class="k">virtual</span> <span class="kt">void</span> <span class="n">Print</span><span class="p">()</span> <span class="p">{</span> <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;This is class A.&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">B</span> <span class="o">:</span> <span class="k">public</span> <span class="n">A</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+     <span class="kt">void</span> <span class="n">Print</span><span class="p">()</span> <span class="p">{</span> <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;This is class B.&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+     <span class="n">A</span> <span class="o">*</span><span class="n">pA</span> <span class="o">=</span> <span class="k">new</span> <span class="n">B</span><span class="p">();</span>
+     <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="k">typeid</span><span class="p">(</span><span class="n">pA</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// class A *
+</span><span class="c1"></span>     <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="k">typeid</span><span class="p">(</span><span class="o">*</span><span class="n">pA</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// class B
+</span><span class="c1"></span>     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>总结一下:</p>
+<ul>
+<li>父类包含虚函数, typeid是运行期的事情, 是动态类型, <code>typeid(*pA).name()</code>会输出B类型</li>
+<li>父类不包含虚函数, typeid是编译期的事情,1 是静态类型, <code>typeid(*pA).name()</code>会输出A类型</li>
+</ul>
 <h3 id="虚函数-virtual-function">虚函数 (Virtual Function)</h3>
 <p>虚函数通过两个部分支持:</p>
 <ul>
@@ -1818,8 +1884,16 @@
 <p><strong>虚指针(vptr)</strong>: 在类生成的实例中, 一个指向对应类虚函数表的指针, 由类的构造函数, 复制构造函数, 析构函数来自动完成虚指针的创建, 重置和销毁, 每个类用于支持<code>RTTI(runtime type identification)</code>的<code>type_info</code>对象地址存放在虚函数表中, 通常在虚函数表的第一个<code>slot</code>中</p>
 </li>
 <li>
-<p>一种虚函数表结构:<br />
-<img src="https://gitee.com/npchitman/files/raw/master/c++_object_model/C++%20Object%20Model-09.jpg" alt="c++virtualfunction" /></p>
+<p>msvc虚表结构(rtti):<br />
+<img src="https://gitee.com/npchitman/files/raw/master/c++_object_model/C++%20Object%20Model-14.jpg" alt="c++virtualfunction" /></p>
+</li>
+<li>
+<p>g++虚表结构(no rtti):<br />
+<img src="https://gitee.com/npchitman/files/raw/master/c++_object_model/C++%20Object%20Model-10.jpg" alt="g++vf" /></p>
+</li>
+<li>
+<p>g++虚表结构(rtti):<br />
+<img src="https://gitee.com/npchitman/files/raw/master/c++_object_model/C++%20Object%20Model-15.jpg" alt="g++vfrtti" /></p>
 </li>
 </ul>
 <p>参考资料:</p>
@@ -2424,6 +2498,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <li><a href="#表格驱动对象模型-table-driven-object-model">表格驱动对象模型 (Table-driven Object Model)</a></li>
     <li><a href="#c对象模型-c-object-model">C++对象模型 (C++ Object Model)</a>
       <ul>
+        <li><a href="#rttiruntime-type-informationidentification">RTTI(RunTime Type Information/Identification)</a></li>
         <li><a href="#虚函数-virtual-function">虚函数 (Virtual Function)</a></li>
       </ul>
     </li>
