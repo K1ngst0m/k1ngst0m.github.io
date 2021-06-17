@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>c&#43;&#43;多态, 虚函数原理 – Npchitman&#39;s Blog</title>
+    <title>c&#43;&#43; 虚表 – Npchitman&#39;s Blog</title>
     
 
 
@@ -1331,7 +1331,7 @@
 
 
     
-<meta name="description" content="多态类型, 虚函数等" />
+<meta name="description" content="多态概念, 虚表, 虚函数, 虚继承等" />
 
 
 <meta name="keywords" content="c&#43;&#43;">
@@ -1344,18 +1344,18 @@
 
 
 <meta property="og:site_name" content="Npchitman&#39;s Blog">
-<meta property="og:title" content="c&#43;&#43;多态, 虚函数原理">
+<meta property="og:title" content="c&#43;&#43; 虚表">
 <meta property="og:url" content="https://npchitman.com/posts/virtual-function/">
 <meta property="og:type" content="article">
-<meta property="og:description" content="多态类型, 虚函数等">
+<meta property="og:description" content="多态概念, 虚表, 虚函数, 虚继承等">
 
   
-    <meta property="og:image" content="https://npchitman.com/images/post_preview/rvalue_reference.jpg">
-    <meta property="og:image:url" content="https://npchitman.com/images/post_preview/rvalue_reference.jpg">
+    <meta property="og:image" content="https://npchitman.com/images/post_preview/polymorphism.png">
+    <meta property="og:image:url" content="https://npchitman.com/images/post_preview/polymorphism.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:app:name:iphone" content="Npchitman&#39;s Blog">
-    <meta property="twitter:title" content="c&#43;&#43;多态, 虚函数原理">
-    <meta property="twitter:description" content="多态类型, 虚函数等">
+    <meta property="twitter:title" content="c&#43;&#43; 虚表">
+    <meta property="twitter:description" content="多态概念, 虚表, 虚函数, 虚继承等">
   
 
 <meta name="generator" content="Hugo 0.78.1" />
@@ -1393,13 +1393,13 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "headline": "c++多态, 虚函数原理",
+    "headline": "c++ 虚表",
     "datePublished": "2021-05-11T00:00:00Z",
     "dateModified": "2021-05-11T00:00:00Z",
     "url" : "https://npchitman.com/posts/virtual-function/",
-    "description": "多态类型, 虚函数等",
+    "description": "多态概念, 虚表, 虚函数, 虚继承等",
     "keywords": ["c++"],
-    "image" : "https://npchitman.com/images/post_preview/rvalue_reference.jpg",
+    "image" : "https://npchitman.com/images/post_preview/polymorphism.png",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://npchitman.com"
@@ -1667,7 +1667,7 @@
   
   <li  class="is-active" >
     
-      <span>c&#43;&#43;多态, 虚函数原理</span>
+      <span>c&#43;&#43; 虚表</span>
     
   </li>
   
@@ -1679,14 +1679,14 @@
   <div class="single ">
     <div class="single__nojs">This page looks best with JavaScript enabled</div>
     <script>document.querySelector('.single').classList.remove('hide'); document.querySelector('.single__nojs').classList.add('hide');</script>
-    <h2 class="single__title" data-ani="true">c&#43;&#43;多态, 虚函数原理</h2>
+    <h2 class="single__title" data-ani="true">c&#43;&#43; 虚表</h2>
     <h3 class="single__subtitle"></h3>
     <div class="single__meta">
       
 <div class="single__infos">
   <time class="single__info" title="Written At">📅&nbsp;May 11, 2021 </time>
   
-  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;0&nbsp;min read </span>
+  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;4&nbsp;min read </span>
   
   <span class="single__info">
     
@@ -1706,7 +1706,245 @@
     </div>
     <article class="single__contents" data-dir="ltr" data-ani="true">
       
-      
+      <h2 id="多态-polymorphism">多态 (Polymorphism)</h2>
+<p>多态, 即多种状态(形态), 可以定义为消息以多种形式显示的能力, 多态以封装和继承为基础</p>
+<p>c++多态分类及实现:</p>
+<table>
+<thead>
+<tr>
+<th align="center">多态类型</th>
+<th align="center">发生时期</th>
+<th align="center">实现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">重载多态(Ad-hoc Polymorphism)</td>
+<td align="center">编译期</td>
+<td align="center">函数重载, 运算符重载</td>
+</tr>
+<tr>
+<td align="center">子类型多态(Subtype Polymorphism)</td>
+<td align="center">运行期</td>
+<td align="center">虚函数</td>
+</tr>
+<tr>
+<td align="center">参数多态(Parametric Polymorphism)</td>
+<td align="center">编译期</td>
+<td align="center">类模板, 函数模板</td>
+</tr>
+<tr>
+<td align="center">强制多态(Coercion Polymorphism)</td>
+<td align="center">编译期/运行期</td>
+<td align="center">基本类型转换, 自定义类型转换</td>
+</tr>
+</tbody>
+</table>
+<p>由上表所示, 多态有两个发生时期: 编译期, 运行期</p>
+<ul>
+<li>编译期: 称为静态多态/早绑定</li>
+<li>运行期: 称为动态多态/迟绑定, <code>虚函数</code>和<code>动态绑定</code>(使用基类的引用或指针调用一个虚函数时发生动态绑定)是其中一种动态多态的实现</li>
+</ul>
+<h2 id="虚表virtual-table">虚表(Virtual Table)</h2>
+<p>一切与虚拟化相关技术都会用到虚表, 如虚函数, 虚继承, RTTI, 所以只要使用这些特性都会产生虚表, 以下是不同编译器的实现</p>
+<ul>
+<li>
+<p>msvc 虚表结构(rtti):<br />
+<img src="https://gitee.com/npchitman/files/raw/master/c++_object_model/C++%20Object%20Model-14.jpg" alt="c++virtualfunction" /></p>
+</li>
+<li>
+<p>g++虚表结构(no rtti):<br />
+<img src="https://gitee.com/npchitman/files/raw/master/c++_object_model/C++%20Object%20Model-10.jpg" alt="g++vf" /></p>
+</li>
+<li>
+<p>g++虚表结构(rtti):<br />
+<img src="https://gitee.com/npchitman/files/raw/master/c++_object_model/C++%20Object%20Model-15.jpg" alt="g++vfrtti" /></p>
+</li>
+</ul>
+<h3 id="虚函数-virutal-function">虚函数 (Virutal Function)</h3>
+<p>虚函数用来实现多态, 在父类中定义虚函数, 子类中重写, 当子类重新定义了父类的虚函数后, 父类指针根据赋给它的不同的子类, 动态调用属于子类的该函数, 这类函数调用无法在编译器期间确认, 在运行期间确认</p>
+<p><strong>基类虚表的构建规则</strong>:</p>
+<p>按照虚函数在基类中的声明顺序存放在虚函数表中</p>
+<p><strong>派生类虚表的构建规则</strong>:</p>
+<ul>
+<li>将基类虚表中内容拷贝一份保存到派生类的虚表中</li>
+<li>如果派生类重写了基类中的虚函数, 那么在派生类的虚表中可, 派生类重写厚的虚函数地址将替换</li>
+<li>派生类自己增加的虚函数, 按照在派生类中的声明顺序放在派生类的虚表后边</li>
+</ul>
+<p><strong>虚函数调用关系</strong>:</p>
+<p>this 指针 -&gt; 虚函数表指针 vptr -&gt; 虚函数表 vtable -&gt; 虚函数 virtual function</p>
+<p>虚指针由类的构造函数, 复制构造函数, 析构函数来自动完成虚指针的创建, 重置和销毁:</p>
+<ul>
+<li>虚基类按照继承顺序(从左到右)初始化</li>
+<li>非虚基类按照声明顺序初始化</li>
+<li>创建虚函数指针</li>
+<li>在初始化列表的类成员根据声明顺序初始化</li>
+<li>执行构造函数体</li>
+</ul>
+<h4 id="成为虚函数的条件">成为虚函数的条件</h4>
+<p>什么不能是虚函数?</p>
+<ul>
+<li><strong>非成员函数</strong>: 虚函数是子类多态, 非成员函数就无意义了</li>
+<li><strong>静态函数</strong>: 静态成员包括函数不属于任何对象或实例, 没有 this 指针, vptr 需要使用 this 指针访问</li>
+<li><strong>构造函数</strong>: 因为调用构造函数时, 虚表指针并没有在对象的内存空间中, 必须要在构造函数调用完成后才能形成虚表指针</li>
+<li><strong>内联函数</strong>: 使用 virtual 修饰编译器不会报错, 但不能表现多态性</li>
+</ul>
+<p>即&quot;普通&quot;成员函数可以是虚函数</p>
+<h4 id="虚析构函数">虚析构函数</h4>
+<p>虚析构函数为了解决基类指针指向派生类对象, 并用基类指针删除派生类对象</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Shape</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Shape</span><span class="p">();</span>                    <span class="c1">// 构造函数不能是虚函数
+</span><span class="c1"></span>    <span class="k">virtual</span> <span class="kt">double</span> <span class="nf">calcArea</span><span class="p">();</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">Shape</span><span class="p">();</span>           <span class="c1">// 虚析构函数
+</span><span class="c1"></span><span class="p">};</span>
+<span class="k">class</span> <span class="nc">Circle</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Shape</span>     <span class="c1">// 圆形类
+</span><span class="c1"></span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="k">virtual</span> <span class="kt">double</span> <span class="n">calcArea</span><span class="p">();</span>
+    <span class="p">...</span>
+<span class="p">};</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Shape</span> <span class="o">*</span> <span class="n">shape1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">4.0</span><span class="p">);</span>
+    <span class="n">shape1</span><span class="o">-&gt;</span><span class="n">calcArea</span><span class="p">();</span>
+    <span class="k">delete</span> <span class="n">shape1</span><span class="p">;</span>  <span class="c1">// 因为Shape有虚析构函数，所以delete释放内存时，先调用子类析构函数，再调用基类析构函数，防止内存泄漏。
+</span><span class="c1"></span>    <span class="n">shape1</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="err">；</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="纯虚函数">纯虚函数</h4>
+<p>有时候虚函数的默认实现是比较危险的, 需要保证该实现能够满足派生类特有需求, 否则就是调用基类的虚函数, 可能引起错误, c++引入了纯虚函数特性</p>
+<p>纯虚函数没有定义, 用于为派生类提供接口, 结构如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">A</span><span class="p">{</span>
+<span class="k">protected</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">foo</span><span class="p">(){}</span> <span class="c1">// 虚函数
+</span><span class="c1"></span>  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">foo_pure</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 纯虚函数
+</span><span class="c1"></span><span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>非纯虚函数在子类里可以不重载, 纯虚函数必须要在子类中实现</p>
+</li>
+<li>
+<p>带纯虚函数的类叫虚基类/抽象类, 这种基类不能直接生成对象, 只有被继承, 并重写其虚函数后才能使用</p>
+</li>
+<li>
+<p>通常非纯虚函数用来表达一种特殊性的不变性, 代表所有派生类都应该完成的一个功能</p>
+</li>
+<li>
+<p>虚基类是虚继承中的基类</p>
+</li>
+<li>
+<p><strong>协议类(Protocol class)</strong>: 声明一个纯虚函数外什么也不包含的类, 仅为派生类提供接口, 完全没有实现</p>
+</li>
+</ul>
+<h3 id="虚继承-virtual-inheritance">虚继承 (Virtual Inheritance)</h3>
+<p>虚继承用于解决继承条件下的菱形继承问题(浪费存储空间, 存在二义性)</p>
+<p>虚继承底层实现与编译器有关, 一般通过虚基类表指针(vbptr)和虚基类表(vtable)实现:</p>
+<ul>
+<li>
+<p>每个虚继承子类都有一个虚基类指针(占用一个指针存储空间)和虚基类表(不占用对象空间, 在子类中仅保存一份)</p>
+</li>
+<li>
+<p>当虚继承的子类被当作父类继承时, 虚基类指针也会被继承</p>
+</li>
+<li>
+<p>vbptr 指向一个虚基类表(virtual table), 虚表中记录了虚基类与本类的偏移地址, 通过偏移地址就能找到虚基类成员</p>
+</li>
+<li>
+<p>虚基表中存放两个成员, 一个是 0(可以认为是虚基类与自己的偏移量, 另一个是虚基类与派生类的偏移量)</p>
+</li>
+<li>
+<p>虚继承不用像普通多继承一样维持公共基类的拷贝, 节省了存储空间</p>
+</li>
+</ul>
+<p>多继承时的内存布局如下:<br />
+<img src="https://img-blog.csdnimg.cn/2018120911083671.PNG" alt="m_inh" /></p>
+<p>虚继承时内存布局如下:<br />
+<img src="https://img-blog.csdnimg.cn/20181209110852169.PNG" alt="v_inh" /></p>
+<h3 id="虚继承与虚函数的异同">虚继承与虚函数的异同</h3>
+<ul>
+<li>
+<p>相同之处: 都使用了虚指针(占用实例空间)和虚表(一种类只有一份拷贝, 不占用实例空间)</p>
+</li>
+<li>
+<p>不同之处:</p>
+<ul>
+<li>虚继承依旧存在继承类中, 占用存储空间, 虚函数不占用存储空间`</li>
+<li>虚基类表存储的是虚基类相对直接继承的偏移, 虚函数表存储虚函数地址</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">虚基表指针</th>
+<th align="center">虚函数表指针</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">生成条件</td>
+<td align="center">虚继承时产生</td>
+<td align="center">有虚函数时产生</td>
+</tr>
+<tr>
+<td align="center">指向</td>
+<td align="center">虚基表</td>
+<td align="center">虚表</td>
+</tr>
+<tr>
+<td align="center">指向内容</td>
+<td align="center">派生类对象中基类成员对于该对象首地址的偏移量</td>
+<td align="center">类中所有虚函数的地址</td>
+</tr>
+<tr>
+<td align="center">作用</td>
+<td align="center">解决菱形继承时的二义性和数据冗余问题</td>
+<td align="center">子类多态的基础</td>
+</tr>
+</tbody>
+</table>
+
     </article>
     
     
@@ -1923,17 +2161,17 @@
 <nav class="pagination-single">
   
     
-      <a href="https://npchitman.com/posts/anti-aliasing/" class="pagination-single__left">
+      <a href="https://npchitman.com/posts/rvalue_reference/" class="pagination-single__left">
         <div class="pagination-single__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
         </div>
-        <div class="pagination-single__left-title">抗锯齿类型总结</div>      
+        <div class="pagination-single__left-title">c&#43;&#43;右值引用</div>      
       </a>
     
     <div class="grow"></div>
     
-      <a href="https://npchitman.com/posts/rvalue_reference/" class="pagination-single__right">      
-        <div class="pagination-single__right-title">c&#43;&#43;右值引用</div>
+      <a href="https://npchitman.com/posts/c&#43;&#43;objmodel/" class="pagination-single__right">      
+        <div class="pagination-single__right-title">c&#43;&#43; 对象模型</div>
         <div class="pagination-single__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
         </div>
@@ -2291,7 +2529,24 @@ document.addEventListener('DOMContentLoaded', function () {
     
   </div>
   <div class="toc " data-dir="ltr" data-folding="true" data-ani="true">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#多态-polymorphism">多态 (Polymorphism)</a></li>
+    <li><a href="#虚表virtual-table">虚表(Virtual Table)</a>
+      <ul>
+        <li><a href="#虚函数-virutal-function">虚函数 (Virutal Function)</a>
+          <ul>
+            <li><a href="#成为虚函数的条件">成为虚函数的条件</a></li>
+            <li><a href="#虚析构函数">虚析构函数</a></li>
+            <li><a href="#纯虚函数">纯虚函数</a></li>
+          </ul>
+        </li>
+        <li><a href="#虚继承-virtual-inheritance">虚继承 (Virtual Inheritance)</a></li>
+        <li><a href="#虚继承与虚函数的异同">虚继承与虚函数的异同</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </section>
 
