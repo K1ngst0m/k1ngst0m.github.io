@@ -110,6 +110,40 @@
       </item>
       
       <item>
+        <title>c&#43;&#43; 虚表</title>
+        <link>https://npchitman.com/posts/virtual-function/</link>
+        <pubDate>Sun, 30 May 2021 00:00:00 +0000</pubDate>
+        <author>npchitman@outlook.com (陈乙己)</author>
+        <atom:modified>Sun, 30 May 2021 00:00:00 +0000</atom:modified>
+        <guid>https://npchitman.com/posts/virtual-function/</guid>
+        <description>多态 (Polymorphism) 多态, 即多种状态(形态), 可以定义为消息以多种形式显示的能力, 多态以封装和继承为基础 c++多态分类及实现: 多态类型 发生时期 实现 重载多态</description>
+        
+        <dc:creator>陈乙己</dc:creator>
+        <media:content url="https://npchitman.comimages/post_preview/polymorphism.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>c&#43;&#43;</category>
+            
+          
+        
+        
+          
+            
+              <category>c&#43;&#43;</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
         <title>游戏开发中渲染性能的优化</title>
         <link>https://npchitman.com/posts/optimization/</link>
         <pubDate>Mon, 24 May 2021 10:33:41 +0900</pubDate>
@@ -188,40 +222,6 @@
         
         <dc:creator>陈乙己</dc:creator>
         <media:content url="https://npchitman.comimages/post_preview/objmodel.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>c&#43;&#43;</category>
-            
-          
-        
-        
-          
-            
-              <category>c&#43;&#43;</category>
-            
-          
-        
-        
-          
-            
-          
-        
-      </item>
-      
-      <item>
-        <title>c&#43;&#43; 虚表</title>
-        <link>https://npchitman.com/posts/virtual-function/</link>
-        <pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate>
-        <author>npchitman@outlook.com (陈乙己)</author>
-        <atom:modified>Tue, 11 May 2021 00:00:00 +0000</atom:modified>
-        <guid>https://npchitman.com/posts/virtual-function/</guid>
-        <description>多态 (Polymorphism) 多态, 即多种状态(形态), 可以定义为消息以多种形式显示的能力, 多态以封装和继承为基础 c++多态分类及实现: 多态类型 发生时期 实现 重载多态</description>
-        
-        <dc:creator>陈乙己</dc:creator>
-        <media:content url="https://npchitman.comimages/post_preview/polymorphism.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
