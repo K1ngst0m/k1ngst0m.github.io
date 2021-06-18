@@ -314,6 +314,40 @@
       </item>
       
       <item>
+        <title>c&#43;&#43; STL概述与文章索引</title>
+        <link>https://npchitman.com/posts/stl/</link>
+        <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+        <author>npchitman@outlook.com (陈乙己)</author>
+        <atom:modified>Sat, 01 May 2021 00:00:00 +0000</atom:modified>
+        <guid>https://npchitman.com/posts/stl/</guid>
+        <description>本文章的内容概述一下 STL, 并提供相应文章的索引 标准模板库 STL: STL 即标准模板库(Standard Template Library), 是 C++标准库的一部分, 里面包含了一些模板化的通用</description>
+        
+        <dc:creator>陈乙己</dc:creator>
+        <media:content url="https://npchitman.comimages/post_preview/stl.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>c&#43;&#43;</category>
+            
+          
+        
+        
+          
+            
+              <category>c&#43;&#43;</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
         <title>延迟渲染技术</title>
         <link>https://npchitman.com/posts/deferred-rendering/</link>
         <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
